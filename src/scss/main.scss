@@ -1,0 +1,61 @@
+@import 'common';
+
+#input{
+    display: block;
+    position: relative;
+    width: 60%;
+    max-width: 1000px;
+    height: 60%;
+    margin: 0px auto;
+    padding: 20px 0;
+    font-family: $main-font;
+    font-weight: normal;
+    font-size: 3.5em;
+    color: $placeholder-color;
+    text-align: center;
+    border: 1px solid $primary-color; /*COLORED UNTIL SCRIPTS ARE ADDED*/
+    border-radius: 5px;
+    transition: height .3s, border .3s, color .3s;
+    background: #fff;
+    
+    opacity: 0;
+}
+#input:focus{
+    outline: none;
+    color: $almost-black;
+}
+#input::-webkit-input-placeholder {
+   color: $placeholder-color;
+}
+
+
+#week{
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    font-family: $main-font;
+    font-size: 4em;
+    position: fixed;
+    color: transparent;
+    bottom: 40px;
+    left: calc(100% / 2 - 150px);
+    transition: color .5s;
+}
+#week:hover{
+    //color: #a4a4a4;
+    color: $placeholder-color;
+}
+
+
+#error-output {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    color: $error-color;
+    font-family: $main-font;
+    text-align: center;
+}
+#error-output img{
+    width: 17px;
+    vertical-align: top;
+}

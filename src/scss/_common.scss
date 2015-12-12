@@ -1,0 +1,64 @@
+@import 'colors';
+@import 'fonts';
+@import 'animation';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#cog-icon{
+    width: 44px;
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    transition: transform 1s;
+}
+#cog-icon:hover{
+    animation: rotateCog 2s infinite linear; 
+}
+
+#help-icon{
+    width: 30px;
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
+    left: 60px;
+    transition: transform 1s;
+    
+    display: none; /*TEMPORARY UNTIL PROPER HELP PAGE EXISTS*/
+}
+#help-icon:hover{
+    animation: pulsingSize .3s linear 0s infinite alternate;
+}
+
+#back-to-search{
+    width: 44px;
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    transition: width .5s;
+}
+#back-to-search:hover{
+    animation: pulsingSize .3s linear 0s infinite alternate;
+}
+.smalltext{
+    position: relative;
+    margin: 0 auto 0;
+    width: 70%;
+    font-family: $main-font;
+    font-weight: 800;
+    text-align: center;
+    color: $primary-color;
+    transition: color .5s, opacity .3s, border.3s;
+    transition-delay: -.1s;
+}
+hr{
+    border: 0;
+    height: 0;
+    width: 60%;
+    margin: 30px auto 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}

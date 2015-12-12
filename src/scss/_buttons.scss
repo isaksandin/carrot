@@ -1,0 +1,40 @@
+button{
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px 10px 20px;
+    font-family: $main-font;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    transition: background .2s;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.main-button{
+    color: #fff;
+    background: $primary-color; 
+}
+.main-button:hover{
+    background: $primary-color-dark; 
+}
+.main-button:active{
+    background: $primary-color-darker;
+}
+
+.show-stored{
+    color: $almost-black;
+    font-size: 1em;
+    background: $lighter-grey-color;
+}
+.show-stored:hover{
+    background: $grey-color;
+}
+.delete-all{
+    margin-top: 50px;
+}
+#delete-all{
+    margin-top: 50px;
+    width: 160px;
+}

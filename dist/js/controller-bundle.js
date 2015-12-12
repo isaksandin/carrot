@@ -1,0 +1,1 @@
+webpackJsonp([1],[function(e,t,n){function a(e,t){var n=document.createElement("script"),a="";t===!0&&(a="lang/"),n.src=a+e+".js",document.body.appendChild(n)}var d=n(2),r=n(3),c=document.querySelector("[data-depender]"),o=d.get(r.storageKeys.settings).language;a(o,!0),a(c.getAttribute("data-depender"))}]);
