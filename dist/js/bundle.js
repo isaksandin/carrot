@@ -1,1 +1,172 @@
-webpackJsonp([0],[function(t,e,o){function r(){navigator.onLine?n("#error-output").html(""):(n("#error-output").html('<p id="network-error"><img src="images/warningred.svg"> '+a.ERROR.NO_INTERNET_CONNECTION+"</p>"),setTimeout(r,500))}var n=o(1),i=o(2),l=o(4),a=window.Text;n("#input").keypress(function(t){return 13===t.keyCode?(navigator.onLine?l(n("#input").val()).analyseQuery():r(),!1):void 0}).css({border:"1px solid "+i.getSettings().color,top:n(window).height()-n(window).height()/1.45,opacity:"1"}).attr("placeholder",i.getSettings().placeholder),n("#error-output").css({top:n(window).height()-n(window).height()/1.5}),Date.prototype.getWeek=function(){var t=new Date(this.getFullYear(),0,1);return Math.ceil(((this-t)/864e5+t.getDay())/7)};var s=new Date,c=s.getWeek();n("#week").html(a.UTILITY.WEEK_ABBR+c)},,,,function(t,e,o){var r=o(1),n=o(2),i=o(5),l=n.getShortcuts(),a=n.getSearchKeywords(),s=n.getSettings(),c=function(t){var e={full:t,splitBySpace:t.split(" "),splitByDot:t.split("."),splitByColon:t.split(":"),firstWord:t.split(" ").shift()},o=function(){"Bing"===s.searchEngine?window.location.href="https://www.bing.com/search?q="+e.full:"DuckDuckGo"===s.searchEngine?window.location.href="https://duckduckgo.com/?q="+e.full:window.location.href="https://www.google.se/search?q="+e.full},n=function(){var t=["com","org","net","se"];return"http"===e.splitByColon[0]||"https"===e.splitByColon[0]||"file"===e.splitByColon[0]?(window.location.href=e.full,!0):r.inArray(e.splitByDot[e.splitByDot.length-1],t)>-1?(window.location.href="http://"+e.full,!0):!1},c=function(){if(l[e.full]){var t=l[e.full];if(1===t.length)window.location.href=t[0];else if(t.length>1)for(var o=1;o<t.length;o+=1)window.location.href=t[0],window.open(t[o],"_blank");return!0}return!1},p=function(){return a[e.firstWord]?(e.splitBySpace.shift(),window.location.href=a[e.firstWord].replace("{{query}}",e.splitBySpace.join().replace(/[,]/gi,"%20")),!0):i[e.firstWord]?(e.splitBySpace.shift(),i[e.firstWord](e.splitBySpace),!0):!1},g=function(){n()||c()||p()||o()};return{analyseQuery:g}};t.exports=c},function(t,e,o){function r(t){i("#input").val(t).select()}function n(){i("#input").val("")}var i=o(1),l={remember:function(t){var e=t.join().replace(/[,]/gi," "),o="";null===localStorage.getItem("memory")||""===localStorage.getItem("memory")?(o+=e,localStorage.setItem("memory",o)):(o=localStorage.getItem("memory")+" "+e,localStorage.setItem("memory",o)),n()},recall:function(){r(localStorage.getItem("memory"))},clear:function(t){"memory"===t.shift()&&localStorage.setItem("memory",""),n()}},a={showImg:function(t){i("body").append('<img src="'+t+'" style="display: block; margin: 10px auto 0;">')},eE:function(t){"egg"===t[0]&&a.showImg("http://www.northwestgoldcoast.com/wp-content/uploads/2014/03/easteregg.jpg")}},s={rng:function(t){var e,o=parseInt(t[0],10),n=parseInt(t[1],10),i=void 0===t[2]?1:parseInt(t[2],10),l="";for(e=0;i>e;e+=1)l+=e===i-1||null===i?Math.floor(Math.random()*(n-o))+o:Math.floor(Math.random()*(n-o))+o+" ";r(l)},translate:function(t){var e=t.shift(),o=t.shift(),r=t.join(" ");window.location.href="https://translate.google.se/#"+e+"/"+o+"/"+r}};t.exports={rem:l.remember,recall:l.recall,clear:l.clear,rng:s.rng,easter:a.eE,tran:s.translate}}]);
+webpackJsonp([0],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*global require*/
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	var queryFunctions = __webpack_require__(4);
+
+	var Text = window.Text;
+
+
+	$('#input').keypress(function (e) {
+	    if (e.keyCode === 13) {
+
+	        if (!navigator.onLine) {
+	            displayNetworkError();
+	        } else {
+	            queryFunctions($('#input').val()).analyseQuery();
+	        }
+	        return false;
+	    }
+	}).css({
+	    border: '1px solid ' + Storage.getSettings().color,
+	    top: $(window).height() - $(window).height() / 1.45,
+	    opacity: '1'
+	}).attr('placeholder', Storage.getSettings().placeholder);
+
+
+	$('#error-output').css({
+	    top: $(window).height() - $(window).height() / 1.5
+	});
+
+	function displayNetworkError() {
+
+	    if (navigator.onLine) {
+	        $('#error-output').html('');
+	    } else {
+	        $('#error-output').html('<p id="network-error"><img src="images/warningred.svg"> ' + Text.ERROR.NO_INTERNET_CONNECTION + '</p>');
+	        setTimeout(displayNetworkError, 500);
+	    }
+
+	}
+
+	Date.prototype.getWeek = function() {
+	    var firstOfJan = new Date(this.getFullYear(), 0, 1);
+	    return Math.ceil((((this - firstOfJan) / 86400000) + firstOfJan.getDay())/7);
+	};
+	//tjena
+	var d = new Date(),
+	    week = d.getWeek();
+	$('#week').html(Text.UTILITY.WEEK_ABBR + week);
+
+
+/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*global require*/
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+
+	var shortcuts = Storage.getShortcuts();
+
+	var searchKeywords = Storage.getSearchKeywords();
+
+	var settings = Storage.getSettings();
+
+	var funcKeywords = window.projcarrot.funcKeywords;
+
+	var queryFunctions = function (input) {
+
+	        var query = {
+	                full: input,
+	                splitBySpace: input.split(' '),
+	                splitByDot: input.split('.'),
+	                splitByColon: input.split(':'),
+	                firstWord: input.split(' ').shift()
+	            },
+
+	            defaultWebSearch = function () {
+
+	                if (settings.searchEngine === 'Bing') {
+	                    window.location.href = 'https://www.bing.com/search?q=' + query.full;
+	                } else if (settings.searchEngine === 'DuckDuckGo') {
+	                    window.location.href = 'https://duckduckgo.com/?q=' + query.full;
+	                } else {
+	                    window.location.href = 'https://www.google.se/search?q=' + query.full;
+	                }
+
+	            },
+
+	            handleLink = function () {
+
+	                var topLevelDomains = ['com', 'org', 'net', 'se'];
+
+	                if (query.splitByColon[0] === 'http' || query.splitByColon[0] === 'https' || query.splitByColon[0] === 'file') {
+	                    window.location.href = query.full;
+	                    return true;
+
+	                } else if ($.inArray(query.splitByDot[query.splitByDot.length - 1], topLevelDomains) > -1) {
+	                    window.location.href = 'http://' + query.full;
+	                    return true;
+
+	                } else {
+	                    return false;
+	                }
+	            },
+
+	            handleShortcut = function () {
+
+	                if (shortcuts[query.full]) {
+
+	                    var sc = shortcuts[query.full];
+
+	                    if (sc.length === 1) {
+	                        window.location.href = sc[0];
+
+	                    } else if (sc.length > 1) {
+	                        for (var i = 1; i < sc.length; i += 1) {
+	                            window.location.href = sc[0];
+	                            window.open(sc[i], '_blank');
+	                        }
+	                    }
+	                    return true;
+
+	                } else {
+	                    return false;
+	                }
+	            },
+
+	            handleKeyword = function () {
+
+	                if (searchKeywords[query.firstWord]) {
+	                    query.splitBySpace.shift();
+	                    window.location.href = searchKeywords[query.firstWord].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20'));
+	                    return true;
+
+	                } else if (funcKeywords[query.firstWord]) {
+	                    query.splitBySpace.shift();
+	                    funcKeywords[query.firstWord](query.splitBySpace);
+	                    return true;
+
+	                } else {
+	                    return false;
+	                }
+
+	            },
+
+	            analyseQuery = function () {
+
+	                if (!handleLink()) {
+	                    if (!handleShortcut()) {
+	                        if (!handleKeyword()) {
+	                            defaultWebSearch();
+	                        }
+	                    }
+	                }
+	            };
+
+	        return {
+	            analyseQuery: analyseQuery
+	        };
+	    };
+	module.exports = queryFunctions;
+
+
+/***/ }
+]);

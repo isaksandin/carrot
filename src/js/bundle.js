@@ -63,13 +63,13 @@ webpackJsonp([0],[
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 
-	var funcKeywords = window.projcarrot;
-
 	var shortcuts = Storage.getShortcuts();
 
 	var searchKeywords = Storage.getSearchKeywords();
 
 	var settings = Storage.getSettings();
+
+	var funcKeywords = window.projcarrot.funcKeywords;
 
 	var queryFunctions = function (input) {
 

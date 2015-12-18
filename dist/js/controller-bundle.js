@@ -1,1 +1,39 @@
-webpackJsonp([1],[function(e,t,n){function a(e,t){var n=document.createElement("script"),a="";t===!0&&(a="lang/"),n.src=a+e+".js",document.body.appendChild(n)}var d=n(2),r=n(3),c=document.querySelector("[data-depender]"),o=d.get(r.storageKeys.settings).language;a(o,!0),a(c.getAttribute("data-depender"))}]);
+webpackJsonp([1],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	var SysDefaults = __webpack_require__(3);
+
+	var controller = document.querySelector('[data-depender]');
+
+	var settings = Storage.getSettings();
+
+	var lang = settings.language;
+	var pluginFiles = settings.pluginFiles;
+
+	window.projcarrot = {
+	    funcKeywords: {},
+	    addFuncKeyword: function (funcKeyword) {
+	        this.funcKeywords = $.extend(this.funcKeywords, funcKeyword);
+	    }
+	};
+
+	function addScript(filename) {
+	    var el = document.createElement('script');
+	    el.src = filename + '.js';
+	    document.body.appendChild(el);
+	}
+
+	addScript('lang/' + lang, true);
+
+	for (var i = 0; i < pluginFiles.length; i += 1) {
+	    addScript('js/plugins/' + pluginFiles[i]);
+	}
+
+	addScript(controller.getAttribute('data-depender'));
+
+
+/***/ }
+]);

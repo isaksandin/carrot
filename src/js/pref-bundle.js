@@ -128,7 +128,6 @@ webpackJsonp([2],[
 	        };
 
 	    $('#export-pref-output').html('<textarea id="export-output">' + JSON.stringify(compressedPrefs) + '</textarea>');
-	    //console.log(JSON.stringify(compressedPrefs).replace(/http:\/\//g, '{{h}}').replace(/https:\/\//g, '{{hs}}').replace(/.com/g, '{c}'));
 	    $('#export-output').select();
 
 	});
@@ -170,6 +169,29 @@ webpackJsonp([2],[
 	    Utils.outputResponse(response, $('#import-pref-pane .response-output'));
 	});
 
+
+	/* -- PLUGIN FILES-- */
+
+	// ADD / CHANGE PLUGIN FILE
+	$('#add-plugin-file').on('click', function () {
+	    var value = $('#add-plugin-file-input').val();
+	    var pluginFiles = Storage.getSettings().pluginFiles;
+	    var newSettings;
+
+	    $('#add-plugin-file-input').val('');
+
+	    pluginFiles.push(value);
+	    newSettings = Storage.getSettings();
+	    newSettings.pluginFiles = pluginFiles;
+
+	    Storage.set(SysDefaults.storageKeys.settings, newSettings);
+
+	    // NEEDS ERROR AND STATUS OUTPUTTING
+	});
+
+
+
+
 	/* -- CLEAR LOCALSTORAGE -- */
 
 	// CLEAR EVERYTHING IN LOCALSTORAGE
@@ -188,6 +210,7 @@ webpackJsonp([2],[
 
 	    });
 	});
+
 
 /***/ },
 /* 1 */,
@@ -216,6 +239,7 @@ webpackJsonp([2],[
 	            $('a[href="#placeholder-pane"]').text(Text.titles.CHANGE_PLACEHOLDER_TEXT);
 	            $('a[href="#export-pref-pane"]').text(Text.titles.EXPORT_SETTINGS);
 	            $('a[href="#import-pref-pane"]').text(Text.titles.IMPORT_SETTINGS);
+	            $('a[href="#add-plugin-file-pref-pane"]').text(Text.titles.ADD_PLUGIN_FILE);
 	        },
 	        general_pane = function () {
 	            $('#general-pane h2').text(Text.general_pane.TITLE);
@@ -271,12 +295,18 @@ webpackJsonp([2],[
 	            $('#import-pref-pane h3').text(Text.import_settings.DESCRIPTION);
 	            $('#import-pref').text(Text.buttons.IMPORT);
 	        },
+	        add_plugin_file = function () {
+	            $('#add-plugin-file-pref-pane h2').text(Text.add_plugin_file.TITLE);
+	            $('#add-plugin-file-pref-pane h3').text(Text.add_plugin_file.DESCRIPTION);
+	            $('#add-plugin-file').text(Text.buttons.ADD);
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+	        },
 	        delete_all_local_data = function () {
 	            $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
 	        };
 
 	        $('h1').text(Text.SETTINGS_TITLE);
-	        
+
 	        nav();
 	        general_pane();
 	        add_shortcut_pane();
@@ -286,6 +316,7 @@ webpackJsonp([2],[
 	        placeholder_pane();
 	        export_pref_pane();
 	        import_pref_pane();
+	        add_plugin_file();
 	        delete_all_local_data();
 	    }
 	};

@@ -1,1 +1,585 @@
-webpackJsonp([2],[function(e,t,s){var a=s(1),o=s(2),r=s(6),n=s(3),c=s(7),p=c.utils,d=window.Text;r.fillInText();var l=o.getSettings();a("#default-search-engine").val(l.searchEngine),a("#default-search-engine").change(function(){var e=a("#default-search-engine option:selected").text();l.searchEngine=e,o.set(n.storageKeys.settings,l)}),a("#language").val(l.language),a("#language").change(function(){var e=a("#language option:selected").val();l.language=e,o.set(n.storageKeys.settings,l),window.location.reload()}),a("#add-shortcut").on("click",function(){c.add(n.storageKeys.shortcuts,a("#shortcut-key-input").val(),a("#shortcut-value-input").val().split(", "),a("#add-shortcut-pane .response-output")),a("#shortcut-key-input").val(""),a("#shortcut-value-input").val("")}),a("#delete-shortcut").on("click",function(){c["delete"](n.storageKeys.shortcuts,a("#delete-shortcut-key-input").val(),a("#delete-shortcut-pane .response-output")),a("#delete-shortcut-key-input").val("")}),a("#delete-all-shortcuts").on("click",function(){c.deleteAll(n.storageKeys.shortcuts,a("#delete-shortcut-pane .response-output"))}),a(".show-stored-shortcuts").on("click",function(){var e=a(this);c.showStoredShortcuts(e)}),a("#add-search-keyword").on("click",function(){c.add(n.storageKeys.searchKeywords,a("#add-search-keyword-key-input").val(),a("#add-search-keyword-value-input").val(),a("#add-search-keyword-pane .response-output")),a("#add-search-keyword-key-input").val(""),a("#add-search-keyword-value-input").val("")}),a("#delete-search-keyword").on("click",function(){c["delete"](n.storageKeys.searchKeywords,a("#delete-search-keywords-key-input").val(),a("#delete-search-keyword-pane .response-output")),a("#delete-search-keywords-key-input").val("")}),a("#delete-all-search-keywords").on("click",function(){c.deleteAll(n.storageKeys.searchKeywords,a("#delete-search-keyword-pane .response-output"))}),a(".show-stored-search-keywords").on("click",function(){var e=a(this);c.showStoredSearchKeywords(e)}),a("#change-placeholder-input").val(l.placeholder),a("#change-placeholder").on("click",function(){c.changePlaceholder(l,a("#change-placeholder-input").val(),a("#placeholder-pane .response-output"))}),a("#export-pref").on("click",function(){var e=o.get(n.storageKeys.shortcuts),t=o.get(n.storageKeys.searchKeywords),s=o.get(n.storageKeys.settings),r={sc:e,sk:t,s:s};a("#export-pref-output").html('<textarea id="export-output">'+JSON.stringify(r)+"</textarea>"),a("#export-output").select()}),a("#import-pref").on("click",function(){var e,t,s,r,c=a("#import-pref-input").val(),d={};""===c||void 0===c?(d.type="emptyImport",d.success=!1):(d.type="imported",d.success=!0,e=a.parseJSON(c),t=e.s,s=e.sc,r=e.sk,o.set(n.storageKeys.shortcuts,s),o.set(n.storageKeys.searchKeywords,r),o.set(n.storageKeys.settings,t),a("#change-placeholder-input").val(t.placeholder),a("#import-pref-input").val("")),p.closeAllOpenLists(),p.outputResponse(d,a("#import-pref-pane .response-output"))}),a("#clear-localStorage").on("click",function(){p.warn(d.WARN.LOCAL_DATA,function(){var e={type:"localDataCleared",success:!0};localStorage.clear(),p.outputResponse(e,a("#clear-localStorage-pane .response-output"))})})},,,,,,function(e,t,s){var a=s(1),o=(s(2),window.Text);e.exports={fillInText:function(){document.title=o.SETTINGS;var e=function(){a('a[href="#general-pane"]').text(o.titles.GENERAL_SETTINGS),a('a[href="#add-shortcut-pane"]').text(o.titles.ADD_SHORTCUT),a('a[href="#delete-shortcut-pane"]').text(o.titles.DELETE_SHORTCUT),a('a[href="#add-search-keyword-pane"]').text(o.titles.ADD_SEARCH_KEYWORD),a('a[href="#delete-search-keyword-pane"]').text(o.titles.DELETE_SEARCH_KEYWORD),a('a[href="#placeholder-pane"]').text(o.titles.CHANGE_PLACEHOLDER_TEXT),a('a[href="#export-pref-pane"]').text(o.titles.EXPORT_SETTINGS),a('a[href="#import-pref-pane"]').text(o.titles.IMPORT_SETTINGS)},t=function(){a("#general-pane h2").text(o.general_pane.TITLE),a("#general-pane h3").text(o.general_pane.DESCRIPTION),a("#general-pane div:nth-of-type(1) p").text(o.general_pane.DEFAULT_SEARCH_ENGINE),a("#general-pane div:nth-of-type(2) p").text(o.general_pane.LANGUAGE)},s=function(){a("#add-shortcut-pane h2").text(o.add_shortcut_pane.TITLE),a("#add-shortcut-pane h3").text(o.add_shortcut_pane.DESCRIPTION),a("#add-shortcut-pane div:nth-of-type(1) p").text(o.add_shortcut_pane.SHORTCUT),a("#add-shortcut-pane div:nth-of-type(2) p").text(o.add_shortcut_pane.LINKS),a("#add-shortcut").text(o.buttons.ADD),a(".show-stored-shortcuts").text(o.buttons.SHOW_SHORTCUTS)},r=function(){a("#delete-shortcut-pane h2").text(o.delete_shortcut_pane.TITLE),a("#delete-shortcut-pane h3").text(o.delete_shortcut_pane.DESCRIPTION),a("#delete-shortcut-pane div:nth-of-type(1) p").text(o.delete_shortcut_pane.SHORTCUT),a("#delete-shortcut").text(o.buttons.DELETE),a("#delete-all-shortcuts").text(o.buttons.DELETE_ALL),a(".show-stored-shortcuts").text(o.buttons.SHOW_SHORTCUTS)},n=function(){a("#add-search-keyword-pane h2").text(o.add_search_keyword_pane.TITLE),a("#add-search-keyword-pane h3").text(o.add_search_keyword_pane.DESCRIPTION),a("#add-search-keyword-pane div:nth-of-type(1) p").text(o.add_search_keyword_pane.SEARCH_KEYWORD),a("#add-search-keyword-pane div:nth-of-type(2) p").text(o.add_search_keyword_pane.LINK),a("#add-search-keyword").text(o.buttons.ADD),a(".show-stored-search-keywords").text(o.buttons.SHOW_SEARCH_KEYWORD)},c=function(){a("#delete-search-keyword-pane h2").text(o.delete_search_keyword_pane.TITLE),a("#delete-search-keyword-pane h3").text(o.delete_search_keyword_pane.DESCRIPTION),a("#delete-search-keyword-pane div:nth-of-type(1) p").text(o.delete_search_keyword_pane.SEARCH_KEYWORD),a("#delete-search-keyword").text(o.buttons.DELETE),a("#delete-all-search-keywords").text(o.buttons.DELETE_ALL),a(".show-stored-search-keywords").text(o.buttons.SHOW_SEARCH_KEYWORD)},p=function(){a("#placeholder-pane h2").text(o.change_placeholder_text.TITLE),a("#placeholder-pane h3").text(o.change_placeholder_text.DESCRIPTION),a("#placeholder-pane div:nth-of-type(1) p").text(o.change_placeholder_text.PLACEHOLDER_TEXT),a("#change-placeholder").text(o.buttons.CHANGE)},d=function(){a("#export-pref-pane h2").text(o.export_settings.TITLE),a("#export-pref-pane h3").text(o.export_settings.DESCRIPTION),a("#export-pref").text(o.buttons.EXPORT)},l=function(){a("#import-pref-pane h2").text(o.import_settings.TITLE),a("#import-pref-pane h3").text(o.import_settings.DESCRIPTION),a("#import-pref").text(o.buttons.IMPORT)},h=function(){a("#clear-localStorage").text(o.buttons.DELETE_ALL_LOCAL_DATA)};a("h1").text(o.SETTINGS_TITLE),e(),t(),s(),r(),n(),c(),p(),d(),l(),h()}}},function(e,t,s){var a=s(1),o=s(2),r=s(3),n=window.Text,c={warn:function(e,t){var s=e===r.storageKeys.shortcuts?n.add_shortcut_pane.SHORTCUTS:e===r.storageKeys.searchKeywords?n.add_search_keyword_pane.SEARCH_KEYWORDS:e,o='<h2 class="smalltext">'+n.WARN.ARE_YOU_SURE_DELETE+s+'?</h2><button class="main-button" id="warn-yes">'+n.WARN.SURE+'</button><button class="main-button" id="warn-cancel">'+n.WARN.CANCEL+"</button>";a("#warn").html(o).css({display:"block"}),a("#warn-cancel").on("click",function(){return a("#warn").css({display:"none"}),!1}),a("#warn-yes").on("click",function(){a("#warn").css({display:"none"}),t()})},outputResponse:function(e,t){var s;t.html(""),e.success?("updated"===e.type?s="'"+e.subject+"' "+n.STATUS.WAS_UPDATED:"added"===e.type?s="'"+e.subject+"' "+n.STATUS.WAS_ADDED:"deleted"===e.type?s="'"+e.subject+"' "+n.STATUS.WAS_DELETED:"deletedAll"===e.type?s=n.STATUS.ALL_DELETED:"placeholderChanged"===e.type?s=n.STATUS.PLACEHOLDER_CHANGED_TO:"localDataCleared"===e.type?s=n.STATUS.LOCAL_DATA_CLEARED:"imported"===e.type&&(s=n.STATUS.IMPORTED),t.html('<p class="success smalltext">'+s+"</p>")):e.success||("empty"===e.type?s=n.ERROR.FILL_IN_FIELD:"nonexistant"===e.type?s=" '"+e.subject+"' "+n.ERROR.NONEXISTANT:"emptyImport"===e.type&&(s=n.ERROR.ENTER_IMPORTED_CODE),t.html('<p class="error smalltext">'+s+"</p>"),a(".error").prepend('<img src="images/warningred.svg" style="width:15px">')),t.css({opacity:1}),setTimeout(function(){t.css({opacity:0})},2500)},closeAllOpenLists:function(){a(".show-stored").data("is-showing",!1),a(".show-stored-shortcuts").text(n.buttons.SHOW_SHORTCUTS),a(".show-stored-search-keywords").text(n.buttons.SHOW_SEARCH_KEYWORD),a(".show-stored").parent().siblings("ul").html("")}};e.exports={add:function(e,t,s,r){var n={},p=o.get(e)?o.get(e):{},d={};""===t?(d.type="empty",d.success=!1):(p.hasOwnProperty(t)?(d.type="updated",d.success=!0):p.hasOwnProperty(t)||(d.type="added",d.success=!0),n[t]=s,o.set(e,a.extend(p,n)),d.subject=t),c.closeAllOpenLists(),c.outputResponse(d,r)},"delete":function(e,t,s){var a=o.get(e)?o.get(e):{},r={};""===t?(r.success=!1,r.type="empty"):(a.hasOwnProperty(t)?(delete a[t],o.set(e,a),r.type="deleted",r.success=!0):(r.type="nonexistant",r.success=!1),r.subject=t),c.closeAllOpenLists(),c.outputResponse(r,s)},deleteAll:function(e,t){c.warn(e,function(){var s={type:"deletedAll",success:!0};e===r.storageKeys.shortcuts?o.set(e,r.shortcuts):e===r.storageKeys.searchKeywords&&o.set(e,r.searchKeywords),c.closeAllOpenLists(),c.outputResponse(s,t)})},showStoredShortcuts:function(e){var t,s=o.get(r.storageKeys.shortcuts),c=e.parent().siblings("ul"),p=0,d=Object.getOwnPropertyNames(s);if(e.data("is-showing")===!1){e.text(n.buttons.HIDE_SHORTCUTS);for(var l in s)if(s.hasOwnProperty(l)){t=s[l],c.append("<li><h2>"+d[p]+"</h2></li>");for(var h=0;h<t.length;h+=1)c.append("<li>"+t[h]+"</li>");c.append("<br>"),p+=1}e.data("is-showing",!0)}else e.data("is-showing")===!0&&(a(".show-stored-shortcuts").text(n.buttons.SHOW_SHORTCUTS),c.html(""),e.data("is-showing",!1))},showStoredSearchKeywords:function(e){var t,s=o.get(r.storageKeys.searchKeywords),c=e.parent().siblings("ul"),p=0,d=Object.getOwnPropertyNames(s);if(e.data("is-showing")===!1){e.text(n.buttons.HIDE_SEARCH_KEYWORD);for(var l in s)s.hasOwnProperty(l)&&(t=s[l],c.append("<li><h2>"+d[p]+"</h2></li>"),c.append("<li>"+t+"</li>"),c.append("<br>"),p+=1);e.data("is-showing",!0)}else e.data("is-showing")===!0&&(a(".show-stored-search-keywords").text(n.buttons.SHOW_SEARCH_KEYWORD),c.html(""),e.data("is-showing",!1))},changePlaceholder:function(e,t,s){var a={};""===t?(a.type="empty",a.success=!1):(e.placeholder=t,o.set(r.storageKeys.settings,e),a.type="placeholderChanged",a.success=!0,a.subject=t),c.outputResponse(a,s)},utils:c}}]);
+webpackJsonp([2],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*global require*/
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	var prefLang = __webpack_require__(5);
+	var SysDefaults = __webpack_require__(3);
+	var PrefFuncs = __webpack_require__(6);
+	var Utils = PrefFuncs.utils;
+
+	var Text = window.Text;
+
+	prefLang.fillInText();
+
+	var settings = Storage.getSettings();
+
+
+	/* -- GENERAL SETTINGS -- */
+
+	// DISPLAY CURRENT SEARCH ENGINE
+	$('#default-search-engine').val(settings.searchEngine);
+
+	// SELECT DEFAULT SEARCH ENGINE
+	$('#default-search-engine').change(function () {
+	    var choice = $('#default-search-engine option:selected').text();
+	    settings.searchEngine = choice;
+	    Storage.set(SysDefaults.storageKeys.settings, settings);
+	});
+
+	// DISPLAY CURRENT LANGUAGE
+	$('#language').val(settings.language);
+
+	// SELECT LANGUAGE
+	$('#language').change(function () {
+	    var choice = $('#language option:selected').val();
+	    settings.language = choice;
+	    Storage.set(SysDefaults.storageKeys.settings, settings);
+	    window.location.reload();
+	});
+
+
+	/* -- SHORTCUT PREFERENCES -- */
+
+	// ADD / CHANGE SHORTCUT
+	$('#add-shortcut').on('click', function () {
+	    PrefFuncs.add(SysDefaults.storageKeys.shortcuts, $('#shortcut-key-input').val(), $('#shortcut-value-input').val().split(', '), $('#add-shortcut-pane .response-output'));
+
+	    $('#shortcut-key-input').val('');
+	    $('#shortcut-value-input').val('');
+	});
+
+	// DELETE SHORTCUT
+	$('#delete-shortcut').on('click', function () {
+
+	    PrefFuncs.delete(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-key-input').val(), $('#delete-shortcut-pane .response-output'));
+	    $('#delete-shortcut-key-input').val('');
+	});
+
+	// DELETE ALL SHORTCUTS
+	$('#delete-all-shortcuts').on('click', function () {
+	    PrefFuncs.deleteAll(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-pane .response-output'));
+	});
+
+	// SHOW STORED SHORTCUTS
+	$('.show-stored-shortcuts').on('click', function () {
+
+	    var $el = $(this);
+
+	    PrefFuncs.showStoredShortcuts($el);
+	});
+
+
+	/* -- SEARCH KEYWORD PREFERENCES -- */
+
+	// ADD / CHANGE SEARCH KEYWORD
+	$('#add-search-keyword').on('click', function () {
+	    PrefFuncs.add(SysDefaults.storageKeys.searchKeywords, $('#add-search-keyword-key-input').val(), $('#add-search-keyword-value-input').val(), $('#add-search-keyword-pane .response-output'));
+
+	    $('#add-search-keyword-key-input').val('');
+	    $('#add-search-keyword-value-input').val('');
+	});
+
+	// DELETE SEARCH KEYWORD
+	$('#delete-search-keyword').on('click', function () {
+
+	    PrefFuncs.delete(SysDefaults.storageKeys.searchKeywords, $('#delete-search-keywords-key-input').val(), $('#delete-search-keyword-pane .response-output'));
+	    $('#delete-search-keywords-key-input').val('');
+	});
+
+	// DELETE ALL SEARCH KEYWORD
+	$('#delete-all-search-keywords').on('click', function () {
+	    PrefFuncs.deleteAll(SysDefaults.storageKeys.searchKeywords, $('#delete-search-keyword-pane .response-output'));
+	});
+
+	// SHOW STORED SEARCH KEYWORD
+	$('.show-stored-search-keywords').on('click', function () {
+
+	    var $el = $(this);
+
+	    PrefFuncs.showStoredSearchKeywords($el);
+	});
+
+
+	/* -- PLACEHOLDER PREFERENCES -- */
+	// ADDS CURRENT PLACEHOLDER AS VAL
+	$('#change-placeholder-input').val(settings.placeholder);
+
+	// CHANGE PLACEHOLDER TEXT
+	$('#change-placeholder').on('click', function () {
+
+	    PrefFuncs.changePlaceholder(settings, $('#change-placeholder-input').val(), $('#placeholder-pane .response-output'));
+
+	});
+
+	/* -- EXPORT / IMPORT PREFERENCES -- */
+
+	// EXPORT THE STORED PREFERENCES
+	$('#export-pref').on('click', function () {
+	    var shortcuts = Storage.get(SysDefaults.storageKeys.shortcuts),
+	        searchKeywords = Storage.get(SysDefaults.storageKeys.searchKeywords),
+	        settings = Storage.get(SysDefaults.storageKeys.settings),
+	        compressedPrefs = {
+	            sc: shortcuts,
+	            sk: searchKeywords,
+	            s: settings
+	        };
+
+	    $('#export-pref-output').html('<textarea id="export-output">' + JSON.stringify(compressedPrefs) + '</textarea>');
+	    $('#export-output').select();
+
+	});
+
+	// IMPORT THE PREFERENCES
+	$('#import-pref').on('click', function () {
+
+	    var input = $('#import-pref-input').val(),
+	        compressedPrefs,
+	        settings,
+	        shortcuts,
+	        searchKeywords,
+	        response = {};
+
+	    if (input === '' || input === undefined) {
+	        response.type = 'emptyImport';
+	        response.success = false;
+
+
+	    } else {
+	        response.type = 'imported';
+	        response.success = true;
+
+	        compressedPrefs = $.parseJSON(input);
+	        settings = compressedPrefs.s;
+	        shortcuts = compressedPrefs.sc;
+	        searchKeywords = compressedPrefs.sk;
+
+	        Storage.set(SysDefaults.storageKeys.shortcuts, shortcuts);
+	        Storage.set(SysDefaults.storageKeys.searchKeywords, searchKeywords);
+	        Storage.set(SysDefaults.storageKeys.settings, settings);
+
+	        $('#change-placeholder-input').val(settings.placeholder);
+
+	        $('#import-pref-input').val('');
+	    }
+
+	    Utils.closeAllOpenLists();
+	    Utils.outputResponse(response, $('#import-pref-pane .response-output'));
+	});
+
+
+	/* -- PLUGIN FILES-- */
+
+	// ADD / CHANGE PLUGIN FILE
+	$('#add-plugin-file').on('click', function () {
+	    var value = $('#add-plugin-file-input').val();
+	    var pluginFiles = Storage.getSettings().pluginFiles;
+	    var newSettings;
+
+	    $('#add-plugin-file-input').val('');
+
+	    pluginFiles.push(value);
+	    newSettings = Storage.getSettings();
+	    newSettings.pluginFiles = pluginFiles;
+
+	    Storage.set(SysDefaults.storageKeys.settings, newSettings);
+
+	    // NEEDS ERROR AND STATUS OUTPUTTING
+	});
+
+
+
+
+	/* -- CLEAR LOCALSTORAGE -- */
+
+	// CLEAR EVERYTHING IN LOCALSTORAGE
+	$('#clear-localStorage').on('click', function () {
+
+	    Utils.warn(Text.WARN.LOCAL_DATA, function () {
+
+	        var response = {
+	            type: 'localDataCleared',
+	            success: true
+	        };
+
+	        localStorage.clear();
+
+	        Utils.outputResponse(response, $('#clear-localStorage-pane .response-output'));
+
+	    });
+	});
+
+
+/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*global require*/
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	var Text = window.Text;
+
+	module.exports = {
+	    fillInText: function () {
+
+	        document.title = Text.SETTINGS;
+
+	        var nav = function () {
+	            $('a[href="#general-pane"]').text(Text.titles.GENERAL_SETTINGS);
+	            $('a[href="#add-shortcut-pane"]').text(Text.titles.ADD_SHORTCUT);
+	            $('a[href="#delete-shortcut-pane"]').text(Text.titles.DELETE_SHORTCUT);
+	            $('a[href="#add-search-keyword-pane"]').text(Text.titles.ADD_SEARCH_KEYWORD);
+	            $('a[href="#delete-search-keyword-pane"]').text(Text.titles.DELETE_SEARCH_KEYWORD);
+	            $('a[href="#placeholder-pane"]').text(Text.titles.CHANGE_PLACEHOLDER_TEXT);
+	            $('a[href="#export-pref-pane"]').text(Text.titles.EXPORT_SETTINGS);
+	            $('a[href="#import-pref-pane"]').text(Text.titles.IMPORT_SETTINGS);
+	            $('a[href="#add-plugin-file-pref-pane"]').text(Text.titles.ADD_PLUGIN_FILE);
+	        },
+	        general_pane = function () {
+	            $('#general-pane h2').text(Text.general_pane.TITLE);
+	            $('#general-pane h3').text(Text.general_pane.DESCRIPTION);
+	            $('#general-pane div:nth-of-type(1) p').text(Text.general_pane.DEFAULT_SEARCH_ENGINE);
+	            $('#general-pane div:nth-of-type(2) p').text(Text.general_pane.LANGUAGE);
+	        },
+	        add_shortcut_pane = function () {
+	            $('#add-shortcut-pane h2').text(Text.add_shortcut_pane.TITLE);
+	            $('#add-shortcut-pane h3').text(Text.add_shortcut_pane.DESCRIPTION);
+	            $('#add-shortcut-pane div:nth-of-type(1) p').text(Text.add_shortcut_pane.SHORTCUT);
+	            $('#add-shortcut-pane div:nth-of-type(2) p').text(Text.add_shortcut_pane.LINKS);
+	            $('#add-shortcut').text(Text.buttons.ADD);
+	            $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+	        },
+	        delete_shortcut_pane = function () {
+	            $('#delete-shortcut-pane h2').text(Text.delete_shortcut_pane.TITLE);
+	            $('#delete-shortcut-pane h3').text(Text.delete_shortcut_pane.DESCRIPTION);
+	            $('#delete-shortcut-pane div:nth-of-type(1) p').text(Text.delete_shortcut_pane.SHORTCUT);
+	            $('#delete-shortcut').text(Text.buttons.DELETE);
+	            $('#delete-all-shortcuts').text(Text.buttons.DELETE_ALL);
+	            $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+	        },
+	        add_search_keyword_pane = function () {
+	            $('#add-search-keyword-pane h2').text(Text.add_search_keyword_pane.TITLE);
+	            $('#add-search-keyword-pane h3').text(Text.add_search_keyword_pane.DESCRIPTION);
+	            $('#add-search-keyword-pane div:nth-of-type(1) p').text(Text.add_search_keyword_pane.SEARCH_KEYWORD);
+	            $('#add-search-keyword-pane div:nth-of-type(2) p').text(Text.add_search_keyword_pane.LINK);
+	            $('#add-search-keyword').text(Text.buttons.ADD);
+	            $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	        },
+	        delete_search_keyword_pane = function () {
+	            $('#delete-search-keyword-pane h2').text(Text.delete_search_keyword_pane.TITLE);
+	            $('#delete-search-keyword-pane h3').text(Text.delete_search_keyword_pane.DESCRIPTION);
+	            $('#delete-search-keyword-pane div:nth-of-type(1) p').text(Text.delete_search_keyword_pane.SEARCH_KEYWORD);
+	            $('#delete-search-keyword').text(Text.buttons.DELETE);
+	            $('#delete-all-search-keywords').text(Text.buttons.DELETE_ALL);
+	            $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	        },
+	        placeholder_pane = function () {
+	            $('#placeholder-pane h2').text(Text.change_placeholder_text.TITLE);
+	            $('#placeholder-pane h3').text(Text.change_placeholder_text.DESCRIPTION);
+	            $('#placeholder-pane div:nth-of-type(1) p').text(Text.change_placeholder_text.PLACEHOLDER_TEXT);
+	            $('#change-placeholder').text(Text.buttons.CHANGE);
+	        },
+	        export_pref_pane = function () {
+	            $('#export-pref-pane h2').text(Text.export_settings.TITLE);
+	            $('#export-pref-pane h3').text(Text.export_settings.DESCRIPTION);
+	            $('#export-pref').text(Text.buttons.EXPORT);
+	        },
+	        import_pref_pane = function () {
+	            $('#import-pref-pane h2').text(Text.import_settings.TITLE);
+	            $('#import-pref-pane h3').text(Text.import_settings.DESCRIPTION);
+	            $('#import-pref').text(Text.buttons.IMPORT);
+	        },
+	        add_plugin_file = function () {
+	            $('#add-plugin-file-pref-pane h2').text(Text.add_plugin_file.TITLE);
+	            $('#add-plugin-file-pref-pane h3').text(Text.add_plugin_file.DESCRIPTION);
+	            $('#add-plugin-file').text(Text.buttons.ADD);
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+	        },
+	        delete_all_local_data = function () {
+	            $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
+	        };
+
+	        $('h1').text(Text.SETTINGS_TITLE);
+
+	        nav();
+	        general_pane();
+	        add_shortcut_pane();
+	        delete_shortcut_pane();
+	        add_search_keyword_pane();
+	        delete_search_keyword_pane();
+	        placeholder_pane();
+	        export_pref_pane();
+	        import_pref_pane();
+	        add_plugin_file();
+	        delete_all_local_data();
+	    }
+	};
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*global require*/
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	var SysDefaults = __webpack_require__(3);
+	var Text = window.Text;
+
+
+	var Utils = {
+	    warn: function (type, callback) {
+	        var typeStr = type === SysDefaults.storageKeys.shortcuts ? Text.add_shortcut_pane.SHORTCUTS : type === SysDefaults.storageKeys.searchKeywords ? Text.add_search_keyword_pane.SEARCH_KEYWORDS : type,
+	            popup = '<h2 class="smalltext">' + Text.WARN.ARE_YOU_SURE_DELETE + typeStr + '?</h2><button class="main-button" id="warn-yes">' + Text.WARN.SURE + '</button><button class="main-button" id="warn-cancel">' + Text.WARN.CANCEL + '</button>';
+
+	        $('#warn').html(popup).css({
+	            display: 'block',
+	        });
+
+	        $('#warn-cancel').on('click', function () {
+	            $('#warn').css({
+	                display: 'none'
+	            });
+	            return false;
+	        });
+
+	        $('#warn-yes').on('click', function () {
+	            $('#warn').css({
+	                display: 'none'
+	            });
+	            callback();
+	        });
+	    },
+
+	    outputResponse: function (response, $output) {
+	        var message;
+
+	        $output.html('');
+
+	        if (response.success) {
+	            if (response.type === 'updated') {
+	                message = '\'' + response.subject + '\' ' + Text.STATUS.WAS_UPDATED;
+	            } else if (response.type === 'added') {
+	                message = '\'' + response.subject + '\' ' + Text.STATUS.WAS_ADDED;
+	            } else if (response.type === 'deleted') {
+	                message = '\'' + response.subject + '\' ' + Text.STATUS.WAS_DELETED;
+	            } else if (response.type === 'deletedAll') {
+	                message = Text.STATUS.ALL_DELETED;
+	            } else if (response.type === 'placeholderChanged') {
+	                message = Text.STATUS.PLACEHOLDER_CHANGED_TO;
+	            } else if (response.type === 'localDataCleared') {
+	                message = Text.STATUS.LOCAL_DATA_CLEARED;
+	            } else if (response.type === 'imported') {
+	                message = Text.STATUS.IMPORTED;
+	            }
+
+	            $output.html('<p class="success smalltext">' + message + '</p>');
+
+	        } else if (!response.success) {
+	            if (response.type === 'empty') {
+	                message = Text.ERROR.FILL_IN_FIELD;
+	            } else if (response.type === 'nonexistant') {
+	                message = ' \'' + response.subject + '\' ' + Text.ERROR.NONEXISTANT;
+	            } else if (response.type === 'emptyImport') {
+	                message = Text.ERROR.ENTER_IMPORTED_CODE;
+	            }
+
+	            $output.html('<p class="error smalltext">' + message + '</p>');
+
+	            $('.error').prepend('<img src="images/warningred.svg" style="width:15px">');
+	        }
+
+
+	        $output.css({
+	            opacity: 1
+	        });
+
+	        setTimeout(function () {
+	            $output.css({
+	                opacity: 0
+	            });
+	        }, 2500);
+
+	    },
+
+	    closeAllOpenLists: function () {
+	        $('.show-stored').data('is-showing', false);
+	        $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+	        $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	        $('.show-stored').parent().siblings('ul').html('');
+	    }
+	};
+
+	module.exports = {
+
+	    add: function (type, key, value, $output) {
+	        var newEntry = {},
+	            stored = !Storage.get(type) ? {} : Storage.get(type),
+	            response = {};
+
+	        if (key === '') {
+	            response.type = 'empty';
+	            response.success = false;
+	        } else {
+	            if (stored.hasOwnProperty(key)) {
+	                response.type = 'updated';
+	                response.success = true;
+
+	            } else if (!stored.hasOwnProperty(key)) {
+	                response.type = 'added';
+	                response.success = true;
+	            }
+	            newEntry[key] = value;
+	            Storage.set(type, $.extend(stored, newEntry));
+
+	            response.subject = key;
+	        }
+	        Utils.closeAllOpenLists();
+	        Utils.outputResponse(response, $output);
+	    },
+
+	    delete: function (type, key, $output) {
+
+	        var stored = !Storage.get(type) ? {} : Storage.get(type),
+	            response = {};
+
+	        if (key === '') {
+	            response.success = false;
+	            response.type = 'empty';
+	        } else {
+	            if (stored.hasOwnProperty(key)) {
+	                delete stored[key];
+	                Storage.set(type, stored);
+
+	                response.type = 'deleted';
+	                response.success = true;
+
+	            } else {
+	                response.type = 'nonexistant';
+	                response.success = false;
+	            }
+	            response.subject = key;
+	        }
+
+	        Utils.closeAllOpenLists();
+	        Utils.outputResponse(response, $output);
+	    },
+
+	    deleteAll: function (type, $output) {
+
+	        Utils.warn(type, function () {
+
+	            var response = {
+	                type: 'deletedAll',
+	                success: true
+	            };
+
+	            if (type === SysDefaults.storageKeys.shortcuts) {
+	                Storage.set(type, SysDefaults.shortcuts);
+	            } else if (type === SysDefaults.storageKeys.searchKeywords) {
+	                Storage.set(type, SysDefaults.searchKeywords);
+	            }
+
+	            Utils.closeAllOpenLists();
+	            Utils.outputResponse(response, $output);
+
+	        });
+
+	    },
+
+	    showStoredShortcuts: function ($el) {
+
+	        var shortcutsObj = Storage.get(SysDefaults.storageKeys.shortcuts),
+	            $outputList = $el.parent().siblings('ul'),
+	            counter = 0,
+	            propertyNames = Object.getOwnPropertyNames(shortcutsObj),
+	            key;
+
+	        if ($el.data('is-showing') === false) {
+	            $el.text(Text.buttons.HIDE_SHORTCUTS);
+
+	            for (var property in shortcutsObj) {
+	                if (shortcutsObj.hasOwnProperty(property)) {
+	                    key = shortcutsObj[property];
+
+	                    $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
+	                    for (var i = 0; i < key.length; i += 1) {
+	                        $outputList.append('<li>' + key[i] + '</li>');
+	                    }
+	                    $outputList.append('<br>');
+	                    counter += 1;
+	                }
+	            }
+	            $el.data('is-showing', true);
+
+	        } else if ($el.data('is-showing') === true) {
+	            $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+	            $outputList.html('');
+	            $el.data('is-showing', false);
+	        }
+
+	    },
+
+	    showStoredSearchKeywords: function ($el) {
+
+	        var searchKeywordsObj = Storage.get(SysDefaults.storageKeys.searchKeywords),
+	            $outputList = $el.parent().siblings('ul'),
+	            counter = 0,
+	            propertyNames = Object.getOwnPropertyNames(searchKeywordsObj),
+	            key;
+
+	        if ($el.data('is-showing') === false) {
+	            $el.text(Text.buttons.HIDE_SEARCH_KEYWORD);
+
+	            for (var property in searchKeywordsObj) {
+	                if (searchKeywordsObj.hasOwnProperty(property)) {
+	                    key = searchKeywordsObj[property];
+
+	                    $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
+	                    $outputList.append('<li>' + key + '</li>');
+	                    $outputList.append('<br>');
+	                    counter += 1;
+	                }
+	            }
+	            $el.data('is-showing', true);
+
+	        } else if ($el.data('is-showing') === true) {
+	            $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	            $outputList.html('');
+	            $el.data('is-showing', false);
+	        }
+
+	    },
+
+	    changePlaceholder: function (settings, placeholder, $output) {
+
+	        var response = {};
+
+	        if (placeholder === '') {
+	            response.type = 'empty';
+	            response.success = false;
+	        } else {
+	            settings.placeholder = placeholder;
+
+	            Storage.set(SysDefaults.storageKeys.settings, settings);
+
+	            response.type = 'placeholderChanged';
+	            response.success = true;
+	            response.subject = placeholder;
+	        }
+
+	        Utils.outputResponse(response, $output);
+
+	    },
+	    utils: Utils
+	};
+
+
+/***/ }
+]);

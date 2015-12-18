@@ -2,13 +2,13 @@
 var $ = require('jquery');
 var Storage = require('./storage.js');
 
-var funcKeywords = window.projcarrot;
-
 var shortcuts = Storage.getShortcuts();
 
 var searchKeywords = Storage.getSearchKeywords();
 
 var settings = Storage.getSettings();
+
+var funcKeywords = window.projcarrot.funcKeywords;
 
 var queryFunctions = function (input) {
 

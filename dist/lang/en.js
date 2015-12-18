@@ -17,7 +17,8 @@ window.Text = {
         'DELETE_SEARCH_KEYWORD': 'Delete search keyword',
         'CHANGE_PLACEHOLDER_TEXT': 'Change placeholder text',
         'EXPORT_SETTINGS': 'Export settings',
-        'IMPORT_SETTINGS': 'Import settings'
+        'IMPORT_SETTINGS': 'Import settings',
+        'ADD_PLUGIN_FILE': 'Add plugin-file'
     },
 
     add_shortcut_pane: {
@@ -64,6 +65,11 @@ window.Text = {
         'DESCRIPTION': 'Put in an exported text and press the button to import the settings.'
     },
 
+    add_plugin_file: {
+        'TITLE': 'Add plugin-file',
+        'DESCRIPTION': 'Write the name of the plugin-file, located in \'js/plugins\', without the \'.js\' suffix.'
+    },
+
     buttons: {
         'ADD': 'Add',
         'DELETE': 'Delete',
@@ -75,7 +81,8 @@ window.Text = {
         'HIDE_SEARCH_KEYWORD': 'Hide search keywords',
         'CHANGE': 'Change',
         'EXPORT': 'Export',
-        'IMPORT': 'Import'
+        'IMPORT': 'Import',
+        'SHOW_PLUGIN_FILES': 'Show plugin-files'
     },
 
     ERROR: {

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
     <meta charset="utf-8">
     <title>. . .</title>
     <link rel="stylesheet" href="css/pref.css" type="text/css">
 </head>
 <body>
     <div id="wrapper">
-        
-        <h1 class="smalltext"></h1> 
-        
+
+        <h1 class="smalltext"></h1>
+
         <hr>
-        
+
         <nav>
             <ul id="first-list">
                 <li><a href="#general-pane"></a></li>
@@ -19,16 +19,17 @@
                 <li><a href="#delete-shortcut-pane"></a></li>
                 <li><a href="#add-search-keyword-pane"></a></li>
                 <li><a href="#delete-search-keyword-pane"></a></li>
-                
+
             </ul>
             <ul id="second-list">
                 <li><a href="#placeholder-pane"></a></li>
                 <li><a href="#export-pref-pane"></a></li>
                 <li><a href="#import-pref-pane"></a></li>
+                <li><a href="#add-plugin-file-pref-pane"></a></li>
             </ul>
         </nav>
-        
-        
+
+
         <!-- GENERAL SETTINGS -->
         <hr>
         <div id="general-pane" class="pane">
@@ -41,7 +42,7 @@
                     <option value="Bing">Bing</option>
                     <option value="DuckDuckGo">DuckDuckGo</option>
                 </select>
-                
+
             </div>
             <div class="input-wrapper double-wrappers">
                 <p class="smalltext"></p>
@@ -50,11 +51,11 @@
                     <option value="sv">Svenska</option>
                 </select>
             </div>
-            
-            
+
+
         </div>
-        
-        
+
+
         <!-- ADD / CHANGE SHORTCUTS -->
         <hr>
         <div id="add-shortcut-pane" class="pane">
@@ -73,9 +74,9 @@
             </div>
             <ul class="stored-shortcuts-list"></ul>
         </div>
-        
-        
-        <!-- delete SHORTCUTS -->
+
+
+        <!-- DELETE SHORTCUTS -->
         <hr>
         <div id="delete-shortcut-pane" class="pane" >
             <h2 class="smalltext"></h2>
@@ -90,8 +91,8 @@
             </div>
             <ul class="stored-shortcuts-list"></ul>
         </div>
-        
-        
+
+
         <!-- ADD SEARCH KEYWORDS -->
         <hr>
         <div id="add-search-keyword-pane" class="pane">
@@ -110,9 +111,9 @@
             </div>
             <ul class="stored-search-keywords-list"></ul>
         </div>
-        
-        
-        <!-- delete SEARCH KEYWORDS -->
+
+
+        <!-- DELETE SEARCH KEYWORDS -->
         <hr>
         <div id="delete-search-keyword-pane" class="pane">
             <h2 class="smalltext"></h2>
@@ -127,8 +128,8 @@
             </div>
             <ul class="stored-search-keywords-list"></ul>
         </div>
-        
-        
+
+
         <!-- CHANGE PLACEHOLDER TEXT -->
         <hr>
         <div id="placeholder-pane" class="pane">
@@ -141,8 +142,8 @@
                 <button class="main-button" id="change-placeholder"></button>
             </div>
         </div>
-        
-        
+
+
         <!-- EXPORT PREFERENCES -->
         <hr>
         <div id="export-pref-pane" class="pane">
@@ -151,8 +152,8 @@
             <button class="main-button" id="export-pref"></button>
             <div class="single-wrapper" id="export-pref-output"></div>
         </div>
-        
-        
+
+
         <!-- IMPORT PREFERENCES -->
         <hr>
         <div id="import-pref-pane" class="pane">
@@ -164,27 +165,42 @@
             </div>
             <button class="main-button" id="import-pref"></button>
         </div>
-        
-        
+
+        <!-- FUNCTION KEYWORDS PREFERENCES -->
+        <hr>
+        <div id="add-plugin-file-pref-pane" class="pane" >
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="add-plugin-file-input" type="text" spellcheck="false">
+                <button class="main-button" id="add-plugin-file"></button>
+                <!--<button class="show-stored-plugin-files show-stored" data-is-showing="false"></button>-->
+            </div>
+            <ul class="stored-plugin-files-list"></ul>
+        </div>
+
+
         <!-- CLEAR LOCALSTORAGE -->
         <hr>
         <div class="pane" id="clear-localStorage-pane">
             <span class="response-output"></span>
             <button id="clear-localStorage"></button>
         </div>
-        
-        
-        
+
+
+
     </div>
     <div id="warn"></div>
     <a href="index.html"><img id="back-to-search" style="left: auto;" src="images/magnifying-glass.svg" alt="search"></a>
     <a href="help.html" id="help"><img id="help-icon" src="images/help.svg" alt="help"></a>
-    
-    
-    
+
+
+
     <script src="js/common-bundle.js"></script>
     <script data-depender="js/pref-bundle" src="js/controller-bundle.js"></script>
-    
-    
+
+
 </body>
 </html>

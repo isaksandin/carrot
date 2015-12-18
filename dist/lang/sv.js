@@ -17,7 +17,8 @@ window.Text = {
         'DELETE_SEARCH_KEYWORD': 'Radera söknyckelord',
         'CHANGE_PLACEHOLDER_TEXT': 'Ändra placeholder-text',
         'EXPORT_SETTINGS': 'Exportera inställningar',
-        'IMPORT_SETTINGS': 'Importera inställningar'
+        'IMPORT_SETTINGS': 'Importera inställningar',
+        'ADD_PLUGIN_FILE': 'Lägg till plugin-fil'
     },
 
     add_shortcut_pane: {
@@ -64,6 +65,11 @@ window.Text = {
         'DESCRIPTION': 'Mata in en exporterad text och tryck på knappen för att importera inställningar.'
     },
 
+    add_plugin_file: {
+        'TITLE': 'Lägg till plugin-fil',
+        'DESCRIPTION': 'Skriv namnet på plugin-filen som finns tillagd i \'js/plugins\', utan \'.js\' suffixet.'
+    },
+
     buttons: {
         'ADD': 'Lägg till',
         'DELETE': 'Ta bort',
@@ -75,7 +81,8 @@ window.Text = {
         'HIDE_SEARCH_KEYWORD': 'Göm söknyckelord',
         'CHANGE': 'Ändra',
         'EXPORT': 'Exportera',
-        'IMPORT': 'Importera'
+        'IMPORT': 'Importera',
+        'SHOW_PLUGIN_FILES': 'Visa plugin-filer'
     },
 
     ERROR: {

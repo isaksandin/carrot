@@ -40,7 +40,7 @@ gulp.task('sass', function(){
 });
 
 //gulp.task('build', function() {
-//  
+//
 //    return browserify({
 //        entries: ['./src/js/main.js', './src/js/main-pref.js', './src/js/controller.js']
 //    })
@@ -69,14 +69,14 @@ gulp.task('build', function(callback) {
             filename: './src/js/[name].js'
         },
         plugins: [commonsPlugin]
-        
+
     }, function(err, stats) {
         if(err) throw new gutil.PluginError("webpack", err);
         gutil.log("[webpack]", stats.toString({
             // output options
         }));
         callback();
-    })
+    });
 });
 
 gulp.task('compress', function() {
@@ -111,6 +111,7 @@ gulp.task('move', ['clean'], function(){
         './src/js/pref-bundle.js',
         './src/js/controller-bundle.js',
         './src/lang/**/*',
+        './src/js/plugins/**/*',
         './src/images/**/*',
         './src/fonts/**/*'
     ];
@@ -123,5 +124,5 @@ gulp.task('move', ['clean'], function(){
 gulp.task('default', ['browserSync', 'sass'], function () {
     gulp.watch('./src/scss/**/*.scss', ['sass']);
     gulp.watch('./src/*.html', browserSync.reload);
-    gulp.watch('./src/js/**/*.js', ['build']);
+    //gulp.watch('./src/js/**/*.js', ['build']);
 });

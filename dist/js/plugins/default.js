@@ -1,8 +1,8 @@
 (function () {
     'use strict';
-    
+
     var input = document.getElementById('input');
-    
+
     function show(str) {
         input.value = str;
         input.select();
@@ -10,6 +10,7 @@
     function clearInputField() {
         input.value = '';
     }
+
 
     var memory = {
             remember: function (text) {
@@ -75,12 +76,12 @@
         };
 
 
-    window.projcarrot = {
+    window.projcarrot.addFuncKeyword({
             rem: memory.remember,
             recall: memory.recall,
             clear: memory.clear,
             rng: utilities.rng,
             easter: eEs.eE,
             tran: utilities.translate,
-    };
+    });
 }());

@@ -17,6 +17,7 @@ module.exports = {
             $('a[href="#placeholder-pane"]').text(Text.titles.CHANGE_PLACEHOLDER_TEXT);
             $('a[href="#export-pref-pane"]').text(Text.titles.EXPORT_SETTINGS);
             $('a[href="#import-pref-pane"]').text(Text.titles.IMPORT_SETTINGS);
+            $('a[href="#add-plugin-file-pref-pane"]').text(Text.titles.ADD_PLUGIN_FILE);
         },
         general_pane = function () {
             $('#general-pane h2').text(Text.general_pane.TITLE);
@@ -72,12 +73,18 @@ module.exports = {
             $('#import-pref-pane h3').text(Text.import_settings.DESCRIPTION);
             $('#import-pref').text(Text.buttons.IMPORT);
         },
+        add_plugin_file = function () {
+            $('#add-plugin-file-pref-pane h2').text(Text.add_plugin_file.TITLE);
+            $('#add-plugin-file-pref-pane h3').text(Text.add_plugin_file.DESCRIPTION);
+            $('#add-plugin-file').text(Text.buttons.ADD);
+            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+        },
         delete_all_local_data = function () {
             $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
         };
 
         $('h1').text(Text.SETTINGS_TITLE);
-        
+
         nav();
         general_pane();
         add_shortcut_pane();
@@ -87,6 +94,7 @@ module.exports = {
         placeholder_pane();
         export_pref_pane();
         import_pref_pane();
+        add_plugin_file();
         delete_all_local_data();
     }
 };

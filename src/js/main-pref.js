@@ -124,7 +124,6 @@ $('#export-pref').on('click', function () {
         };
 
     $('#export-pref-output').html('<textarea id="export-output">' + JSON.stringify(compressedPrefs) + '</textarea>');
-    //console.log(JSON.stringify(compressedPrefs).replace(/http:\/\//g, '{{h}}').replace(/https:\/\//g, '{{hs}}').replace(/.com/g, '{c}'));
     $('#export-output').select();
 
 });
@@ -165,6 +164,29 @@ $('#import-pref').on('click', function () {
     Utils.closeAllOpenLists();
     Utils.outputResponse(response, $('#import-pref-pane .response-output'));
 });
+
+
+/* -- PLUGIN FILES-- */
+
+// ADD / CHANGE PLUGIN FILE
+$('#add-plugin-file').on('click', function () {
+    var value = $('#add-plugin-file-input').val();
+    var pluginFiles = Storage.getSettings().pluginFiles;
+    var newSettings;
+
+    $('#add-plugin-file-input').val('');
+
+    pluginFiles.push(value);
+    newSettings = Storage.getSettings();
+    newSettings.pluginFiles = pluginFiles;
+
+    Storage.set(SysDefaults.storageKeys.settings, newSettings);
+
+    // NEEDS ERROR AND STATUS OUTPUTTING
+});
+
+
+
 
 /* -- CLEAR LOCALSTORAGE -- */
 
