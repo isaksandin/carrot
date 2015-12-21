@@ -9,11 +9,8 @@ var Text = window.Text;
 $('#input').keypress(function (e) {
     if (e.keyCode === 13) {
 
-        if (!navigator.onLine) {
-            displayNetworkError();
-        } else {
-            queryFunctions($('#input').val()).analyseQuery();
-        }
+        queryFunctions($('#input').val()).analyseQuery();
+
         return false;
     }
 }).css({
@@ -28,21 +25,28 @@ $('#error-output').css({
 });
 
 function displayNetworkError() {
-
-    if (navigator.onLine) {
-        $('#error-output').html('');
-    } else {
-        $('#error-output').html('<p id="network-error"><img src="images/warningred.svg"> ' + Text.ERROR.NO_INTERNET_CONNECTION + '</p>');
-        setTimeout(displayNetworkError, 500);
-    }
-
+    $('#error-output').html('<p id="network-error"><img src="images/warningred.svg"> ' + Text.ERROR.NO_INTERNET_CONNECTION + '</p>');
 }
+function removeNetworkError() {
+    $('#error-output').html('');
+}
+function checkInternetConn() {
+    if (!navigator.onLine) {
+        displayNetworkError();
+    } else {
+        removeNetworkError();
+    }
+}
+
+checkInternetConn();
+
+
 
 Date.prototype.getWeek = function() {
     var firstOfJan = new Date(this.getFullYear(), 0, 1);
     return Math.ceil((((this - firstOfJan) / 86400000) + firstOfJan.getDay())/7);
 };
-//tjena
+
 var d = new Date(),
     week = d.getWeek();
 $('#week').html(Text.UTILITY.WEEK_ABBR + week);
