@@ -116,25 +116,48 @@ module.exports = {
         Utils.outputResponse(response, $output);
     },
 
-    delete: function (type, key, $output) {
+    delete: function (type, key, $output, settingsKey) {
 
-        var stored = !Storage.get(type) ? {} : Storage.get(type),
+        var stored,
             response = {};
 
         if (key === '') {
             response.success = false;
             response.type = 'empty';
         } else {
-            if (stored.hasOwnProperty(key)) {
-                delete stored[key];
-                Storage.set(type, stored);
+            if ($.isArray(type)) {
+                stored = type;
+                var index = stored.indexOf(key);
+                var settings = Storage.get(SysDefaults.storageKeys.settings);
 
-                response.type = 'deleted';
-                response.success = true;
+                if (index !== -1) {
+                    stored.splice(index, 1);
+
+                    settings.pluginFiles = stored;
+
+                    Storage.set(SysDefaults.storageKeys.settings, settings);
+
+                    response.type = 'deleted';
+                    response.success = true;
+                } else {
+                    response.type = 'nonexistant';
+                    response.success = false;
+                }
 
             } else {
-                response.type = 'nonexistant';
-                response.success = false;
+                stored = !Storage.get(type) ? {} : Storage.get(type);
+
+                if (stored.hasOwnProperty(key)) {
+                    delete stored[key];
+                    Storage.set(type, stored);
+
+                    response.type = 'deleted';
+                    response.success = true;
+
+                } else {
+                    response.type = 'nonexistant';
+                    response.success = false;
+                }
             }
             response.subject = key;
         }

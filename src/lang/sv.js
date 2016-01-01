@@ -70,6 +70,11 @@ window.Text = {
         'DESCRIPTION': 'Skriv namnet på plugin-filen som finns tillagd i \'js/plugins\', utan \'.js\' suffixet.'
     },
 
+    delete_plugin_file: {
+        'TITLE': 'Ta bort plugin-fil',
+        'DESCRIPTION': 'Skriv namnet på plugin-filen du vill ta bort'
+    },
+
     buttons: {
         'ADD': 'Lägg till',
         'DELETE': 'Ta bort',

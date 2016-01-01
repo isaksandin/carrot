@@ -185,6 +185,12 @@ $('#add-plugin-file').on('click', function () {
     // NEEDS ERROR AND STATUS OUTPUTTING
 });
 
+// DELETE PLUGIN FILE
+$('#delete-plugin-file').on('click', function () {
+    settings = Storage.getSettings();
+    PrefFuncs.delete(settings.pluginFiles, $('#delete-plugin-file-input').val(), $('#delete-plugin-file-pref-pane .response-output'), 'pluginFiles');
+    $('#delete-plugin-file-input').val('');
+});
 
 
 

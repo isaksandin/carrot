@@ -79,6 +79,12 @@ module.exports = {
             $('#add-plugin-file').text(Text.buttons.ADD);
             $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
         },
+        delete_plugin_file = function () {
+            $('#delete-plugin-file-pref-pane h2').text(Text.delete_plugin_file.TITLE);
+            $('#delete-plugin-file-pref-pane h3').text(Text.delete_plugin_file.DESCRIPTION);
+            $('#delete-plugin-file').text(Text.buttons.DELETE);
+            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+        },
         delete_all_local_data = function () {
             $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
         };
@@ -95,6 +101,7 @@ module.exports = {
         export_pref_pane();
         import_pref_pane();
         add_plugin_file();
+        delete_plugin_file();
         delete_all_local_data();
     }
 };

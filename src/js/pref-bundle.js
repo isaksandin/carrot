@@ -189,6 +189,12 @@ webpackJsonp([2],[
 	    // NEEDS ERROR AND STATUS OUTPUTTING
 	});
 
+	// DELETE PLUGIN FILE
+	$('#delete-plugin-file').on('click', function () {
+	    settings = Storage.getSettings();
+	    PrefFuncs.delete(settings.pluginFiles, $('#delete-plugin-file-input').val(), $('#delete-plugin-file-pref-pane .response-output'), 'pluginFiles');
+	    $('#delete-plugin-file-input').val('');
+	});
 
 
 
@@ -301,6 +307,12 @@ webpackJsonp([2],[
 	            $('#add-plugin-file').text(Text.buttons.ADD);
 	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
 	        },
+	        delete_plugin_file = function () {
+	            $('#delete-plugin-file-pref-pane h2').text(Text.delete_plugin_file.TITLE);
+	            $('#delete-plugin-file-pref-pane h3').text(Text.delete_plugin_file.DESCRIPTION);
+	            $('#delete-plugin-file').text(Text.buttons.DELETE);
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+	        },
 	        delete_all_local_data = function () {
 	            $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
 	        };
@@ -317,6 +329,7 @@ webpackJsonp([2],[
 	        export_pref_pane();
 	        import_pref_pane();
 	        add_plugin_file();
+	        delete_plugin_file();
 	        delete_all_local_data();
 	    }
 	};
@@ -444,25 +457,48 @@ webpackJsonp([2],[
 	        Utils.outputResponse(response, $output);
 	    },
 
-	    delete: function (type, key, $output) {
+	    delete: function (type, key, $output, settingsKey) {
 
-	        var stored = !Storage.get(type) ? {} : Storage.get(type),
+	        var stored,
 	            response = {};
 
 	        if (key === '') {
 	            response.success = false;
 	            response.type = 'empty';
 	        } else {
-	            if (stored.hasOwnProperty(key)) {
-	                delete stored[key];
-	                Storage.set(type, stored);
+	            if ($.isArray(type)) {
+	                stored = type;
+	                var index = stored.indexOf(key);
+	                var settings = Storage.get(SysDefaults.storageKeys.settings);
 
-	                response.type = 'deleted';
-	                response.success = true;
+	                if (index !== -1) {
+	                    stored.splice(index, 1);
+
+	                    settings.pluginFiles = stored;
+
+	                    Storage.set(SysDefaults.storageKeys.settings, settings);
+
+	                    response.type = 'deleted';
+	                    response.success = true;
+	                } else {
+	                    response.type = 'nonexistant';
+	                    response.success = false;
+	                }
 
 	            } else {
-	                response.type = 'nonexistant';
-	                response.success = false;
+	                stored = !Storage.get(type) ? {} : Storage.get(type);
+
+	                if (stored.hasOwnProperty(key)) {
+	                    delete stored[key];
+	                    Storage.set(type, stored);
+
+	                    response.type = 'deleted';
+	                    response.success = true;
+
+	                } else {
+	                    response.type = 'nonexistant';
+	                    response.success = false;
+	                }
 	            }
 	            response.subject = key;
 	        }
