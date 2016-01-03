@@ -187,19 +187,6 @@ webpackJsonp([2],[
 
 	// ADD / CHANGE PLUGIN FILE
 	$('#add-plugin-file').on('click', function () {
-	    /*var value = $('#add-plugin-file-input').val();
-	    var pluginFiles = Storage.getSettings().pluginFiles;
-	    var newSettings;
-
-	    $('#add-plugin-file-input').val('');
-
-	    pluginFiles.push(value);
-	    newSettings = Storage.getSettings();
-	    newSettings.pluginFiles = pluginFiles;
-
-	    Storage.set(SysDefaults.storageKeys.settings, newSettings);
-
-	    // NEEDS ERROR AND STATUS OUTPUTTING*/
 	    
 	    PrefFuncs.add({
 	        type: Storage.getSettings().pluginFiles,
@@ -461,7 +448,6 @@ webpackJsonp([2],[
 
 	module.exports = {
 
-	    //add: function (type, key, value, $output, settingsKey) {
 	    add: function (options) {
 
 	        var type = options.type,
