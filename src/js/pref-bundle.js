@@ -277,6 +277,7 @@ webpackJsonp([2],[
 	            $('a[href="#export-pref-pane"]').text(Text.titles.EXPORT_SETTINGS);
 	            $('a[href="#import-pref-pane"]').text(Text.titles.IMPORT_SETTINGS);
 	            $('a[href="#add-plugin-file-pref-pane"]').text(Text.titles.ADD_PLUGIN_FILE);
+	            $('a[href="#delete-plugin-file-pref-pane"]').text(Text.titles.DELETE_PLUGIN_FILE);
 	        },
 	        general_pane = function () {
 	            $('#general-pane h2').text(Text.general_pane.TITLE);

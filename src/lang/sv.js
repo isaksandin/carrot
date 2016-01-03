@@ -18,7 +18,8 @@ window.Text = {
         'CHANGE_PLACEHOLDER_TEXT': 'Ändra placeholder-text',
         'EXPORT_SETTINGS': 'Exportera inställningar',
         'IMPORT_SETTINGS': 'Importera inställningar',
-        'ADD_PLUGIN_FILE': 'Lägg till plugin-fil'
+        'ADD_PLUGIN_FILE': 'Lägg till plugin-fil',
+        'DELETE_PLUGIN_FILE': 'Ta bort plugin-fil'
     },
 
     add_shortcut_pane: {
