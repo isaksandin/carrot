@@ -124,5 +124,5 @@ gulp.task('move', ['clean'], function(){
 gulp.task('default', ['browserSync', 'sass'], function () {
     gulp.watch('./src/scss/**/*.scss', ['sass']);
     gulp.watch('./src/*.html', browserSync.reload);
-    //gulp.watch('./src/js/**/*.js', ['build']);
+    gulp.watch('./src/js/**/*.js', ['build']);
 });
