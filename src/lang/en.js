@@ -87,7 +87,8 @@ window.Text = {
         'CHANGE': 'Change',
         'EXPORT': 'Export',
         'IMPORT': 'Import',
-        'SHOW_PLUGIN_FILES': 'Show plugin-files'
+        'SHOW_PLUGIN_FILE_NAMES': 'Show plugin file names',
+        'HIDE_PLUGIN_FILE_NAMES': 'Hide plugin file names'
     },
 
     ERROR: {

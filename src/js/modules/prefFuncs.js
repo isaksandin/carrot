@@ -84,6 +84,7 @@ var Utils = {
         $('.show-stored').data('is-showing', false);
         $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
         $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+        $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
         $('.show-stored').parent().siblings('ul').html('');
     }
 };
@@ -284,6 +285,26 @@ module.exports = {
             $el.data('is-showing', false);
         }
 
+    },
+
+    showStoredPluginNames: function ($el) {
+        var stored = Storage.getSettings().pluginFiles,
+            $outputList = $el.parent().siblings('ul');
+
+        if ($el.data('is-showing') === false) {
+            $el.text(Text.buttons.HIDE_PLUGIN_FILE_NAMES);
+
+            for (i = 0; i < stored.length; i += 1) {
+                $outputList.append('<li><h2>' + stored[i] + '</h2></li><br>');
+            }
+
+            $el.data('is-showing', true);
+
+        } else if ($el.data('is-showing') === true) {
+            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
+            $outputList.html('');
+            $el.data('is-showing', false);
+        }
     },
 
     changePlaceholder: function (settings, placeholder, $output) {

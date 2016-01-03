@@ -330,6 +330,26 @@ p.error {
   text-align: left;
   padding: 5px; }
 
+.stored-plugin-files-list {
+  clear: both;
+  width: 70%;
+  margin: 50px auto 0;
+  box-sizing: border-box;
+  padding: 0px;
+  word-wrap: break-word; }
+
+.stored-plugin-files-list li {
+  width: 100%;
+  list-style: none;
+  font-family: "Raleway";
+  font-weight: normal;
+  font-size: 1em;
+  text-align: left; }
+
+.stored-plugin-files-list li h2 {
+  font-size: 1em;
+  font-weight: bold; }
+
 #clear-localStorage-pane {
   margin-top: 400px; }
 

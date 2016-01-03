@@ -201,6 +201,12 @@ webpackJsonp([2],[
 	    $('#delete-plugin-file-input').val('');
 	});
 
+	// SHOW STORED PLUGIN FILE NAMES
+	$('.show-stored-plugin-files').on('click', function () {
+	    var $el = $(this);
+	    PrefFuncs.showStoredPluginNames($el);
+	});
+
 
 
 	/* -- CLEAR LOCALSTORAGE -- */
@@ -310,13 +316,13 @@ webpackJsonp([2],[
 	            $('#add-plugin-file-pref-pane h2').text(Text.add_plugin_file.TITLE);
 	            $('#add-plugin-file-pref-pane h3').text(Text.add_plugin_file.DESCRIPTION);
 	            $('#add-plugin-file').text(Text.buttons.ADD);
-	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
 	        },
 	        delete_plugin_file = function () {
 	            $('#delete-plugin-file-pref-pane h2').text(Text.delete_plugin_file.TITLE);
 	            $('#delete-plugin-file-pref-pane h3').text(Text.delete_plugin_file.DESCRIPTION);
 	            $('#delete-plugin-file').text(Text.buttons.DELETE);
-	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILES);
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
 	        },
 	        delete_all_local_data = function () {
 	            $('#clear-localStorage').text(Text.buttons.DELETE_ALL_LOCAL_DATA);
@@ -430,6 +436,7 @@ webpackJsonp([2],[
 	        $('.show-stored').data('is-showing', false);
 	        $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
 	        $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	        $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
 	        $('.show-stored').parent().siblings('ul').html('');
 	    }
 	};
@@ -630,6 +637,26 @@ webpackJsonp([2],[
 	            $el.data('is-showing', false);
 	        }
 
+	    },
+
+	    showStoredPluginNames: function ($el) {
+	        var stored = Storage.getSettings().pluginFiles,
+	            $outputList = $el.parent().siblings('ul');
+
+	        if ($el.data('is-showing') === false) {
+	            $el.text(Text.buttons.HIDE_PLUGIN_FILE_NAMES);
+
+	            for (i = 0; i < stored.length; i += 1) {
+	                $outputList.append('<li><h2>' + stored[i] + '</h2></li><br>');
+	            }
+
+	            $el.data('is-showing', true);
+
+	        } else if ($el.data('is-showing') === true) {
+	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
+	            $outputList.html('');
+	            $el.data('is-showing', false);
+	        }
 	    },
 
 	    changePlaceholder: function (settings, placeholder, $output) {

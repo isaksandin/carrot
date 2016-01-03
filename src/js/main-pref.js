@@ -197,6 +197,12 @@ $('#delete-plugin-file').on('click', function () {
     $('#delete-plugin-file-input').val('');
 });
 
+// SHOW STORED PLUGIN FILE NAMES
+$('.show-stored-plugin-files').on('click', function () {
+    var $el = $(this);
+    PrefFuncs.showStoredPluginNames($el);
+});
+
 
 
 /* -- CLEAR LOCALSTORAGE -- */

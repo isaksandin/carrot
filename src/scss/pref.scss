@@ -8,34 +8,34 @@ h1.smalltext{
 nav{
     margin-top: 30px;
     text-align: center;
-    
+
     ul{
         width: 20%;
         max-width: 300px;
         display: inline-block;
         margin: 20px;
         vertical-align: top;
-        
+
         li{
             list-style: none;
             text-align: left;
             margin: 20px 0 20px 0;
             font-family: $main-font;
             font-size: 1.1em;
-            
+
             a{
                 color: #3d3d3d;
                 color: #438ccb;
                 text-decoration: underline;
             }
-            
+
             a:hover{
                 color: #717171;
                 color: #145893;
             }
         }
     }
-    
+
 }
 
 .pane{
@@ -46,7 +46,7 @@ nav{
     box-sizing: border-box;
     margin-top: 15px;
     padding-top: 45px;
-    
+
     h2{
         font-size: 1em;
         color: $almost-black;
@@ -59,18 +59,18 @@ nav{
 }
 
 .pane:before{
-    display: block; 
-    content: " "; 
-    margin-top: -285px; 
-    height: 285px; 
-    visibility: hidden; 
+    display: block;
+    content: " ";
+    margin-top: -285px;
+    height: 285px;
+    visibility: hidden;
 }
 
 .input-wrapper{
     width: 50%;
     margin: 5px 0 30px 0;
     box-sizing: border-box;
-    
+
     p{
         margin: 0 auto 0;
         box-sizing: border-box;
@@ -136,7 +136,7 @@ select{
     box-sizing: border-box;
     padding: 0px;
     word-wrap:break-word;
-    
+
     li{
         width: 100%;
         list-style: none;
@@ -144,7 +144,7 @@ select{
         font-weight: normal;
         font-size: 1em;
         text-align: left;
-        
+
         h2{
             font-size: 1em;
             font-weight: bold;
@@ -206,6 +206,26 @@ p.error{
     text-align: left;
     padding: 5px;
 }
+.stored-plugin-files-list{
+    clear: both;
+    width: 70%;
+    margin: 50px auto 0;
+    box-sizing: border-box;
+    padding: 0px;
+    word-wrap:break-word;
+}
+.stored-plugin-files-list li{
+    width: 100%;
+    list-style: none;
+    font-family: $main-font;
+    font-weight: normal;
+    font-size: 1em;
+    text-align: left;
+}
+.stored-plugin-files-list li h2{
+    font-size: 1em;
+    font-weight: bold;
+}
 #clear-localStorage-pane{
     margin-top: 400px;
 }
@@ -260,13 +280,3 @@ p.error{
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
 }
-
-
-
-
-
-
-
-
-
-

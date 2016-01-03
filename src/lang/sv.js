@@ -87,7 +87,8 @@ window.Text = {
         'CHANGE': 'Ändra',
         'EXPORT': 'Exportera',
         'IMPORT': 'Importera',
-        'SHOW_PLUGIN_FILES': 'Visa plugin-filer'
+        'SHOW_PLUGIN_FILE_NAMES': 'Visa plugin-filnamn',
+        'HIDE_PLUGIN_FILE_NAMES': 'Göm plugin-filnamn'
     },
 
     ERROR: {
