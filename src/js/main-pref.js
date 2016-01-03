@@ -170,7 +170,7 @@ $('#import-pref').on('click', function () {
 
 // ADD / CHANGE PLUGIN FILE
 $('#add-plugin-file').on('click', function () {
-    var value = $('#add-plugin-file-input').val();
+    /*var value = $('#add-plugin-file-input').val();
     var pluginFiles = Storage.getSettings().pluginFiles;
     var newSettings;
 
@@ -182,7 +182,12 @@ $('#add-plugin-file').on('click', function () {
 
     Storage.set(SysDefaults.storageKeys.settings, newSettings);
 
-    // NEEDS ERROR AND STATUS OUTPUTTING
+    // NEEDS ERROR AND STATUS OUTPUTTING*/
+
+    settings = Storage.getSettings();
+    PrefFuncs.add(settings.pluginFiles, null, $('#add-plugin-file-input').val(), $('#add-plugin-file-pref-pane .response-output'), 'pluginFiles');
+    $('#add-plugin-file-input').val('');
+
 });
 
 // DELETE PLUGIN FILE

@@ -174,7 +174,7 @@ webpackJsonp([2],[
 
 	// ADD / CHANGE PLUGIN FILE
 	$('#add-plugin-file').on('click', function () {
-	    var value = $('#add-plugin-file-input').val();
+	    /*var value = $('#add-plugin-file-input').val();
 	    var pluginFiles = Storage.getSettings().pluginFiles;
 	    var newSettings;
 
@@ -186,7 +186,12 @@ webpackJsonp([2],[
 
 	    Storage.set(SysDefaults.storageKeys.settings, newSettings);
 
-	    // NEEDS ERROR AND STATUS OUTPUTTING
+	    // NEEDS ERROR AND STATUS OUTPUTTING*/
+
+	    settings = Storage.getSettings();
+	    PrefFuncs.add(settings.pluginFiles, null, $('#add-plugin-file-input').val(), $('#add-plugin-file-pref-pane .response-output'), 'pluginFiles');
+	    $('#add-plugin-file-input').val('');
+
 	});
 
 	// DELETE PLUGIN FILE
@@ -431,27 +436,61 @@ webpackJsonp([2],[
 
 	module.exports = {
 
-	    add: function (type, key, value, $output) {
+	    add: function (type, key, value, $output, settingsKey) {
+
+
 	        var newEntry = {},
-	            stored = !Storage.get(type) ? {} : Storage.get(type),
-	            response = {};
+	            response = {},
+	            stored;
 
 	        if (key === '') {
 	            response.type = 'empty';
 	            response.success = false;
+
 	        } else {
-	            if (stored.hasOwnProperty(key)) {
-	                response.type = 'updated';
-	                response.success = true;
+	            if ($.isArray(type)) {
+	                var index,
+	                    settings = Storage.getSettings();
 
-	            } else if (!stored.hasOwnProperty(key)) {
-	                response.type = 'added';
-	                response.success = true;
+	                stored = type;
+
+	                index = stored.indexOf(value);
+
+	                if (index !== -1) {
+	                    response.type = 'updated';
+	                    response.success = true;
+
+	                    stored[index] = value;
+
+	                } else {
+	                    response.type = 'added';
+	                    response.success = true;
+
+	                    stored.push(value);
+	                }
+
+	                settings[settingsKey] = stored;
+	                Storage.set(SysDefaults.storageKeys.settings, settings);
+
+	                response.subject = value;
+
+	            } else {
+
+	                stored = !Storage.get(type) ? {} : Storage.get(type);
+
+	                if (stored.hasOwnProperty(key)) {
+	                    response.type = 'updated';
+	                    response.success = true;
+
+	                } else if (!stored.hasOwnProperty(key)) {
+	                    response.type = 'added';
+	                    response.success = true;
+	                }
+	                newEntry[key] = value;
+	                Storage.set(type, $.extend(stored, newEntry));
+
+	                response.subject = key;
 	            }
-	            newEntry[key] = value;
-	            Storage.set(type, $.extend(stored, newEntry));
-
-	            response.subject = key;
 	        }
 	        Utils.closeAllOpenLists();
 	        Utils.outputResponse(response, $output);
