@@ -156,7 +156,12 @@ module.exports = {
         Utils.outputResponse(response, $output);
     },
 
-    delete: function (type, key, $output, settingsKey) {
+    delete: function (options) {
+
+        var type = options.type,
+            key = options.key,
+            $output = options.responseOutput,
+            settingsKey = options.settingsKey;
 
         var stored,
             response = {};

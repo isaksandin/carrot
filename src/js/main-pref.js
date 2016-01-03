@@ -56,7 +56,11 @@ $('#add-shortcut').on('click', function () {
 // DELETE SHORTCUT
 $('#delete-shortcut').on('click', function () {
 
-    PrefFuncs.delete(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-key-input').val(), $('#delete-shortcut-pane .response-output'));
+    PrefFuncs.delete({
+        type: SysDefaults.storageKeys.shortcuts,
+        key: $('#delete-shortcut-key-input').val(),
+        responseOutput: $('#delete-shortcut-pane .response-output')
+    });
 
     $('#delete-shortcut-key-input').val('');
 });
@@ -94,7 +98,12 @@ $('#add-search-keyword').on('click', function () {
 // DELETE SEARCH KEYWORD
 $('#delete-search-keyword').on('click', function () {
 
-    PrefFuncs.delete(SysDefaults.storageKeys.searchKeywords, $('#delete-search-keywords-key-input').val(), $('#delete-search-keyword-pane .response-output'));
+    PrefFuncs.delete({
+        type: SysDefaults.storageKeys.searchKeywords,
+        key: $('#delete-search-keywords-key-input').val(),
+        responseOutput: $('#delete-search-keyword-pane .response-output')
+    });
+
     $('#delete-search-keywords-key-input').val('');
 });
 
@@ -183,7 +192,7 @@ $('#import-pref').on('click', function () {
 
 // ADD / CHANGE PLUGIN FILE
 $('#add-plugin-file').on('click', function () {
-    
+
     PrefFuncs.add({
         type: Storage.getSettings().pluginFiles,
         value: $('#add-plugin-file-input').val(),
@@ -197,8 +206,14 @@ $('#add-plugin-file').on('click', function () {
 
 // DELETE PLUGIN FILE
 $('#delete-plugin-file').on('click', function () {
-    settings = Storage.getSettings();
-    PrefFuncs.delete(settings.pluginFiles, $('#delete-plugin-file-input').val(), $('#delete-plugin-file-pref-pane .response-output'), 'pluginFiles');
+
+    PrefFuncs.delete({
+        type: Storage.getSettings().pluginFiles,
+        key: $('#delete-plugin-file-input').val(),
+        responseOutput: $('#delete-plugin-file-pref-pane .response-output'),
+        settingsKey: 'pluginFiles'
+    });
+
     $('#delete-plugin-file-input').val('');
 });
 
