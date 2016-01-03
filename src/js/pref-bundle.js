@@ -45,7 +45,13 @@ webpackJsonp([2],[
 
 	// ADD / CHANGE SHORTCUT
 	$('#add-shortcut').on('click', function () {
-	    PrefFuncs.add(SysDefaults.storageKeys.shortcuts, $('#shortcut-key-input').val(), $('#shortcut-value-input').val().split(', '), $('#add-shortcut-pane .response-output'));
+
+	    PrefFuncs.add({
+	        type: SysDefaults.storageKeys.shortcuts,
+	        key: $('#shortcut-key-input').val(),
+	        value: $('#shortcut-value-input').val().split(', '),
+	        responseOutput: $('#add-shortcut-pane .response-output')
+	    });
 
 	    $('#shortcut-key-input').val('');
 	    $('#shortcut-value-input').val('');
@@ -55,6 +61,7 @@ webpackJsonp([2],[
 	$('#delete-shortcut').on('click', function () {
 
 	    PrefFuncs.delete(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-key-input').val(), $('#delete-shortcut-pane .response-output'));
+
 	    $('#delete-shortcut-key-input').val('');
 	});
 
@@ -76,7 +83,13 @@ webpackJsonp([2],[
 
 	// ADD / CHANGE SEARCH KEYWORD
 	$('#add-search-keyword').on('click', function () {
-	    PrefFuncs.add(SysDefaults.storageKeys.searchKeywords, $('#add-search-keyword-key-input').val(), $('#add-search-keyword-value-input').val(), $('#add-search-keyword-pane .response-output'));
+
+	    PrefFuncs.add({
+	        type: SysDefaults.storageKeys.searchKeywords,
+	        key: $('#add-search-keyword-key-input').val(),
+	        value: $('#add-search-keyword-value-input').val(),
+	        responseOutput: $('#add-search-keyword-pane .response-output')
+	    });
 
 	    $('#add-search-keyword-key-input').val('');
 	    $('#add-search-keyword-value-input').val('');
@@ -187,9 +200,14 @@ webpackJsonp([2],[
 	    Storage.set(SysDefaults.storageKeys.settings, newSettings);
 
 	    // NEEDS ERROR AND STATUS OUTPUTTING*/
+	    
+	    PrefFuncs.add({
+	        type: Storage.getSettings().pluginFiles,
+	        value: $('#add-plugin-file-input').val(),
+	        responseOutput: $('#add-plugin-file-pref-pane .response-output'),
+	        settingsKey: 'pluginFiles'
+	    });
 
-	    settings = Storage.getSettings();
-	    PrefFuncs.add(settings.pluginFiles, null, $('#add-plugin-file-input').val(), $('#add-plugin-file-pref-pane .response-output'), 'pluginFiles');
 	    $('#add-plugin-file-input').val('');
 
 	});
@@ -443,8 +461,14 @@ webpackJsonp([2],[
 
 	module.exports = {
 
-	    add: function (type, key, value, $output, settingsKey) {
+	    //add: function (type, key, value, $output, settingsKey) {
+	    add: function (options) {
 
+	        var type = options.type,
+	            key = options.key,
+	            value = options.value,
+	            $output = options.responseOutput,
+	            settingsKey = options.settingsKey;
 
 	        var newEntry = {},
 	            response = {},

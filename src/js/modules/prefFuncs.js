@@ -91,8 +91,13 @@ var Utils = {
 
 module.exports = {
 
-    add: function (type, key, value, $output, settingsKey) {
+    add: function (options) {
 
+        var type = options.type,
+            key = options.key,
+            value = options.value,
+            $output = options.responseOutput,
+            settingsKey = options.settingsKey;
 
         var newEntry = {},
             response = {},
