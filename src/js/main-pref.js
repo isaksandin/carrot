@@ -128,8 +128,10 @@ $('#change-placeholder-input').val(settings.placeholder);
 // CHANGE PLACEHOLDER TEXT
 $('#change-placeholder').on('click', function () {
 
-    PrefFuncs.changePlaceholder(settings, $('#change-placeholder-input').val(), $('#placeholder-pane .response-output'));
-
+    PrefFuncs.changePlaceholder({
+        value: $('#change-placeholder-input').val(),
+        responseOutput: $('#placeholder-pane .response-output')
+    });
 });
 
 /* -- EXPORT / IMPORT PREFERENCES -- */

@@ -132,8 +132,10 @@ webpackJsonp([2],[
 	// CHANGE PLACEHOLDER TEXT
 	$('#change-placeholder').on('click', function () {
 
-	    PrefFuncs.changePlaceholder(settings, $('#change-placeholder-input').val(), $('#placeholder-pane .response-output'));
-
+	    PrefFuncs.changePlaceholder({
+	        value: $('#change-placeholder-input').val(),
+	        responseOutput: $('#placeholder-pane .response-output')
+	    });
 	});
 
 	/* -- EXPORT / IMPORT PREFERENCES -- */
@@ -690,7 +692,12 @@ webpackJsonp([2],[
 	        }
 	    },
 
-	    changePlaceholder: function (settings, placeholder, $output) {
+	    changePlaceholder: function (options) {
+
+	        var placeholder = options.value,
+	            $output = options.responseOutput;
+
+	        var settings = Storage.getSettings();
 
 	        var response = {};
 

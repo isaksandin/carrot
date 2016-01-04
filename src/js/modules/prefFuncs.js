@@ -317,7 +317,12 @@ module.exports = {
         }
     },
 
-    changePlaceholder: function (settings, placeholder, $output) {
+    changePlaceholder: function (options) {
+
+        var placeholder = options.value,
+            $output = options.responseOutput;
+
+        var settings = Storage.getSettings();
 
         var response = {};
 
