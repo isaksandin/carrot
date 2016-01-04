@@ -67,7 +67,10 @@ $('#delete-shortcut').on('click', function () {
 
 // DELETE ALL SHORTCUTS
 $('#delete-all-shortcuts').on('click', function () {
-    PrefFuncs.deleteAll(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-pane .response-output'));
+    PrefFuncs.deleteAll({
+        type: SysDefaults.storageKeys.shortcuts,
+        responseOutput: $('#delete-shortcut-pane .response-output')
+    });
 });
 
 // SHOW STORED SHORTCUTS
@@ -109,7 +112,11 @@ $('#delete-search-keyword').on('click', function () {
 
 // DELETE ALL SEARCH KEYWORD
 $('#delete-all-search-keywords').on('click', function () {
-    PrefFuncs.deleteAll(SysDefaults.storageKeys.searchKeywords, $('#delete-search-keyword-pane .response-output'));
+
+    PrefFuncs.deleteAll({
+        type: SysDefaults.storageKeys.searchKeywords,
+        responseOutput: $('#delete-search-keyword-pane .response-output')
+    });
 });
 
 // SHOW STORED SEARCH KEYWORD

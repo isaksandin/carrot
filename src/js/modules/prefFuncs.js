@@ -211,7 +211,10 @@ module.exports = {
         Utils.outputResponse(response, $output);
     },
 
-    deleteAll: function (type, $output) {
+    deleteAll: function (options) {
+
+        var type = options.type,
+            $output = options.responseOutput;
 
         Utils.warn(type, function () {
 

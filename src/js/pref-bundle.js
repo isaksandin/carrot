@@ -71,7 +71,10 @@ webpackJsonp([2],[
 
 	// DELETE ALL SHORTCUTS
 	$('#delete-all-shortcuts').on('click', function () {
-	    PrefFuncs.deleteAll(SysDefaults.storageKeys.shortcuts, $('#delete-shortcut-pane .response-output'));
+	    PrefFuncs.deleteAll({
+	        type: SysDefaults.storageKeys.shortcuts,
+	        responseOutput: $('#delete-shortcut-pane .response-output')
+	    });
 	});
 
 	// SHOW STORED SHORTCUTS
@@ -113,7 +116,11 @@ webpackJsonp([2],[
 
 	// DELETE ALL SEARCH KEYWORD
 	$('#delete-all-search-keywords').on('click', function () {
-	    PrefFuncs.deleteAll(SysDefaults.storageKeys.searchKeywords, $('#delete-search-keyword-pane .response-output'));
+
+	    PrefFuncs.deleteAll({
+	        type: SysDefaults.storageKeys.searchKeywords,
+	        responseOutput: $('#delete-search-keyword-pane .response-output')
+	    });
 	});
 
 	// SHOW STORED SEARCH KEYWORD
@@ -586,7 +593,10 @@ webpackJsonp([2],[
 	        Utils.outputResponse(response, $output);
 	    },
 
-	    deleteAll: function (type, $output) {
+	    deleteAll: function (options) {
+
+	        var type = options.type,
+	            $output = options.responseOutput;
 
 	        Utils.warn(type, function () {
 
