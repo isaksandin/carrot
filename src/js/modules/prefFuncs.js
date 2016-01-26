@@ -235,7 +235,7 @@ module.exports = {
 
     showStoredShortcuts: function ($el) {
 
-        var shortcutsObj = Storage.get(SysDefaults.storageKeys.shortcuts),
+        var shortcutsObj = Storage.getShortcuts(),
             $outputList = $el.parent().siblings('ul'),
             counter = 0,
             propertyNames = Object.getOwnPropertyNames(shortcutsObj),
