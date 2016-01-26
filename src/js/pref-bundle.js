@@ -610,7 +610,7 @@ webpackJsonp([2],[
 
 	    showStoredShortcuts: function ($el) {
 
-	        var shortcutsObj = Storage.get(SysDefaults.storageKeys.shortcuts),
+	        var shortcutsObj = Storage.getShortcuts(),
 	            $outputList = $el.parent().siblings('ul'),
 	            counter = 0,
 	            propertyNames = Object.getOwnPropertyNames(shortcutsObj),
@@ -634,7 +634,7 @@ webpackJsonp([2],[
 	            $el.data('is-showing', true);
 
 	        } else if ($el.data('is-showing') === true) {
-	            $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+	            $el.text(Text.buttons.SHOW_SHORTCUTS);
 	            $outputList.html('');
 	            $el.data('is-showing', false);
 	        }
@@ -665,7 +665,7 @@ webpackJsonp([2],[
 	            $el.data('is-showing', true);
 
 	        } else if ($el.data('is-showing') === true) {
-	            $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+	            $el.text(Text.buttons.SHOW_SEARCH_KEYWORD);
 	            $outputList.html('');
 	            $el.data('is-showing', false);
 	        }
@@ -686,7 +686,7 @@ webpackJsonp([2],[
 	            $el.data('is-showing', true);
 
 	        } else if ($el.data('is-showing') === true) {
-	            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
+	            $el.text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
 	            $outputList.html('');
 	            $el.data('is-showing', false);
 	        }

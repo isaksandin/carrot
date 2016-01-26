@@ -259,7 +259,7 @@ module.exports = {
             $el.data('is-showing', true);
 
         } else if ($el.data('is-showing') === true) {
-            $('.show-stored-shortcuts').text(Text.buttons.SHOW_SHORTCUTS);
+            $el.text(Text.buttons.SHOW_SHORTCUTS);
             $outputList.html('');
             $el.data('is-showing', false);
         }
@@ -290,7 +290,7 @@ module.exports = {
             $el.data('is-showing', true);
 
         } else if ($el.data('is-showing') === true) {
-            $('.show-stored-search-keywords').text(Text.buttons.SHOW_SEARCH_KEYWORD);
+            $el.text(Text.buttons.SHOW_SEARCH_KEYWORD);
             $outputList.html('');
             $el.data('is-showing', false);
         }
@@ -311,7 +311,7 @@ module.exports = {
             $el.data('is-showing', true);
 
         } else if ($el.data('is-showing') === true) {
-            $('.show-stored-plugin-files').text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
+            $el.text(Text.buttons.SHOW_PLUGIN_FILE_NAMES);
             $outputList.html('');
             $el.data('is-showing', false);
         }
