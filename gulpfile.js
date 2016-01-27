@@ -5,20 +5,12 @@ var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
+var gutil = require("gulp-util");
 
 var del = require('del');
 var browserSync = require('browser-sync');
-var runSequence = require('run-sequence');
 
-//var source = require('vinyl-source-stream');
-//var browserify = require('browserify');
-//var factor = require('factor-bundle');
-//var es = require('event-stream');
-
-var gutil = require("gulp-util");
 var webpack = require('webpack');
-
-
 
 gulp.task('sass', function(){
     return gulp.src('./src/scss/**/*.scss')
@@ -39,24 +31,7 @@ gulp.task('sass', function(){
         }));
 });
 
-//gulp.task('build', function() {
-//
-//    return browserify({
-//        entries: ['./src/js/main.js', './src/js/main-pref.js', './src/js/controller.js']
-//    })
-//    .plugin(factor, {
-//        o: ['./src/js/bundle.js', './src/js/pref-bundle.js', './src/js/controller-bundle.js']
-//    })
-//    .bundle()
-//    .pipe(source('common-bundle.js'))
-//    .pipe(gulp.dest('./src/js/'))
-//    .pipe(browserSync.reload({
-//        stream: true
-//    }));
-//});
-
 gulp.task('build', function(callback) {
-    // run webpack
     var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('./src/js/common-bundle.js');
     webpack({
         entry: {
@@ -94,13 +69,10 @@ gulp.task('browserSync', function() {
     });
 });
 
-
 gulp.task('clean', function(){
     return gulp.src(['./dist/*'], {read:false})
         .pipe(clean());
 });
-
-
 
 gulp.task('move', ['clean'], function(){
     var filesToMove = [
@@ -119,7 +91,6 @@ gulp.task('move', ['clean'], function(){
     gulp.src(filesToMove, { base: './src' })
         .pipe(gulp.dest('./dist'));
 });
-
 
 gulp.task('default', ['browserSync', 'sass'], function () {
     gulp.watch('./src/scss/**/*.scss', ['sass']);
