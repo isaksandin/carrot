@@ -7,7 +7,8 @@ var searchKeywords = Storage.getSearchKeywords();
 
 var settings = Storage.getSettings();
 
-var funcKeywords = window.projcarrot.funcKeywords;
+
+var funcKeywords = Carrot.funcKeywords;
 
 var queryFunctions = function (input) {
 

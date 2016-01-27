@@ -76,7 +76,7 @@
         };
 
 
-    window.projcarrot.addFuncKeyword({
+    Carrot.addFuncKeyword({
             rem: memory.remember,
             recall: memory.recall,
             clear: memory.clear,

@@ -9,7 +9,7 @@ var settings = Storage.getSettings();
 var lang = settings.language;
 var pluginFiles = settings.pluginFiles;
 
-window.projcarrot = {
+window.Carrot = {
     funcKeywords: {},
     addFuncKeyword: function (funcKeyword) {
         this.funcKeywords = $.extend(this.funcKeywords, funcKeyword);

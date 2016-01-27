@@ -71,7 +71,8 @@ webpackJsonp([0],[
 
 	var settings = Storage.getSettings();
 
-	var funcKeywords = window.projcarrot.funcKeywords;
+
+	var funcKeywords = Carrot.funcKeywords;
 
 	var queryFunctions = function (input) {
 
