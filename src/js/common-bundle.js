@@ -9379,7 +9379,7 @@
 	var storageKeyPrefix = '';
 	module.exports = {
 
-	        appName: 'project-carrot',
+	        appName: 'Carrot',
 
 	        searchKeywords: {
 	            google: 'https://www.google.com/search?q={{query}}',
@@ -9393,7 +9393,7 @@
 	            language: 'en',
 	            searchEngine: 'Google',
 	            placeholder: 'What can I do for you?',
-	            pluginFiles: ['default'],
+	            pluginFiles: ['memory', 'translate', 'rng'],
 	            color: '#fa7328'
 	        },
 
