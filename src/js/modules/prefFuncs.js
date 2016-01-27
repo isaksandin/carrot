@@ -1,4 +1,3 @@
-/*global require*/
 var $ = require('jquery');
 var Storage = require('./storage.js');
 var SysDefaults = require('./sysDefaults.js');

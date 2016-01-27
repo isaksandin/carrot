@@ -1,4 +1,3 @@
-/*global require*/
 var $ = require('jquery');
 var Storage = require('./modules/storage.js');
 var queryFunctions = require('./modules/queryFuncs.js');

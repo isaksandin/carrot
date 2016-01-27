@@ -1,6 +1,4 @@
-/*global require*/
 var $ = require('jquery');
-
 
 function show(str) {
     $('#input').val(str).select();

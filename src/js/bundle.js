@@ -2,7 +2,6 @@ webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 	var queryFunctions = __webpack_require__(4);
@@ -63,7 +62,6 @@ webpackJsonp([0],[
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 

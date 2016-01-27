@@ -2,7 +2,6 @@ webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 	var prefLang = __webpack_require__(5);
@@ -266,7 +265,6 @@ webpackJsonp([2],[
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 	var Text = window.Text;
@@ -380,7 +378,6 @@ webpackJsonp([2],[
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 	var SysDefaults = __webpack_require__(3);

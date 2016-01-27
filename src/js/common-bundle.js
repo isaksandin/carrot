@@ -9312,7 +9312,6 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*global require*/
 	var $ = __webpack_require__(1);
 	var SysDefaults = __webpack_require__(3);
 	var Storage = {
@@ -9371,6 +9370,7 @@
 	};
 
 	module.exports = Storage;
+
 
 /***/ },
 /* 3 */
