@@ -90,8 +90,8 @@ nav{
     }
     input:focus{
         outline: none;
-        height: 36px;
-        border: 3px solid $primary-color;
+        height: 40px;
+        border: 1px solid $lighter-almost-black;
     }
     textarea{
         width: 90%;
@@ -109,7 +109,7 @@ nav{
     textarea:focus{
         outline: none;
         height: 141px;
-        border: 3px solid $primary-color;
+        border: 1px solid $lighter-almost-black;
     }
 }
 .double-wrappers{
@@ -257,7 +257,7 @@ p.error{
 #warn h2{
     color: $almost-black;
 }
-#warn .main-button{
+#warn button{
     display: inline-block;
     margin: 30px 20px 0;
     font-weight: 600;
@@ -279,4 +279,8 @@ p.error{
     opacity: 0;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
+}
+
+#general_pane .response-output{
+    margin-top: -100px;
 }

@@ -8,7 +8,7 @@
 <body>
     <div id="wrapper">
 
-        <h1 class="smalltext"></h1>
+        <h1 class="smalltext" data-primary-color="color"></h1>
 
         <hr>
 
@@ -36,6 +36,7 @@
         <div id="general-pane" class="pane">
             <h2 class="smalltext"></h2>
             <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
             <div class="input-wrapper double-wrappers">
                 <p class="smalltext"></p>
                 <select id="default-search-engine" value="Google">
@@ -51,6 +52,12 @@
                     <option value="en">English</option>
                     <option value="sv">Svenska</option>
                 </select>
+            </div>
+
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input type="text" id="primary-color-input">
+                <button class="main-button" id="change-primary-color"></button>
             </div>
 
 
@@ -209,7 +216,11 @@
 
 
     </div>
-    <div id="warn"></div>
+    <div id="warn">
+        <h2 class="smalltext"></h2>
+        <button id="warn-yes"></button>
+        <button class="main-button" id="warn-cancel"></button>
+    </div>
     <a href="index.html"><img id="back-to-search" style="left: auto;" src="images/magnifying-glass.svg" alt="search"></a>
     <a href="help.html" id="help"><img id="help-icon" src="images/help.svg" alt="help"></a>
 

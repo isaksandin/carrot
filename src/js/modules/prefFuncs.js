@@ -7,9 +7,13 @@ var Text = window.Text;
 var Utils = {
     warn: function (type, callback) {
         var typeStr = type === SysDefaults.storageKeys.shortcuts ? Text.add_shortcut_pane.SHORTCUTS : type === SysDefaults.storageKeys.searchKeywords ? Text.add_search_keyword_pane.SEARCH_KEYWORDS : type,
-            popup = '<h2 class="smalltext">' + Text.WARN.ARE_YOU_SURE_DELETE + typeStr + '?</h2><button class="main-button" id="warn-yes">' + Text.WARN.SURE + '</button><button class="main-button" id="warn-cancel">' + Text.WARN.CANCEL + '</button>';
+            popup = '';
 
-        $('#warn').html(popup).css({
+        $('#warn h2').html(Text.WARN.ARE_YOU_SURE_DELETE + typeStr + '?');
+        $('#warn #warn-yes').html(Text.WARN.SURE);
+        $('#warn #warn-cancel').html(Text.WARN.CANCEL);
+
+        $('#warn').css({
             display: 'block',
         });
 
@@ -59,6 +63,8 @@ var Utils = {
                 message = ' \'' + response.subject + '\' ' + Text.ERROR.NONEXISTANT;
             } else if (response.type === 'emptyImport') {
                 message = Text.ERROR.ENTER_IMPORTED_CODE;
+            } else if (response.type === 'notHex') {
+                message = Text.ERROR.HEX_COLOR_CODE;
             }
 
             $output.html('<p class="error smalltext">' + message + '</p>');
@@ -344,5 +350,43 @@ module.exports = {
         Utils.outputResponse(response, $output);
 
     },
+
+    changePrimaryColor: function (options) {
+        var desiredColor = options.value,
+            $output = options.responseOutput;
+
+        var settings = Storage.getSettings();
+
+        var response = {};
+
+        var isHexFormat = /^#(?:[0-9a-f]{3}){1,2}$/i.test(desiredColor);
+
+        if (desiredColor === '') {
+            response.type = 'empty';
+            response.success = false;
+
+        } else if (isHexFormat) {
+            settings.color = desiredColor;
+
+            Storage.set(SysDefaults.storageKeys.settings, settings);
+
+            window.location.reload();
+
+        } else if (desiredColor === 'default') {
+            settings.color = SysDefaults.settings.color;
+
+            Storage.set(SysDefaults.storageKeys.settings, settings);
+
+            window.location.reload();
+
+        } else {
+            response.type = 'notHex';
+            response.success = false;
+        }
+
+        Utils.outputResponse(response, $output);
+
+    },
+
     utils: Utils
 };

@@ -105,7 +105,7 @@
   font-family: "Raleway";
   font-weight: 800;
   text-align: center;
-  color: #fa7328;
+  color: #fff;
   -webkit-transition: color 0.5s, opacity 0.3s, border 0.3s;
   transition: color 0.5s, opacity 0.3s, border 0.3s;
   -webkit-transition-delay: -.1s;
@@ -135,7 +135,7 @@ button:hover {
 
 .main-button {
   color: #fff;
-  background: #fa7328; }
+  background: #fff; }
 
 .main-button:hover {
   background: #e65809; }
@@ -228,8 +228,8 @@ nav {
     color: #3d3d3d; }
   .input-wrapper input:focus {
     outline: none;
-    height: 36px;
-    border: 3px solid #fa7328; }
+    height: 40px;
+    border: 1px solid #636363; }
   .input-wrapper textarea {
     width: 90%;
     height: 145px;
@@ -245,7 +245,7 @@ nav {
   .input-wrapper textarea:focus {
     outline: none;
     height: 141px;
-    border: 3px solid #fa7328; }
+    border: 1px solid #636363; }
 
 .double-wrappers {
   display: inline-block;
@@ -380,7 +380,7 @@ p.error {
 #warn h2 {
   color: #3d3d3d; }
 
-#warn .main-button {
+#warn button {
   display: inline-block;
   margin: 30px 20px 0;
   font-weight: 600; }
@@ -401,3 +401,6 @@ p.error {
   opacity: 0;
   -webkit-transition: opacity .3s;
   transition: opacity .3s; }
+
+#general_pane .response-output {
+  margin-top: -100px; }

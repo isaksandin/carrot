@@ -24,6 +24,8 @@ module.exports = {
             $('#general-pane h3').text(Text.general_pane.DESCRIPTION);
             $('#general-pane div:nth-of-type(1) p').text(Text.general_pane.DEFAULT_SEARCH_ENGINE);
             $('#general-pane div:nth-of-type(2) p').text(Text.general_pane.LANGUAGE);
+            $('#general-pane div:nth-of-type(3) p').text(Text.general_pane.CHANGE_PRIMARY_COLOR);
+            $('#change-primary-color').text(Text.buttons.CHANGE);
         },
         add_shortcut_pane = function () {
             $('#add-shortcut-pane h2').text(Text.add_shortcut_pane.TITLE);

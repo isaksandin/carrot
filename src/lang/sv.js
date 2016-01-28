@@ -6,7 +6,8 @@ window.Text = {
         'TITLE': 'Allmänna inställningar',
         'DESCRIPTION': '',
         'DEFAULT_SEARCH_ENGINE': 'Standardsökmotor',
-        'LANGUAGE': 'Språk:'
+        'LANGUAGE': 'Språk:',
+        'CHANGE_PRIMARY_COLOR': 'Ändra primärfärg:'
     },
 
     titles: {
@@ -96,7 +97,8 @@ window.Text = {
         NO_INTERNET_CONNECTION: 'Ingen internetåtkomst',
         FILL_IN_FIELD: ' Fyll i fältet',
         NONEXISTANT: 'exisisterar inte',
-        ENTER_IMPORTED_CODE: 'Lägg in en exporterad kod för importera inställningar'
+        ENTER_IMPORTED_CODE: 'Lägg in en exporterad kod för importera inställningar',
+        HEX_COLOR_CODE: 'Skriv in en giltig hex färgkod'
     },
 
     UTILITY: {

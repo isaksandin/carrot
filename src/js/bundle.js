@@ -6,6 +6,9 @@ webpackJsonp([0],[
 	var Storage = __webpack_require__(2);
 	var queryFunctions = __webpack_require__(4);
 
+	var customColor = __webpack_require__(5);
+	customColor.apply();
+
 	var Text = window.Text;
 
 
@@ -168,6 +171,27 @@ webpackJsonp([0],[
 	        };
 	    };
 	module.exports = queryFunctions;
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(1);
+	var Storage = __webpack_require__(2);
+	module.exports = {
+	    apply: function () {
+	        var primaryColor = Storage.getSettings().color;
+	        var values;
+
+	        $('[data-primary-color]').each(function () {
+	            values = $(this).attr('data-primary-color').split(' ');
+	            for (var i = 0; i < values.length; i += 1) {
+	                $(this).css(values[i], primaryColor);
+	            }
+	        });
+	    }
+	};
 
 
 /***/ }
