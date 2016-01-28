@@ -5,6 +5,11 @@ var SysDefaults = require('./modules/sysDefaults.js');
 var PrefFuncs = require('./modules/prefFuncs.js');
 var Utils = PrefFuncs.utils;
 
+var customColor = require('./modules/customColor.js');
+$('.input-wrapper p').attr('data-primary-color', 'color');
+$('.main-button').attr('data-primary-color', 'background');
+customColor.apply();
+
 var Text = window.Text;
 
 prefLang.fillInText();
@@ -33,6 +38,17 @@ $('#language').change(function () {
     settings.language = choice;
     Storage.set(SysDefaults.storageKeys.settings, settings);
     window.location.reload();
+});
+
+// ADDS CURRENT PRIMARY COLOR AS VAL
+$('#primary-color-input').val(settings.color);
+
+// CHANGE PRIMARY COLOR
+$('#change-primary-color').on('click', function () {
+    PrefFuncs.changePrimaryColor({
+        value: $('#primary-color-input').val(),
+        responseOutput: $('#general-pane .response-output')
+    });
 });
 
 

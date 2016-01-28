@@ -14,10 +14,10 @@ button:hover{
 
 .main-button{
     color: #fff;
-    background: $primary-color; 
+    background: $primary-color;
 }
 .main-button:hover{
-    background: $primary-color-dark; 
+    background: $primary-color-dark;
 }
 .main-button:active{
     background: $primary-color-darker;
@@ -37,4 +37,7 @@ button:hover{
 #delete-all{
     margin-top: 50px;
     width: 160px;
+}
+#warn-yes {
+
 }

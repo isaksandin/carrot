@@ -6,7 +6,8 @@ window.Text = {
         'TITLE': 'General settings',
         'DESCRIPTION': '',
         'DEFAULT_SEARCH_ENGINE': 'Default search engine',
-        'LANGUAGE': 'Language:'
+        'LANGUAGE': 'Language:',
+        'CHANGE_PRIMARY_COLOR': 'Change primary color:'
     },
 
     titles: {
@@ -96,7 +97,8 @@ window.Text = {
         NO_INTERNET_CONNECTION: 'No internet connection',
         FILL_IN_FIELD: ' Fill in the field',
         NONEXISTANT: 'does not exist',
-        ENTER_IMPORTED_CODE: 'Enter exported code to import settings'
+        ENTER_IMPORTED_CODE: 'Enter exported code to import settings',
+        HEX_COLOR_CODE: 'Enter a valid hex color code'
     },
 
     UTILITY: {

@@ -2,6 +2,9 @@ var $ = require('jquery');
 var Storage = require('./modules/storage.js');
 var queryFunctions = require('./modules/queryFuncs.js');
 
+var customColor = require('./modules/customColor.js');
+customColor.apply();
+
 var Text = window.Text;
 
 

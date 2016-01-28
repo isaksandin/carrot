@@ -13,11 +13,11 @@
     font-size: 3.5em;
     color: $placeholder-color;
     text-align: center;
-    border: 1px solid $primary-color; /*COLORED UNTIL SCRIPTS ARE ADDED*/
+    border: 1px solid $primary-color;
     border-radius: 5px;
-    transition: height .3s, border .3s, color .3s;
+    transition: height .3s, color .3s;
     background: #fff;
-    
+
     opacity: 0;
 }
 #input:focus{
