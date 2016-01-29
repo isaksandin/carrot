@@ -6,21 +6,19 @@ button{
     font-size: 1em;
     border: none;
     border-radius: 10px;
-    transition: background .2s;
+    transition: background .2s, transform .1s;
 }
 button:hover{
     cursor: pointer;
+    font-smoothing: antialiased;
+    backface-visibility: hidden;
+    transform: scale(1.12);
 }
 
 .main-button{
+    margin-bottom: 5px;
     color: #fff;
-    background: $primary-color;
-}
-.main-button:hover{
-    background: $primary-color-dark;
-}
-.main-button:active{
-    background: $primary-color-darker;
+    border: 1px solid #fff;
 }
 
 .show-stored{
@@ -31,13 +29,12 @@ button:hover{
 .show-stored:hover{
     background: $grey-color;
 }
+
 .delete-all{
     margin-top: 50px;
 }
+
 #delete-all{
     margin-top: 50px;
     width: 160px;
-}
-#warn-yes {
-
 }
