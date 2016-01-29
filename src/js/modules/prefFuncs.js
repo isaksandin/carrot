@@ -13,21 +13,18 @@ var Utils = {
         $('#warn #warn-yes').html(Text.WARN.SURE);
         $('#warn #warn-cancel').html(Text.WARN.CANCEL);
 
-        $('#warn').css({
-            display: 'block',
-        });
+        $('#overlay').fadeIn(100);
+        $('#warn').fadeIn(500);
 
         $('#warn-cancel').on('click', function () {
-            $('#warn').css({
-                display: 'none'
-            });
+            $('#warn').fadeOut(100);
+            $('#overlay').fadeOut(500);
             return false;
         });
 
         $('#warn-yes').on('click', function () {
-            $('#warn').css({
-                display: 'none'
-            });
+            $('#warn').fadeOut(100);
+            $('#overlay').fadeOut(500);
             callback();
         });
     },

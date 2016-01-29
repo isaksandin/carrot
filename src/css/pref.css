@@ -148,7 +148,7 @@ button:hover {
 .show-stored {
   color: #3d3d3d;
   font-size: 1em;
-  background: #eee; }
+  background: #dedede; }
 
 .show-stored:hover {
   background: #c9c9c9; }
@@ -362,25 +362,34 @@ p.error {
 #clear-localStorage:active {
   background: #3d3d3d; }
 
+#overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  opacity: .9;
+  display: none; }
+
 #warn {
   position: fixed;
   display: none;
-  width: 40%;
+  width: 500px;
   padding: 50px;
-  border-radius: 10px;
-  border: 1px solid #393939;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
   box-sizing: border-box;
   background: #fff;
   top: calc(50% - 150px);
-  left: calc(50% - 20%);
-  font-size: 1em;
-  text-align: center;
-  /*-webkit-box-shadow: 0px 0px 60px 0px #c9c9c9;
-    -moz-box-shadow: 0px 0px 60px 0px #c9c9c9;
-    box-shadow: 0px 0px 60px 0px #c9c9c9;*/ }
+  left: calc(50% - 250px);
+  text-align: center; }
 
 #warn h2 {
-  color: #3d3d3d; }
+  color: #3d3d3d;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 600; }
 
 #warn button {
   display: inline-block;
@@ -392,7 +401,7 @@ p.error {
   color: #3d3d3d; }
 
 #warn #warn-yes:hover {
-  background: #eee; }
+  background: #dedede; }
 
 .response-output {
   width: 500px;
