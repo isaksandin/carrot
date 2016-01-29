@@ -15,7 +15,7 @@
     transition: transform 1s;
 }
 #cog-icon:hover{
-    animation: rotateCog 2s infinite linear; 
+    animation: rotateCog 2s infinite linear;
 }
 
 #help-icon{
@@ -25,7 +25,7 @@
     left: 60px;
     left: 60px;
     transition: transform 1s;
-    
+
     display: none; /*TEMPORARY UNTIL PROPER HELP PAGE EXISTS*/
 }
 #help-icon:hover{
@@ -46,7 +46,7 @@
 .smalltext{
     position: relative;
     margin: 0 auto 0;
-    width: 70%;
+    width: 60%;
     font-family: $main-font;
     font-weight: 800;
     text-align: center;

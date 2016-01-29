@@ -18,7 +18,7 @@ nav{
 
         li{
             list-style: none;
-            text-align: left;
+            text-align: center;
             margin: 20px 0 20px 0;
             font-family: $main-font;
             font-size: 1.1em;
@@ -48,7 +48,7 @@ nav{
     padding-top: 45px;
 
     h2{
-        font-size: 1em;
+        font-size: 1.4em;
         color: $almost-black;
     }
     h3{
@@ -281,6 +281,7 @@ p.error{
     transition: opacity .3s;
 }
 
-#general_pane .response-output{
-    margin-top: -100px;
+.smallDouble{
+    margin: 0 auto;
+    width: 70%;
 }

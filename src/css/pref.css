@@ -101,7 +101,7 @@
 .smalltext {
   position: relative;
   margin: 0 auto 0;
-  width: 70%;
+  width: 60%;
   font-family: "Raleway";
   font-weight: 800;
   text-align: center;
@@ -151,7 +151,7 @@ button:hover {
   background: #eee; }
 
 .show-stored:hover {
-  background: #dadada; }
+  background: #c9c9c9; }
 
 .delete-all {
   margin-top: 50px; }
@@ -174,7 +174,7 @@ nav {
     vertical-align: top; }
     nav ul li {
       list-style: none;
-      text-align: left;
+      text-align: center;
       margin: 20px 0 20px 0;
       font-family: "Raleway";
       font-size: 1.1em; }
@@ -195,11 +195,11 @@ nav {
   margin-top: 15px;
   padding-top: 45px; }
   .pane h2 {
-    font-size: 1em;
+    font-size: 1.4em;
     color: #3d3d3d; }
   .pane h3 {
     font-size: .8em;
-    color: #dadada;
+    color: #c9c9c9;
     margin-top: 10px; }
 
 .pane:before {
@@ -221,7 +221,7 @@ nav {
     height: 40px;
     display: block;
     margin: 10px auto 0;
-    border: 1px solid #dadada;
+    border: 1px solid #c9c9c9;
     border-radius: 5px;
     font-family: "Raleway";
     font-size: 1.3em;
@@ -237,7 +237,7 @@ nav {
     height: 145px;
     display: block;
     margin: 10px auto 0;
-    border: 1px solid #dadada;
+    border: 1px solid #c9c9c9;
     border-radius: 5px;
     font-family: "Raleway";
     font-size: 1.1em;
@@ -388,7 +388,7 @@ p.error {
   font-weight: 600; }
 
 #warn #warn-yes {
-  background: #dadada;
+  background: #c9c9c9;
   color: #3d3d3d; }
 
 #warn #warn-yes:hover {
@@ -404,5 +404,6 @@ p.error {
   -webkit-transition: opacity .3s;
   transition: opacity .3s; }
 
-#general_pane .response-output {
-  margin-top: -100px; }
+.smallDouble {
+  margin: 0 auto;
+  width: 70%; }
