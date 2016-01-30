@@ -729,7 +729,7 @@ webpackJsonp([2],[
 	            $el.text(Text.buttons.HIDE_PLUGIN_FILE_NAMES);
 
 	            for (i = 0; i < stored.length; i += 1) {
-	                $outputList.append('<li><h2>' + stored[i] + '</h2></li><br>');
+	                $outputList.append('<li style="text-align: center"><h2>' + stored[i] + '</h2></li><br>');
 	            }
 
 	            $el.data('is-showing', true);

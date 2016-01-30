@@ -1,0 +1,47 @@
+#overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    opacity: .9;
+
+    display: none;
+}
+
+#warn{
+    width: 500px;
+    padding: 50px;
+    position: fixed;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -70%);
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid $grey-color;
+    box-sizing: border-box;
+    background: #fff;
+    display: none;
+
+    h2{
+        color: $almost-black;
+        width: 100%;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    button{
+        display: inline-block;
+        margin: 30px 20px 0;
+        font-weight: 600;
+    }
+
+    #warn-yes{
+        background: $grey-color;
+        color: $almost-black;
+    }
+    #warn-yes:hover{
+        background: $lighter-grey-color;
+    }
+}

@@ -130,13 +130,11 @@ button {
   -webkit-transition: background .2s, -webkit-transform .1s;
   transition: background .2s, -webkit-transform .1s;
   transition: background .2s, transform .1s;
-  transition: background .2s, transform .1s, -webkit-transform .1s; }
+  transition: background .2s, transform .1s, -webkit-transform .1s;
+  outline: none; }
 
 button:hover {
   cursor: pointer;
-  font-smoothing: antialiased;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-transform: scale(1.12);
   transform: scale(1.12); }
 
@@ -159,6 +157,45 @@ button:hover {
 #delete-all {
   margin-top: 50px;
   width: 160px; }
+
+#overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  opacity: .9;
+  display: none; }
+
+#warn {
+  width: 500px;
+  padding: 50px;
+  position: fixed;
+  top: calc(50%);
+  left: calc(50%);
+  -webkit-transform: translate(-50%, -70%);
+  transform: translate(-50%, -70%);
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+  box-sizing: border-box;
+  background: #fff;
+  display: none; }
+  #warn h2 {
+    color: #3d3d3d;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 600; }
+  #warn button {
+    display: inline-block;
+    margin: 30px 20px 0;
+    font-weight: 600; }
+  #warn #warn-yes {
+    background: #c9c9c9;
+    color: #3d3d3d; }
+  #warn #warn-yes:hover {
+    background: #dedede; }
 
 h1.smalltext {
   margin-top: 100px; }
@@ -186,22 +223,6 @@ nav {
         color: #717171;
         color: #145893; }
 
-.pane {
-  width: 70%;
-  max-width: 1000px;
-  overflow: auto;
-  margin: 50px auto 0;
-  box-sizing: border-box;
-  margin-top: 15px;
-  padding-top: 45px; }
-  .pane h2 {
-    font-size: 1.4em;
-    color: #3d3d3d; }
-  .pane h3 {
-    font-size: .8em;
-    color: #c9c9c9;
-    margin-top: 10px; }
-
 .pane:before {
   display: block;
   content: " ";
@@ -209,209 +230,129 @@ nav {
   height: 285px;
   visibility: hidden; }
 
-.input-wrapper {
-  width: 50%;
-  margin: 5px 0 30px 0;
-  box-sizing: border-box; }
-  .input-wrapper p {
-    margin: 0 auto 0;
-    box-sizing: border-box; }
-  .input-wrapper input {
-    width: 70%;
-    height: 40px;
-    display: block;
-    margin: 10px auto 0;
-    border: 1px solid #c9c9c9;
-    border-radius: 5px;
-    font-family: "Raleway";
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align: center;
+.pane {
+  width: 70%;
+  max-width: 1000px;
+  overflow: auto;
+  margin: 50px auto 0;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding-top: 45px;
+  overflow: hidden; }
+  .pane h2 {
+    font-size: 1.4em;
     color: #3d3d3d; }
-  .input-wrapper input:focus {
-    outline: none;
-    height: 40px;
-    border: 1px solid #636363; }
-  .input-wrapper textarea {
+  .pane h3 {
+    font-size: .8em;
+    color: #c9c9c9;
+    margin-top: 10px; }
+  .pane textarea {
     width: 90%;
     height: 145px;
-    display: block;
     margin: 10px auto 0;
+    padding: 5px;
+    text-align: center;
+    display: block;
     border: 1px solid #c9c9c9;
     border-radius: 5px;
-    font-family: "Raleway";
+    font-family: sans-serif;
+    font-weight: 100;
     font-size: 1.1em;
+    resize: none;
+    outline: none; }
+  .pane .response-output {
+    width: 500px;
+    height: 30px;
+    display: block;
     text-align: center;
-    padding: 5px;
-    resize: none; }
-  .input-wrapper textarea:focus {
-    outline: none;
-    border: 1px solid #636363; }
-
-.double-wrappers {
-  display: inline-block;
-  float: left;
-  vertical-align: top; }
-
-.single-wrapper {
-  display: block;
-  float: none;
-  margin: 5px auto 0; }
-
-select {
-  width: 50%;
-  display: block;
-  margin: 20px auto; }
-
-.stored-shortcuts-list {
-  clear: both;
-  width: 85%;
-  margin: 50px auto 0;
-  box-sizing: border-box;
-  padding: 0px;
-  word-wrap: break-word; }
-  .stored-shortcuts-list li {
-    width: 100%;
-    list-style: none;
-    font-family: "Raleway";
-    font-weight: normal;
-    font-size: 1em;
-    text-align: left; }
-    .stored-shortcuts-list li h2 {
+    margin: 15px auto 0;
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s; }
+    .pane .response-output p.success {
+      color: #29ce75; }
+    .pane .response-output p.error {
+      color: #e52f2f; }
+  .pane .input-wrapper {
+    width: 50%;
+    margin: 5px 0 30px 0;
+    box-sizing: border-box; }
+    .pane .input-wrapper p {
+      margin: 0 auto 0;
+      box-sizing: border-box; }
+    .pane .input-wrapper input {
+      width: 70%;
+      height: 40px;
+      display: block;
+      margin: 10px auto 0;
+      border: 1px solid #c9c9c9;
+      border-radius: 5px;
+      font-family: "Raleway";
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: center;
+      color: #3d3d3d; }
+    .pane .input-wrapper input:focus {
+      outline: none;
+      height: 40px;
+      border: 1px solid #636363; }
+    .pane .input-wrapper textarea:focus {
+      outline: none;
+      border: 1px solid #636363; }
+    .pane .input-wrapper select {
+      width: 50%;
+      display: block;
+      margin: 20px auto; }
+  .pane .double-wrappers {
+    display: inline-block;
+    float: left;
+    vertical-align: top; }
+  .pane .single-wrapper {
+    display: block;
+    float: none;
+    margin: 5px auto 0; }
+  .pane .stored-list {
+    clear: both;
+    width: 85%;
+    margin: 50px auto 0;
+    box-sizing: border-box;
+    padding: 0px;
+    word-wrap: break-word; }
+    .pane .stored-list li {
+      width: 100%;
+      list-style: none;
+      font-family: sans-serif;
+      font-weight: 100;
       font-size: 1em;
-      font-weight: bold; }
-
-#search-keyword-pane .input-wrapper textarea {
-  height: 70px; }
-
-.stored-search-keywords-list {
-  clear: both;
-  width: 100%;
-  margin: 50px auto 0;
-  box-sizing: border-box;
-  padding: 0px;
-  word-wrap: break-word; }
-
-.stored-search-keywords-list li {
-  width: 100%;
-  list-style: none;
-  font-family: "Raleway";
-  font-weight: normal;
-  font-size: 1em;
-  text-align: left; }
-
-.stored-search-keywords-list li h2 {
-  font-size: 1em;
-  font-weight: bold; }
+      text-align: left; }
+      .pane .stored-list li h2 {
+        font-family: "Raleway";
+        font-size: 1em;
+        font-weight: bold; }
+  .pane .smallDouble {
+    margin: 0 auto;
+    width: 70%; }
 
 #delete-search-keyword-pane .input-wrapper {
   display: block;
   float: none;
   margin: 30px auto 0; }
+  #delete-search-keyword-pane .input-wrapper textarea {
+    height: 70px; }
 
-#change-placeholder-input {
+#general-pane input,
+#placeholder-pane input {
   color: #636363;
   font-weight: 400; }
 
-p.success {
-  color: #29ce75; }
-
-p.error {
-  color: #e52f2f; }
-
-#export-output, #import-pref-input {
+#export-pref-pane textarea,
+#import-pref-pane textarea {
   width: 70%;
-  height: 150px;
-  display: block;
-  margin: 10px auto 10px;
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  font-family: "Raleway";
-  font-size: .8em;
-  text-align: left;
-  padding: 5px; }
-
-.stored-plugin-files-list {
-  clear: both;
-  width: 70%;
-  margin: 50px auto 0;
-  box-sizing: border-box;
-  padding: 0px;
-  word-wrap: break-word; }
-
-.stored-plugin-files-list li {
-  width: 100%;
-  list-style: none;
-  font-family: "Raleway";
-  font-weight: normal;
-  font-size: 1em;
+  font-size: .9em;
   text-align: left; }
-
-.stored-plugin-files-list li h2 {
-  font-size: 1em;
-  font-weight: bold; }
 
 #clear-localStorage-pane {
   margin-top: 400px; }
-
-#clear-localStorage {
-  margin-top: 30px;
-  margin-bottom: 70px; }
-
-#clear-localStorage:active {
-  background: #3d3d3d; }
-
-#overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  opacity: .9;
-  display: none; }
-
-#warn {
-  position: fixed;
-  display: none;
-  width: 500px;
-  padding: 50px;
-  border-radius: 5px;
-  border: 1px solid #c9c9c9;
-  box-sizing: border-box;
-  background: #fff;
-  top: calc(50% - 150px);
-  left: calc(50% - 250px);
-  text-align: center; }
-
-#warn h2 {
-  color: #3d3d3d;
-  width: 100%;
-  font-size: 1.2em;
-  font-weight: 600; }
-
-#warn button {
-  display: inline-block;
-  margin: 30px 20px 0;
-  font-weight: 600; }
-
-#warn #warn-yes {
-  background: #c9c9c9;
-  color: #3d3d3d; }
-
-#warn #warn-yes:hover {
-  background: #dedede; }
-
-.response-output {
-  width: 500px;
-  height: 30px;
-  display: block;
-  text-align: center;
-  margin: 15px auto 0;
-  opacity: 0;
-  -webkit-transition: opacity .3s;
-  transition: opacity .3s; }
-
-.smallDouble {
-  margin: 0 auto;
-  width: 70%; }
+  #clear-localStorage-pane button {
+    margin-top: 30px;
+    margin-bottom: 70px; }

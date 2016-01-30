@@ -82,7 +82,7 @@
                 <p class="smalltext"></p>
                 <textarea id="shortcut-value-input" spellcheck="false"></textarea>
             </div>
-            <ul class="stored-shortcuts-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
 
@@ -99,7 +99,7 @@
                 <button class="main-button delete-all" id="delete-all-shortcuts"></button>
                 <button class="show-stored-shortcuts show-stored" data-is-showing="false"></button>
             </div>
-            <ul class="stored-shortcuts-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
 
@@ -119,7 +119,7 @@
                 <p class="smalltext"></p>
                 <textarea id="add-search-keyword-value-input" spellcheck="false" ></textarea>
             </div>
-            <ul class="stored-search-keywords-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
 
@@ -136,7 +136,7 @@
                 <button class="main-button delete-all" id="delete-all-search-keywords"></button>
                 <button class="show-stored-search-keywords show-stored" data-is-showing="false"></button>
             </div>
-            <ul class="stored-search-keywords-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
 
@@ -165,7 +165,7 @@
                 <button class="main-button" id="add-plugin-file"></button>
                 <button class="show-stored-plugin-files show-stored" data-is-showing="false"></button>
             </div>
-            <ul class="stored-plugin-files-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
         <!-- REMOVE PLUGIN FILE PREFERENCES -->
@@ -180,7 +180,7 @@
                 <button class="main-button" id="delete-plugin-file"></button>
                 <button class="show-stored-plugin-files show-stored" data-is-showing="false"></button>
             </div>
-            <ul class="stored-plugin-files-list"></ul>
+            <ul class="stored-list"></ul>
         </div>
 
 
@@ -212,26 +212,20 @@
             <span class="response-output"></span>
             <button id="clear-localStorage"></button>
         </div>
-
-
-
     </div>
 
     <div id="overlay"></div>
-
     <div id="warn">
         <h2 class="smalltext"></h2>
         <button id="warn-yes"></button>
         <button class="main-button" id="warn-cancel"></button>
     </div>
+
+
     <a href="index.html"><img id="back-to-search" style="left: auto;" src="images/magnifying-glass.svg" alt="search"></a>
     <a href="help.html" id="help"><img id="help-icon" src="images/help.svg" alt="help"></a>
 
-
-
     <script src="js/common-bundle.js"></script>
     <script data-depender="js/pref-bundle" src="js/controller-bundle.js"></script>
-
-
 </body>
 </html>

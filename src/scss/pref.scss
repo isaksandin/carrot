@@ -1,5 +1,6 @@
 @import 'common';
 @import 'buttons';
+@import 'confirmationPopup';
 
 h1.smalltext{
     margin-top: 100px;
@@ -35,9 +36,15 @@ nav{
             }
         }
     }
-
 }
 
+.pane:before{
+    display: block;
+    content: " ";
+    margin-top: -285px;
+    height: 285px;
+    visibility: hidden;
+}
 .pane{
     width: 70%;
     max-width: 1000px;
@@ -46,6 +53,7 @@ nav{
     box-sizing: border-box;
     margin-top: 15px;
     padding-top: 45px;
+    overflow: hidden;
 
     h2{
         font-size: 1.4em;
@@ -56,241 +64,160 @@ nav{
         color: $grey-color;
         margin-top: 10px;
     }
-}
 
-.pane:before{
-    display: block;
-    content: " ";
-    margin-top: -285px;
-    height: 285px;
-    visibility: hidden;
-}
-
-.input-wrapper{
-    width: 50%;
-    margin: 5px 0 30px 0;
-    box-sizing: border-box;
-
-    p{
-        margin: 0 auto 0;
-        box-sizing: border-box;
-    }
-    input{
-        width: 70%;
-        height: 40px;
-        display: block;
-        margin: 10px auto 0;
-        border: 1px solid $grey-color;
-        border-radius: 5px;
-        font-family: $main-font;
-        font-size: 1.3em;
-        font-weight: bold;
-        text-align: center;
-        color: $almost-black;
-    }
-    input:focus{
-        outline: none;
-        height: 40px;
-        border: 1px solid $lighter-almost-black;
-    }
     textarea{
         width: 90%;
         height: 145px;
-        display: block;
         margin: 10px auto 0;
+        padding: 5px;
+        text-align: center;
+        display: block;
         border: 1px solid $grey-color;
         border-radius: 5px;
-        font-family: $main-font;
+        font-family: sans-serif;
+        font-weight: 100;
         font-size: 1.1em;
-        text-align: center;
-        padding: 5px;
         resize: none;
-    }
-    textarea:focus{
         outline: none;
-        border: 1px solid $lighter-almost-black;
     }
-}
-.double-wrappers{
-    display: inline-block;
-    float: left;
-    vertical-align: top;
-}
-.single-wrapper{
-    display: block;
-    float: none;
-    margin: 5px auto 0;
-}
 
-select{
-    width: 50%;
-    display: block;
-    margin: 20px auto;
-}
+    .response-output{
+        width: 500px;
+        height: 30px;
+        display: block;
+        text-align: center;
+        margin: 15px auto 0;
+        opacity: 0;
+        transition: opacity .3s;
 
-.stored-shortcuts-list{
-    clear: both;
-    width: 85%;
-    margin: 50px auto 0;
-    box-sizing: border-box;
-    padding: 0px;
-    word-wrap:break-word;
+        p.success{
+            color: $success-color;
+        }
 
-    li{
-        width: 100%;
-        list-style: none;
-        font-family: $main-font;
-        font-weight: normal;
-        font-size: 1em;
-        text-align: left;
-
-        h2{
-            font-size: 1em;
-            font-weight: bold;
+        p.error{
+            color: $error-color;
         }
     }
 
+    .input-wrapper{
+        width: 50%;
+        margin: 5px 0 30px 0;
+        box-sizing: border-box;
+
+        p{
+            margin: 0 auto 0;
+            box-sizing: border-box;
+        }
+
+        input{
+            width: 70%;
+            height: 40px;
+            display: block;
+            margin: 10px auto 0;
+            border: 1px solid $grey-color;
+            border-radius: 5px;
+            font-family: $main-font;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+            color: $almost-black;
+        }
+        input:focus{
+            outline: none;
+            height: 40px;
+            border: 1px solid $lighter-almost-black;
+        }
+
+        textarea{
+        }
+        textarea:focus{
+            outline: none;
+            border: 1px solid $lighter-almost-black;
+        }
+
+        select{
+            width: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+    }
+
+    .double-wrappers{
+        display: inline-block;
+        float: left;
+        vertical-align: top;
+    }
+
+    .single-wrapper{
+        display: block;
+        float: none;
+        margin: 5px auto 0;
+    }
+
+    .stored-list{
+        clear: both;
+        width: 85%;
+        margin: 50px auto 0;
+        box-sizing: border-box;
+        padding: 0px;
+        word-wrap:break-word;
+
+        li{
+            width: 100%;
+            list-style: none;
+            font-family: sans-serif;
+            font-weight: 100;
+            font-size: 1em;
+            text-align: left;
+
+            h2{
+                font-family: $main-font;
+                font-size: 1em;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .smallDouble{
+        margin: 0 auto;
+        width: 70%;
+    }
 }
 
-#search-keyword-pane .input-wrapper textarea{
-    height: 70px;
+#delete-search-keyword-pane {
+    .input-wrapper{
+        display: block;
+        float: none;
+        margin: 30px auto 0;
+
+        textarea {
+            height: 70px;
+        }
+    }
 }
 
-.stored-search-keywords-list{
-    clear: both;
-    width: 100%;
-    margin: 50px auto 0;
-    box-sizing: border-box;
-    padding: 0px;
-    word-wrap:break-word;
-}
-.stored-search-keywords-list li{
-    width: 100%;
-    list-style: none;
-    font-family: $main-font;
-    font-weight: normal;
-    font-size: 1em;
-    text-align: left;
-}
-.stored-search-keywords-list li h2{
-    font-size: 1em;
-    font-weight: bold;
-}
-#delete-search-keyword-pane .input-wrapper{
-    display: block;
-    float: none;
-    margin: 30px auto 0;
+#general-pane,
+#placeholder-pane{
+    input{
+        color: $lighter-almost-black;
+        font-weight: 400;
+    }
 }
 
-#change-placeholder-input{
-    color: $lighter-almost-black;
-    font-weight: 400;
-}
-p.success{
-    color: $success-color;
-}
-p.error{
-    color: $error-color;
+#export-pref-pane,
+#import-pref-pane{
+    textarea{
+        width: 70%;
+        font-size: .9em;
+        text-align: left;
+    }
 }
 
-#export-output, #import-pref-input{
-    width: 70%;
-    height: 150px;
-    display: block;
-    margin: 10px auto 10px;
-    border: 1px solid #c4c4c4;
-    border-radius: 5px;
-    font-family: $main-font;
-    font-size: .8em;
-    text-align: left;
-    padding: 5px;
-}
-.stored-plugin-files-list{
-    clear: both;
-    width: 70%;
-    margin: 50px auto 0;
-    box-sizing: border-box;
-    padding: 0px;
-    word-wrap:break-word;
-}
-.stored-plugin-files-list li{
-    width: 100%;
-    list-style: none;
-    font-family: $main-font;
-    font-weight: normal;
-    font-size: 1em;
-    text-align: left;
-}
-.stored-plugin-files-list li h2{
-    font-size: 1em;
-    font-weight: bold;
-}
 #clear-localStorage-pane{
     margin-top: 400px;
-}
-#clear-localStorage{
-    margin-top: 30px;
-    margin-bottom: 70px;
-}
-#clear-localStorage:active{
-    background: $almost-black;
-}
 
-#overlay{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #fff;
-    opacity: .9;
-
-    display: none;
-}
-#warn{
-    position: fixed;
-    display: none;
-    width: 500px;
-    padding: 50px;
-    border-radius: 5px;
-    border: 1px solid $grey-color;
-    box-sizing: border-box;
-    background: #fff;
-    top: calc(50% - 150px);
-    left: calc(50% - 250px);
-    text-align: center;
-}
-#warn h2{
-    color: $almost-black;
-    width: 100%;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-#warn button{
-    display: inline-block;
-    margin: 30px 20px 0;
-    font-weight: 600;
-}
-#warn #warn-yes{
-    background: $grey-color;
-    color: $almost-black;
-}
-#warn #warn-yes:hover{
-    background: $lighter-grey-color;
-}
-
-.response-output{
-    width: 500px;
-    height: 30px;
-    display: block;
-    text-align: center;
-    margin: 15px auto 0;
-    opacity: 0;
-    -webkit-transition: opacity .3s;
-    transition: opacity .3s;
-}
-
-.smallDouble{
-    margin: 0 auto;
-    width: 70%;
+    button{
+        margin-top: 30px;
+        margin-bottom: 70px;
+    }
 }

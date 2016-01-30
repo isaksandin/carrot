@@ -7,11 +7,10 @@ button{
     border: none;
     border-radius: 10px;
     transition: background .2s, transform .1s;
+    outline: none;
 }
 button:hover{
     cursor: pointer;
-    font-smoothing: antialiased;
-    backface-visibility: hidden;
     transform: scale(1.12);
 }
 
