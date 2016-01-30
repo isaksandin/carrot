@@ -6,8 +6,7 @@ var Text = window.Text;
 
 var Utils = {
     warn: function (type, callback) {
-        var typeStr = type === SysDefaults.storageKeys.shortcuts ? Text.add_shortcut_pane.SHORTCUTS : type === SysDefaults.storageKeys.searchKeywords ? Text.add_search_keyword_pane.SEARCH_KEYWORDS : type,
-            popup = '';
+        var typeStr = type === SysDefaults.storageKeys.shortcuts ? Text.add_shortcut_pane.SHORTCUTS : type === SysDefaults.storageKeys.searchKeywords ? Text.add_search_keyword_pane.SEARCH_KEYWORDS : type;
 
         $('#warn h2').html(Text.WARN.ARE_YOU_SURE_DELETE + typeStr + '?');
         $('#warn #warn-yes').html(Text.WARN.SURE);
@@ -273,7 +272,7 @@ module.exports = {
 
     showStoredSearchKeywords: function ($el) {
 
-        var searchKeywordsObj = Storage.get(SysDefaults.storageKeys.searchKeywords),
+        var searchKeywordsObj = Storage.getSearchKeywords(),
             $outputList = $el.parent().siblings('ul'),
             counter = 0,
             propertyNames = Object.getOwnPropertyNames(searchKeywordsObj),
