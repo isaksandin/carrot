@@ -127,9 +127,9 @@ webpackJsonp([0],[
 
 	                    } else if (sc.length > 1) {
 	                        for (var i = 1; i < sc.length; i += 1) {
-	                            window.location.href = sc[0];
 	                            window.open(sc[i], '_blank');
 	                        }
+	                        window.location.href = sc[0];
 	                    }
 	                    return true;
 
