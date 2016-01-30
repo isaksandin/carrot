@@ -246,7 +246,6 @@ nav {
     resize: none; }
   .input-wrapper textarea:focus {
     outline: none;
-    height: 141px;
     border: 1px solid #636363; }
 
 .double-wrappers {
