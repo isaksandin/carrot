@@ -105,7 +105,7 @@ module.exports = {
             response = {},
             stored;
 
-        if (key === '') {
+        if (key === '' || value === '') {
             response.type = 'empty';
             response.success = false;
 

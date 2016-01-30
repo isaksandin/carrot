@@ -524,7 +524,7 @@ webpackJsonp([2],[
 	            response = {},
 	            stored;
 
-	        if (key === '') {
+	        if (key === '' || value === '') {
 	            response.type = 'empty';
 	            response.success = false;
 
