@@ -326,9 +326,9 @@ webpackJsonp([2],[
 	        general_pane = function () {
 	            $('#general-pane h2').text(Text.general_pane.TITLE);
 	            $('#general-pane h3').text(Text.general_pane.DESCRIPTION);
-	            $('#general-pane div:nth-of-type(1) p').text(Text.general_pane.DEFAULT_SEARCH_ENGINE);
-	            $('#general-pane div:nth-of-type(2) p').text(Text.general_pane.LANGUAGE);
-	            $('#general-pane div:nth-of-type(3) p').text(Text.general_pane.CHANGE_PRIMARY_COLOR);
+	            $('#general-pane .input-wrapper:nth-of-type(2) p').text(Text.general_pane.CHANGE_PRIMARY_COLOR);
+	            $('#general-pane .smallDouble .input-wrapper:nth-of-type(1) p').text(Text.general_pane.DEFAULT_SEARCH_ENGINE);
+	            $('#general-pane .smallDouble .input-wrapper:nth-of-type(2) p').text(Text.general_pane.LANGUAGE);
 	            $('#change-primary-color').text(Text.buttons.CHANGE);
 	        },
 	        add_shortcut_pane = function () {
