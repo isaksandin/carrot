@@ -5,7 +5,7 @@ window.Text = {
     general_pane: {
         'TITLE': 'Allmänna inställningar',
         'DESCRIPTION': '',
-        'DEFAULT_SEARCH_ENGINE': 'Standardsökmotor',
+        'DEFAULT_SEARCH_ENGINE': 'Standardsökmotor:',
         'LANGUAGE': 'Språk:',
         'CHANGE_PRIMARY_COLOR': 'Ändra primärfärg:'
     },
@@ -39,7 +39,7 @@ window.Text = {
 
     add_search_keyword_pane: {
         'TITLE': 'Lägg till/Ändra söknyckelord',
-        'DESCRIPTION': 'Sök som vanligt på den önskade sidan med \'{{query}}\' och kopiera sedan länken till länkrutan.',
+        'DESCRIPTION': 'Ändra sökordet i en url till \'{{query}}\' och kopiera sedan länken till länkrutan.',
         'SEARCH_KEYWORD': 'Söknyckelord:',
         'SEARCH_KEYWORDS': 'söknyckelord',
         'LINK': 'Länk:'
@@ -48,18 +48,18 @@ window.Text = {
     delete_search_keyword_pane: {
         'TITLE': 'Ta bort söknyckelord',
         'DESCRIPTION': 'Skriv in namnet på det söknyckelord du vill ta bort. \'Ta bort alla\' tar bort samtliga nyckelord förutom systemsöknyckelorden.',
-        'SEARCH_KEYWORD': 'Söknyckelord'
+        'SEARCH_KEYWORD': 'Söknyckelord:'
     },
 
     change_placeholder_text: {
         'TITLE': 'Ändra placeholder-text',
         'DESCRIPTION': 'Ändra texten som syns i sökrutan.',
-        'PLACEHOLDER_TEXT': 'Placeholder-text'
+        'PLACEHOLDER_TEXT': 'Placeholder-text:'
     },
 
     export_settings: {
         'TITLE': 'Exportera inställningar',
-        'DESCRIPTION': 'Tryck på knappen och kopiera den exporterade texten. Den kan användas för att snabbt importera inställningar på en annan installation.'
+        'DESCRIPTION': 'Tryck på knappen och kopiera den exporterade texten. Den kan användas för att snabbt importera inställningar på en annan dator eller webbläsare.'
     },
 
     import_settings: {
@@ -74,7 +74,7 @@ window.Text = {
 
     delete_plugin_file: {
         'TITLE': 'Ta bort plugin-fil',
-        'DESCRIPTION': 'Skriv namnet på plugin-filen du vill ta bort'
+        'DESCRIPTION': 'Skriv namnet på plugin-filen du vill ta bort.'
     },
 
     buttons: {

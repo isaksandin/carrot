@@ -5,7 +5,7 @@ window.Text = {
     general_pane: {
         'TITLE': 'General settings',
         'DESCRIPTION': '',
-        'DEFAULT_SEARCH_ENGINE': 'Default search engine',
+        'DEFAULT_SEARCH_ENGINE': 'Default search engine:',
         'LANGUAGE': 'Language:',
         'CHANGE_PRIMARY_COLOR': 'Change primary color:'
     },
@@ -39,7 +39,7 @@ window.Text = {
 
     add_search_keyword_pane: {
         'TITLE': 'Add / Change search keywords',
-        'DESCRIPTION': 'Search as usual on the wanted website with the \'{{query}}\' and copy the url to the link box.',
+        'DESCRIPTION': 'Change the search word in a url to \'{{query}}\' and copy the url to the link box.',
         'SEARCH_KEYWORD': 'Search keyword:',
         'SEARCH_KEYWORDS': 'search keywords',
         'LINK': 'Link:'
@@ -47,19 +47,19 @@ window.Text = {
 
     delete_search_keyword_pane: {
         'TITLE': 'Delete search keyword',
-        'DESCRIPTION': 'Write the name of the search keyword you want to delete. \'Delete all\' deletes all search keywords, except the built-in ones.',
+        'DESCRIPTION': 'Write the name of the search keyword you want to delete. \'Delete all\' deletes all search keywords, except the default ones.',
         'SEARCH_KEYWORD': 'Search keyword:'
     },
 
     change_placeholder_text: {
         'TITLE': 'Change placeholder-text',
-        'DESCRIPTION': 'Change the text visible in the search box.',
-        'PLACEHOLDER_TEXT': 'Placeholder-text'
+        'DESCRIPTION': 'Change the text in the search box.',
+        'PLACEHOLDER_TEXT': 'Placeholder-text:'
     },
 
     export_settings: {
         'TITLE': 'Export settings',
-        'DESCRIPTION': 'Press the button and copy the exported text. It can then be used to import settings on another installation.'
+        'DESCRIPTION': 'Press the button and copy the exported text. It can then be used to quickly import settings on another computer or web browser.'
     },
 
     import_settings: {
