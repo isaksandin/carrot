@@ -43,6 +43,7 @@
 #back-to-search:hover{
     animation: pulsingSize .3s linear 0s infinite alternate;
 }
+
 .smalltext{
     position: relative;
     margin: 0 auto 0;
@@ -50,7 +51,7 @@
     font-family: $main-font;
     font-weight: 800;
     text-align: center;
-    color: $primary-color;
+    color: #fff;
     transition: color .5s, opacity .3s, border.3s;
     transition-delay: -.1s;
 }

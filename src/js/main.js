@@ -15,12 +15,7 @@ $('#input').keypress(function (e) {
 
         return false;
     }
-}).css({
-    border: '1px solid ' + Storage.getSettings().color,
-    top: $(window).height() - $(window).height() / 1.45,
-    opacity: '1'
 }).attr('placeholder', Storage.getSettings().placeholder);
-
 
 $('#error-output').css({
     top: $(window).height() - $(window).height() / 1.5

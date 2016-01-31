@@ -1,24 +1,24 @@
 @import 'common';
 
 #input{
-    display: block;
-    position: relative;
     width: 60%;
     max-width: 1000px;
-    height: 60%;
     margin: 0px auto;
     padding: 20px 0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    text-align: center;
     font-family: $main-font;
     font-weight: normal;
     font-size: 3.5em;
     color: $placeholder-color;
-    text-align: center;
-    border: 1px solid $primary-color;
+    border: 1px solid #fff;
     border-radius: 5px;
-    transition: height .3s, color .3s;
+    transition: color .3s;
     background: #fff;
-
-    opacity: 0;
 }
 #input:focus{
     outline: none;
@@ -27,7 +27,6 @@
 #input::-webkit-input-placeholder {
    color: $placeholder-color;
 }
-
 
 #week{
     width: 300px;
@@ -42,10 +41,8 @@
     transition: color .5s;
 }
 #week:hover{
-    //color: #a4a4a4;
-    color: $placeholder-color;
+    color: $grey-color;
 }
-
 
 #error-output {
     width: 300px;
@@ -54,8 +51,9 @@
     color: $error-color;
     font-family: $main-font;
     text-align: center;
-}
-#error-output img{
-    width: 17px;
-    vertical-align: top;
+
+    img{
+        width: 17px;
+        vertical-align: top;
+    }
 }

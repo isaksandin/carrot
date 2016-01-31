@@ -120,31 +120,33 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
 
 #input {
-  display: block;
-  position: relative;
   width: 60%;
   max-width: 1000px;
-  height: 60%;
   margin: 0px auto;
   padding: 20px 0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -120%);
+  transform: translate(-50%, -120%);
+  text-align: center;
   font-family: "Raleway";
   font-weight: normal;
   font-size: 3.5em;
-  color: #dadada;
-  text-align: center;
+  color: #eaeaea;
   border: 1px solid #fff;
   border-radius: 5px;
-  -webkit-transition: height .3s, color .3s;
-  transition: height .3s, color .3s;
-  background: #fff;
-  opacity: 0; }
+  -webkit-transition: color .3s;
+  transition: color .3s;
+  background: #fff; }
 
 #input:focus {
   outline: none;
   color: #3d3d3d; }
 
 #input::-webkit-input-placeholder {
-  color: #dadada; }
+  color: #eaeaea; }
 
 #week {
   width: 300px;
@@ -160,7 +162,7 @@ hr {
   transition: color .5s; }
 
 #week:hover {
-  color: #dadada; }
+  color: #c9c9c9; }
 
 #error-output {
   width: 300px;
@@ -169,7 +171,6 @@ hr {
   color: #e52f2f;
   font-family: "Raleway";
   text-align: center; }
-
-#error-output img {
-  width: 17px;
-  vertical-align: top; }
+  #error-output img {
+    width: 17px;
+    vertical-align: top; }
