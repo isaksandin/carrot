@@ -167,7 +167,11 @@ hr {
 #error-output {
   width: 300px;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   color: #e52f2f;
   font-family: "Raleway";
   text-align: center; }

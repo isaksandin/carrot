@@ -11,35 +11,27 @@ webpackJsonp([0],[
 
 	var Text = window.Text;
 
-
 	$('#input').keypress(function (e) {
 	    if (e.keyCode === 13) {
-
 	        queryFunctions($('#input').val()).analyseQuery();
-
-	        return false;
 	    }
 	}).attr('placeholder', Storage.getSettings().placeholder);
 
-	$('#error-output').css({
-	    top: $(window).height() - $(window).height() / 1.5
-	});
 
-	function displayNetworkError() {
-	    $('#error-output').html('<p id="network-error"><img src="images/warningred.svg"> ' + Text.ERROR.NO_INTERNET_CONNECTION + '</p>');
-	}
-	function removeNetworkError() {
-	    $('#error-output').html('');
-	}
-	function checkInternetConn() {
+	var isShowingError = false;
+	window.setInterval(function () {
 	    if (!navigator.onLine) {
-	        displayNetworkError();
+	        if (isShowingError) {
+	            return false;
+	        } else {
+	            $('#network-error').html('<img src="images/warningred.svg"> ' + Text.ERROR.NO_INTERNET_CONNECTION);
+	            isShowingError = true;
+	        }
 	    } else {
-	        removeNetworkError();
+	        $('#network-error').html('');
+	        isShowingError = false;
 	    }
-	}
-
-	checkInternetConn();
+	}, 1000);
 
 
 
