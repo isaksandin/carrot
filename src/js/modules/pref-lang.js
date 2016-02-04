@@ -26,6 +26,7 @@ module.exports = {
             $('#general-pane .smallDouble .input-wrapper:nth-of-type(1) p').text(Text.general_pane.DEFAULT_SEARCH_ENGINE);
             $('#general-pane .smallDouble .input-wrapper:nth-of-type(2) p').text(Text.general_pane.LANGUAGE);
             $('#change-primary-color').text(Text.buttons.CHANGE);
+            $('#checkbox-list p').text(Text.general_pane.OPEN_IN_NEW_TAB);
         },
         add_shortcut_pane = function () {
             $('#add-shortcut-pane h2').text(Text.add_shortcut_pane.TITLE);

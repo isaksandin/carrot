@@ -7,7 +7,8 @@ window.Text = {
         'DESCRIPTION': '',
         'DEFAULT_SEARCH_ENGINE': 'Default search engine:',
         'LANGUAGE': 'Language:',
-        'CHANGE_PRIMARY_COLOR': 'Change primary color:'
+        'CHANGE_PRIMARY_COLOR': 'Change primary color:',
+        'OPEN_IN_NEW_TAB': 'Open in new tab:'
     },
 
     titles: {
@@ -19,8 +20,8 @@ window.Text = {
         'CHANGE_PLACEHOLDER_TEXT': 'Change placeholder text',
         'EXPORT_SETTINGS': 'Export settings',
         'IMPORT_SETTINGS': 'Import settings',
-        'ADD_PLUGIN_FILE': 'Add plugin-file',
-        'DELETE_PLUGIN_FILE': 'Remove plugin-file'
+        'ADD_PLUGIN_FILE': 'Add plugin file',
+        'DELETE_PLUGIN_FILE': 'Remove plugin file'
     },
 
     add_shortcut_pane: {
@@ -43,7 +44,7 @@ window.Text = {
         'DESCRIPTION': 'Change the search word in a url to \'{{query}}\' and copy the url to the link box. Separate multiple links with a comma and a space. E.g. \'http://exemple1.com, http://exemple2.com\'',
         'SEARCH_KEYWORD': 'Search keyword:',
         'SEARCH_KEYWORDS': 'search keywords',
-        'LINK': 'Link:',
+        'LINK': 'Links:',
         'NO_SEARCH_KEYWORDS': 'No search keywords'
     },
 
@@ -70,14 +71,14 @@ window.Text = {
     },
 
     add_plugin_file: {
-        'TITLE': 'Add plugin-file',
-        'DESCRIPTION': 'Write the name of the plugin-file, located in \'js/plugins\', without the \'.js\' suffix.',
+        'TITLE': 'Add plugin file',
+        'DESCRIPTION': 'Write the name of the plugin-file, located in \'js/plugins\', without the \'.js\' extension.',
         'NO_PLUGIN_FILES': 'No plugin files'
     },
 
     delete_plugin_file: {
-        'TITLE': 'Remove plugin-file',
-        'DESCRIPTION': 'Write the name of the plugin-file you want to remove'
+        'TITLE': 'Remove plugin file',
+        'DESCRIPTION': 'Write the name of the plugin file you want to remove'
     },
 
     buttons: {

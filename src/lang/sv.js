@@ -7,7 +7,8 @@ window.Text = {
         'DESCRIPTION': '',
         'DEFAULT_SEARCH_ENGINE': 'Standardsökmotor:',
         'LANGUAGE': 'Språk:',
-        'CHANGE_PRIMARY_COLOR': 'Ändra primärfärg:'
+        'CHANGE_PRIMARY_COLOR': 'Ändra primärfärg:',
+        'OPEN_IN_NEW_TAB': 'Öppna i ny flik:'
     },
 
     titles: {
@@ -43,7 +44,7 @@ window.Text = {
         'DESCRIPTION': 'Ändra sökordet i en url till \'{{query}}\' och kopiera sedan länken till länkrutan. Separera flera länkar med ett kommatecken och mellanslag. Ex. \'http://exemple1.com, http://exemple2.com\'',
         'SEARCH_KEYWORD': 'Söknyckelord:',
         'SEARCH_KEYWORDS': 'söknyckelord',
-        'LINK': 'Länk:',
+        'LINK': 'Länkar:',
         'NO_SEARCH_KEYWORDS': 'Inga söknyckelord'
     },
 
