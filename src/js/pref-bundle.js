@@ -667,16 +667,20 @@ webpackJsonp([2],[
 	        if ($el.data('is-showing') === false) {
 	            $el.text(Text.buttons.HIDE_SHORTCUTS);
 
-	            for (var property in shortcutsObj) {
-	                if (shortcutsObj.hasOwnProperty(property)) {
-	                    key = shortcutsObj[property];
+	            if ($.isEmptyObject(shortcutsObj)) {
+	                $outputList.append('<li><i>' + Text.add_shortcut_pane.NO_SHORTCUTS + '</i></li>');
+	            } else {
+	                for (var property in shortcutsObj) {
+	                    if (shortcutsObj.hasOwnProperty(property)) {
+	                        key = shortcutsObj[property];
 
-	                    $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
-	                    for (var i = 0; i < key.length; i += 1) {
-	                        $outputList.append('<li>' + key[i] + '</li>');
+	                        $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
+	                        for (var i = 0; i < key.length; i += 1) {
+	                            $outputList.append('<li>' + key[i] + '</li>');
+	                        }
+	                        $outputList.append('<br>');
+	                        counter += 1;
 	                    }
-	                    $outputList.append('<br>');
-	                    counter += 1;
 	                }
 	            }
 	            $el.data('is-showing', true);
@@ -700,16 +704,22 @@ webpackJsonp([2],[
 	        if ($el.data('is-showing') === false) {
 	            $el.text(Text.buttons.HIDE_SEARCH_KEYWORD);
 
-	            for (var property in searchKeywordsObj) {
-	                if (searchKeywordsObj.hasOwnProperty(property)) {
-	                    key = searchKeywordsObj[property];
 
-	                    $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
-	                    $outputList.append('<li>' + key + '</li>');
-	                    $outputList.append('<br>');
-	                    counter += 1;
+	            if ($.isEmptyObject(searchKeywordsObj)) {
+	                $outputList.append('<li><i>' + Text.add_search_keyword_pane.NO_SEARCH_KEYWORDS + '</i></li>');
+	            } else {
+	                for (var property in searchKeywordsObj) {
+	                    if (searchKeywordsObj.hasOwnProperty(property)) {
+	                        key = searchKeywordsObj[property];
+
+	                        $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
+	                        $outputList.append('<li>' + key + '</li>');
+	                        $outputList.append('<br>');
+	                        counter += 1;
+	                    }
 	                }
 	            }
+
 	            $el.data('is-showing', true);
 
 	        } else if ($el.data('is-showing') === true) {
@@ -727,8 +737,12 @@ webpackJsonp([2],[
 	        if ($el.data('is-showing') === false) {
 	            $el.text(Text.buttons.HIDE_PLUGIN_FILE_NAMES);
 
-	            for (i = 0; i < stored.length; i += 1) {
-	                $outputList.append('<li style="text-align: center"><h2>' + stored[i] + '</h2></li><br>');
+	            if (stored.length <= 0) {
+	                $outputList.append('<li style="text-align: center"><i>' + Text.add_plugin_file.NO_PLUGIN_FILES + '</i></li>');
+	            } else {
+	                for (i = 0; i < stored.length; i += 1) {
+	                    $outputList.append('<li style="text-align: center"><h2>' + stored[i] + '</h2></li><br>');
+	                }
 	            }
 
 	            $el.data('is-showing', true);

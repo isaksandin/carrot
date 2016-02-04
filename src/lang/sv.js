@@ -28,7 +28,8 @@ window.Text = {
         'DESCRIPTION': 'Separera flera länkarna med ett kommatecken och mellanslag. Ex. \'http://exemple1.com, http://exemple2.com\'',
         'SHORTCUT': 'Genväg:',
         'SHORTCUTS': 'genvägar',
-        'LINKS': 'Länkar:'
+        'LINKS': 'Länkar:',
+        'NO_SHORTCUTS': 'Inga genvägar'
     },
 
     delete_shortcut_pane: {
@@ -42,7 +43,8 @@ window.Text = {
         'DESCRIPTION': 'Ändra sökordet i en url till \'{{query}}\' och kopiera sedan länken till länkrutan.',
         'SEARCH_KEYWORD': 'Söknyckelord:',
         'SEARCH_KEYWORDS': 'söknyckelord',
-        'LINK': 'Länk:'
+        'LINK': 'Länk:',
+        'NO_SEARCH_KEYWORDS': 'Inga söknyckelord'
     },
 
     delete_search_keyword_pane: {
@@ -69,7 +71,8 @@ window.Text = {
 
     add_plugin_file: {
         'TITLE': 'Lägg till plugin-fil',
-        'DESCRIPTION': 'Skriv namnet på plugin-filen som finns tillagd i \'js/plugins\', utan \'.js\' suffixet.'
+        'DESCRIPTION': 'Skriv namnet på plugin-filen som finns tillagd i \'js/plugins\', utan \'.js\' suffixet.',
+        'NO_PLUGIN_FILES': 'Inga plugin-filer'
     },
 
     delete_plugin_file: {

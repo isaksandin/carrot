@@ -28,7 +28,8 @@ window.Text = {
         'DESCRIPTION': 'Separate multiple links with a comma and a space. E.g. \'http://exemple1.com, http://exemple2.com\'',
         'SHORTCUT': 'Shortcut:',
         'SHORTCUTS': 'shortcuts',
-        'LINKS': 'Links:'
+        'LINKS': 'Links:',
+        'NO_SHORTCUTS': 'No shortcuts'
     },
 
     delete_shortcut_pane: {
@@ -42,7 +43,8 @@ window.Text = {
         'DESCRIPTION': 'Change the search word in a url to \'{{query}}\' and copy the url to the link box.',
         'SEARCH_KEYWORD': 'Search keyword:',
         'SEARCH_KEYWORDS': 'search keywords',
-        'LINK': 'Link:'
+        'LINK': 'Link:',
+        'NO_SEARCH_KEYWORDS': 'No search keywords'
     },
 
     delete_search_keyword_pane: {
@@ -69,7 +71,8 @@ window.Text = {
 
     add_plugin_file: {
         'TITLE': 'Add plugin-file',
-        'DESCRIPTION': 'Write the name of the plugin-file, located in \'js/plugins\', without the \'.js\' suffix.'
+        'DESCRIPTION': 'Write the name of the plugin-file, located in \'js/plugins\', without the \'.js\' suffix.',
+        'NO_PLUGIN_FILES': 'No plugin files'
     },
 
     delete_plugin_file: {
