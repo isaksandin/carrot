@@ -6,14 +6,6 @@
 
     Isak Sandin (c) 2016
 */
-
-var input = document.getElementById('input');
-
-function show(str) {
-    input.value = str;
-    input.select();
-}
-
 Carrot.addFuncKeyword({
     rng: function (args) {
         var min = parseInt(args[0], 10),
@@ -28,6 +20,6 @@ Carrot.addFuncKeyword({
                 numbers += Math.floor(Math.random() * (max - min)) + min + ' ';
             }
         }
-        show(numbers);
+        Carrot.display(numbers, true);
     }
 });

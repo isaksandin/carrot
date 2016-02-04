@@ -85,15 +85,31 @@ Carrot.addFuncKeyword({
 });
 ```
 
-With the command `alert This is cool!`, the above code would result in an alert saying 'This is cool!'.
+With the command `alert This is cool!`, the above code will result in an alert saying 'This is cool!'.
 
 
-Multiple function keywords can be added by adding more methods to the object:
+`Carrot.display()` can be used to display a string in the main input. Set the second parameter to `true` if you want the string to be selected.
+
+With the command `say Some text`, the following code will display 'Some text' in the input box and select it:
 
 ```javascript
 Carrot.addFuncKeyword({
-    sayHelloWorld: function () {
-        alert('Hello World!');
+    say: function (args) {
+        var SentenceToAlert = args.join(' ');
+        Carrot.display(SentenceToAlert, true);
+    }
+});
+```
+(`Carrot.display()` makes use of the `Carrot.input` property, which is a simple reference to the `#input` element.)
+
+
+Make multiple function keywords at once by adding more methods to the object:
+
+```javascript
+Carrot.addFuncKeyword({
+    say: function (args) {
+        var SentenceToAlert = args.join(' ');
+        Carrot.display(SentenceToAlert, true);
     },
     alert: function (args) {
         var SentenceToAlert = args.join(' ');

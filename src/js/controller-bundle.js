@@ -14,9 +14,16 @@ webpackJsonp([1],[
 	var pluginFiles = settings.pluginFiles;
 
 	window.Carrot = {
+	    input: document.getElementById('input'),
 	    funcKeywords: {},
 	    addFuncKeyword: function (funcKeyword) {
 	        this.funcKeywords = $.extend(this.funcKeywords, funcKeyword);
+	    },
+	    display: function (str, select) {
+	        this.input.value = str;
+	        if (select) {
+	            this.input.select();
+	        }
 	    }
 	};
 

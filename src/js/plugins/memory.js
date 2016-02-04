@@ -6,17 +6,6 @@
 
     Isak Sandin (c) 2016
 */
-
-var input = document.getElementById('input');
-
-function show(str) {
-    input.value = str;
-    input.select();
-}
-function clearInputField() {
-    input.value = '';
-}
-
 Carrot.addFuncKeyword({
     rem: function (text) {
         var str = text.join().replace(/[,]/ig, ' '),
@@ -29,15 +18,15 @@ Carrot.addFuncKeyword({
             memory = localStorage.getItem('memory') + ' ' + str;
             localStorage.setItem('memory', memory);
         }
-        clearInputField();
+        Carrot.input.value = '';
     },
     recall: function () {
-        show(localStorage.getItem('memory'));
+        Carrot.display(localStorage.getItem('memory'), true);
     },
     clear: function (option) {
         if (option.shift() === 'memory') {
             localStorage.setItem('memory', '');
         }
-        clearInputField();
+        Carrot.input.value = '';
     }
 });
