@@ -34,9 +34,9 @@ If the first word is one of the _search keywords_, Carrot will use the rest of t
 
 ### Shortcut keyword
 
-If the first word is a _shortcut keyword_, Carrot will open the page(s) associated with it.
+If the first word is a _shortcut keyword_, Carrot will open the page(s) associated with it. (Make sure you enable popups for the site if you plan to open a group of pages.)
 
-> No shortcuts come by default. However, let's say you assign `social` to https://www.facebook.com and https://www.twitter.com. It will then open both websites in separate tabs.
+> There are no shortcuts by default. However, let's say you assign the shortcut keyword `social` to https://www.facebook.com and https://www.twitter.com. It will then open both websites in separate tabs.
 
 ### Function keyword
 
