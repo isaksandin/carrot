@@ -1,5 +1,5 @@
 {
-    "name": "Carrot",
+    "name": "carrot",
     "version": "0.1.0",
     "description": "A client-side productivity web application",
     "scripts": {
@@ -7,6 +7,8 @@
     },
     "author": "Isak Sandin",
     "license": "MIT",
+    "bugs": "https://github.com/isaksandin/carrot/issues",
+    "repository": "https://github.com/isaksandin/carrot",
     "private": true,
     "dependencies": {
         "jquery": "^2.1.4"

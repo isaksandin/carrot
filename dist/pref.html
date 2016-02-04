@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>. . .</title>
+    <link rel="stylesheet" href="css/pref.css" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+
+        <h1 class="smalltext" data-primary-color="color"></h1>
+
+        <hr>
+
+        <nav>
+            <ul id="first-list">
+                <li><a href="#general-pane"></a></li>
+                <li><a href="#add-shortcut-pane"></a></li>
+                <li><a href="#delete-shortcut-pane"></a></li>
+                <li><a href="#add-search-keyword-pane"></a></li>
+                <li><a href="#delete-search-keyword-pane"></a></li>
+
+            </ul>
+            <ul id="second-list">
+                <li><a href="#placeholder-pane"></a></li>
+                <li><a href="#add-plugin-file-pref-pane"></a></li>
+                <li><a href="#delete-plugin-file-pref-pane"></a></li>
+                <li><a href="#export-pref-pane"></a></li>
+                <li><a href="#import-pref-pane"></a></li>
+            </ul>
+        </nav>
+
+
+        <!-- GENERAL SETTINGS -->
+        <hr>
+        <div id="general-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+
+            <span class="response-output"></span>
+
+            <div class="smallDouble">
+                <div class="input-wrapper double-wrappers">
+                    <p class="smalltext"></p>
+                    <select id="default-search-engine" value="Google">
+                        <option value="Google">Google</option>
+                        <option value="Bing">Bing</option>
+                        <option value="DuckDuckGo">DuckDuckGo</option>
+                    </select>
+                </div>
+
+                <div class="input-wrapper double-wrappers">
+                    <p class="smalltext"></p>
+                    <select id="language" value="en">
+                        <option value="en">English</option>
+                        <option value="sv">Svenska</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input type="text" id="primary-color-input">
+                <button class="main-button" id="change-primary-color"></button>
+            </div>
+
+            <div id="checkbox-list" class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="open-in-new-tab" type="checkbox">
+            </div>
+
+        </div>
+
+
+        <!-- ADD / CHANGE SHORTCUTS -->
+        <hr>
+        <div id="add-shortcut-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper double-wrappers">
+                <p class="smalltext"></p>
+                <input id="shortcut-key-input" type="text" spellcheck="false">
+                <button class="main-button" id="add-shortcut"></button>
+                <button class="show-stored-shortcuts show-stored" data-is-showing="false"></button>
+            </div>
+            <div class="input-wrapper double-wrappers">
+                <p class="smalltext"></p>
+                <textarea id="shortcut-value-input" spellcheck="false"></textarea>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+
+        <!-- DELETE SHORTCUTS -->
+        <hr>
+        <div id="delete-shortcut-pane" class="pane" >
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="delete-shortcut-key-input" type="text" spellcheck="false">
+                <button class="main-button" id="delete-shortcut"></button>
+                <button class="main-button delete-all" id="delete-all-shortcuts"></button>
+                <button class="show-stored-shortcuts show-stored" data-is-showing="false"></button>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+
+        <!-- ADD SEARCH KEYWORDS -->
+        <hr>
+        <div id="add-search-keyword-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper double-wrappers">
+                <p class="smalltext"></p>
+                <input id="add-search-keyword-key-input" type="text" spellcheck="false">
+                <button class="main-button" id="add-search-keyword"></button>
+                <button class="show-stored-search-keywords show-stored" data-is-showing="false"></button>
+            </div>
+            <div class="input-wrapper double-wrappers">
+                <p class="smalltext"></p>
+                <textarea id="add-search-keyword-value-input" spellcheck="false" ></textarea>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+
+        <!-- DELETE SEARCH KEYWORDS -->
+        <hr>
+        <div id="delete-search-keyword-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="delete-search-keywords-key-input" type="text" spellcheck="false">
+                <button class="main-button" id="delete-search-keyword"></button>
+                <button class="main-button delete-all" id="delete-all-search-keywords"></button>
+                <button class="show-stored-search-keywords show-stored" data-is-showing="false"></button>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+
+        <!-- CHANGE PLACEHOLDER TEXT -->
+        <hr>
+        <div id="placeholder-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="change-placeholder-input" type="text" spellcheck="false">
+                <button class="main-button" id="change-placeholder"></button>
+            </div>
+        </div>
+
+        <!-- ADD PLUGIN FILE PREFERENCES -->
+        <hr>
+        <div id="add-plugin-file-pref-pane" class="pane" >
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="add-plugin-file-input" type="text" spellcheck="false">
+                <button class="main-button" id="add-plugin-file"></button>
+                <button class="show-stored-plugin-files show-stored" data-is-showing="false"></button>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+        <!-- REMOVE PLUGIN FILE PREFERENCES -->
+        <hr>
+        <div id="delete-plugin-file-pref-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="input-wrapper single-wrapper">
+                <p class="smalltext"></p>
+                <input id="delete-plugin-file-input" type="text" spellcheck="false">
+                <button class="main-button" id="delete-plugin-file"></button>
+                <button class="show-stored-plugin-files show-stored" data-is-showing="false"></button>
+            </div>
+            <ul class="stored-list"></ul>
+        </div>
+
+
+        <!-- EXPORT PREFERENCES -->
+        <hr>
+        <div id="export-pref-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <button class="main-button" id="export-pref"></button>
+            <div class="single-wrapper" id="export-pref-output"></div>
+        </div>
+
+
+        <!-- IMPORT PREFERENCES -->
+        <hr>
+        <div id="import-pref-pane" class="pane">
+            <h2 class="smalltext"></h2>
+            <h3 class="smalltext"></h3>
+            <span class="response-output"></span>
+            <div class="single-wrapper">
+                <textarea id="import-pref-input"></textarea>
+            </div>
+            <button class="main-button" id="import-pref"></button>
+        </div>
+
+        <!-- CLEAR LOCALSTORAGE -->
+        <hr>
+        <div class="pane" id="clear-localStorage-pane">
+            <span class="response-output"></span>
+            <button id="clear-localStorage"></button>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="warn">
+        <h2 class="smalltext"></h2>
+        <button id="warn-yes"></button>
+        <button class="main-button" id="warn-cancel"></button>
+    </div>
+
+
+    <a href="index.html"><img id="back-to-search" style="left: auto;" src="images/magnifying-glass.svg" alt="search"></a>
+    <a href="help.html" id="help"><img id="help-icon" src="images/help.svg" alt="help"></a>
+
+    <script src="js/common-bundle.js"></script>
+    <script data-depender="js/pref-bundle" src="js/controller-bundle.js"></script>
+</body>
+</html>
