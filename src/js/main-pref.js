@@ -51,6 +51,17 @@ $('#change-primary-color').on('click', function () {
     });
 });
 
+// DISPLAY CURRENT OPEN IN NEW TAB SETTING
+$('#open-in-new-tab').attr('checked', settings.openInNewTab);
+
+// TOGGLE OPEN IN NEW TAB SETTING
+$('#open-in-new-tab').change(function (e) {
+    var settings = Storage.getSettings();
+    settings.openInNewTab = this.checked;
+
+    Storage.set(SysDefaults.storageKeys.settings, settings);
+});
+
 
 /* -- SHORTCUT PREFERENCES -- */
 

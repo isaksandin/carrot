@@ -10015,6 +10015,7 @@
 	            searchEngine: 'Google',
 	            placeholder: 'What can I do for you?',
 	            pluginFiles: ['memory', 'translate', 'rng'],
+	            openInNewTab: false,
 	            color: '#fa7328'
 	        },
 

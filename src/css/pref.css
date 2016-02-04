@@ -280,7 +280,7 @@ nav {
     .pane .input-wrapper p {
       margin: 0 auto 0;
       box-sizing: border-box; }
-    .pane .input-wrapper input {
+    .pane .input-wrapper input[type="text"] {
       width: 70%;
       height: 40px;
       display: block;
@@ -292,7 +292,7 @@ nav {
       font-weight: bold;
       text-align: center;
       color: #3d3d3d; }
-    .pane .input-wrapper input:focus {
+    .pane .input-wrapper input[type="text"]:focus {
       outline: none;
       height: 40px;
       border: 1px solid #636363; }
@@ -332,6 +332,16 @@ nav {
   .pane .smallDouble {
     margin: 0 auto;
     width: 70%; }
+  .pane #checkbox-list {
+    margin: 50px auto 0;
+    text-align: center;
+    width: 70%/2; }
+    .pane #checkbox-list p,
+    .pane #checkbox-list input[type="checkbox"] {
+      display: inline;
+      outline: none; }
+    .pane #checkbox-list input[type="checkbox"] {
+      margin-left: 5px; }
 
 #delete-search-keyword-pane .input-wrapper {
   display: block;
@@ -340,8 +350,8 @@ nav {
   #delete-search-keyword-pane .input-wrapper textarea {
     height: 70px; }
 
-#general-pane input,
-#placeholder-pane input {
+#general-pane input[type="text"],
+#placeholder-pane input[type="text"] {
   color: #636363;
   font-weight: 400; }
 

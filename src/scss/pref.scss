@@ -109,7 +109,7 @@ nav{
             box-sizing: border-box;
         }
 
-        input{
+        input[type="text"]{
             width: 70%;
             height: 40px;
             display: block;
@@ -122,7 +122,7 @@ nav{
             text-align: center;
             color: $almost-black;
         }
-        input:focus{
+        input[type="text"]:focus{
             outline: none;
             height: 40px;
             border: 1px solid $lighter-almost-black;
@@ -182,6 +182,22 @@ nav{
         margin: 0 auto;
         width: 70%;
     }
+
+    #checkbox-list{
+        margin: 50px auto 0;
+        text-align: center;
+        width: 70%/2;
+
+        p,
+        input[type="checkbox"]{
+            display: inline;
+            outline: none;
+        }
+
+        input[type="checkbox"]{
+            margin-left: 5px;
+        }
+    }
 }
 
 #delete-search-keyword-pane {
@@ -198,7 +214,7 @@ nav{
 
 #general-pane,
 #placeholder-pane{
-    input{
+    input[type="text"]{
         color: $lighter-almost-black;
         font-weight: 400;
     }

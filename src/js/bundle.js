@@ -64,6 +64,14 @@ webpackJsonp([0],[
 
 	var funcKeywords = Carrot.funcKeywords;
 
+	var open = function (url) {
+	    if (settings.openInNewTab === true) {
+	        window.open(url, '_blank');
+	    } else if (settings.openInNewTab === false) {
+	        window.location.href = url;
+	    }
+	};
+
 	var queryFunctions = function (input) {
 
 	        var query = {
@@ -75,13 +83,12 @@ webpackJsonp([0],[
 	            },
 
 	            defaultWebSearch = function () {
-
 	                if (settings.searchEngine === 'Bing') {
-	                    window.location.href = 'https://www.bing.com/search?q=' + query.full;
+	                    open('https://www.bing.com/search?q=' + query.full);
 	                } else if (settings.searchEngine === 'DuckDuckGo') {
-	                    window.location.href = 'https://duckduckgo.com/?q=' + query.full;
+	                    open('https://duckduckgo.com/?q=' + query.full);
 	                } else {
-	                    window.location.href = 'https://www.google.se/search?q=' + query.full;
+	                    open('https://www.google.se/search?q=' + query.full);
 	                }
 
 	            },
@@ -91,11 +98,11 @@ webpackJsonp([0],[
 	                var topLevelDomains = ['com', 'org', 'net', 'se'];
 
 	                if (query.splitByColon[0] === 'http' || query.splitByColon[0] === 'https' || query.splitByColon[0] === 'file') {
-	                    window.location.href = query.full;
+	                    open(query.full);
 	                    return true;
 
 	                } else if ($.inArray(query.splitByDot[query.splitByDot.length - 1], topLevelDomains) > -1) {
-	                    window.location.href = 'http://' + query.full;
+	                    open('http://' + query.full);
 	                    return true;
 
 	                } else {
@@ -110,13 +117,13 @@ webpackJsonp([0],[
 	                    var sc = shortcuts[query.full];
 
 	                    if (sc.length === 1) {
-	                        window.location.href = sc[0];
+	                        open(sc[0]);
 
 	                    } else if (sc.length > 1) {
 	                        for (var i = 1; i < sc.length; i += 1) {
 	                            window.open(sc[i], '_blank');
 	                        }
-	                        window.location.href = sc[0];
+	                        open(sc[0]);
 	                    }
 	                    return true;
 
@@ -129,7 +136,7 @@ webpackJsonp([0],[
 
 	                if (searchKeywords[query.firstWord]) {
 	                    query.splitBySpace.shift();
-	                    window.location.href = searchKeywords[query.firstWord].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20'));
+	                    open(searchKeywords[query.firstWord].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20')));
 	                    return true;
 
 	                } else if (funcKeywords[query.firstWord]) {
