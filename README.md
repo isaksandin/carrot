@@ -5,18 +5,22 @@ Replace the boring "New Tab"-page of your web browser with something cool! Carro
 ## Features
 
 + Shortcut keywords for opening one or a group of pages
-+ Search keywords for quick searching without a middle step
-+ Function keywords for doing simple, useful tasks
++ Search keywords for quick web searching on one or multiple sites
++ Function keywords for doing useful tasks
 + Multi-language support
 + Customizability
 
 ## Setup
 
-Clone this repository and then install its dependencies with `npm install`.
+Clone this repository, install its dependencies, and run `npm start` to open the page.
+```sh
+git clone https://github.com/isaksandin/carrot.git
+cd carrot
+npm install
+npm start
+```
 
-Run `npm start` to open the page.
-
-Copy the url and set it as the start page for "New Tab" and "New Window".
+Copy the url and set it as the start page for "New Tab" and "New Window" in your browser.
 
 ## Usage
 
@@ -59,7 +63,7 @@ To be able to use a plugin file it has to be located in `/js/plugins` and added,
 
 ## Plugin files
 
-The possibilities with plugins are basically endless. Every plugin script is loaded individually and automatically at startup. (Therefor it's probably wise to combine multiple files unless you want to end up with a ton of them.)
+The possibilities with plugins are basically endless. Every plugin script is loaded individually and automatically at startup. (Therefore it's probably wise to combine multiple files unless you want to end up with a ton of them)
 
 To make a function keyword use `Carrot.addFuncKeyword()`.
 
