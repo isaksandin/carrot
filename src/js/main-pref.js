@@ -116,7 +116,7 @@ $('#add-search-keyword').on('click', function () {
     PrefFuncs.add({
         type: SysDefaults.storageKeys.searchKeywords,
         key: $('#add-search-keyword-key-input').val(),
-        value: $('#add-search-keyword-value-input').val(),
+        value: $('#add-search-keyword-value-input').val().split(', '),
         responseOutput: $('#add-search-keyword-pane .response-output')
     });
 

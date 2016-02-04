@@ -28,7 +28,7 @@ A word or a sentence that isn't a keyword will result in an ordinary web search 
 
 ### Search keyword
 
-If the first word is one of the _search keywords_, Carrot will use the rest of the sentence as a query on the designated web page.
+If the first word is one of the _search keywords_, Carrot will use the rest of the sentence as a query on the designated web page(s). (Make sure you enable popups for the site if you plan to open a group of pages.)
 
 > Example: `images cute kittens` will, with the default settings, do an image search on Google with 'cute kittens'.
 
@@ -48,7 +48,7 @@ Click the cog in the bottom right corner (or open pref.html) to go to the settin
 
 ### Add a search keyword
 
-To add a search keyword simply modify the search word in a url to `{{query}}`. For example, to make a search keyword for YouTube you could make search as you normally would and copy the url (https://www.youtube.com/results?search_query=mysearchword). Then turn it into https://www.youtube.com/results?search_query={{query}}. Enter the new url in the link box and choose a keyword to go with it.
+To add a search keyword simply modify the search word in a url to `{{query}}`. For example, to make a search keyword for YouTube, search as you normally would and copy the url (https://www.youtube.com/results?search_query=mysearchword). Then turn it into https://www.youtube.com/results?search_query={{query}}. Enter the new url in the link box and choose a keyword to go with it.
 
 ### Add a plugin file
 

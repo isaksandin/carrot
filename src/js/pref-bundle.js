@@ -120,7 +120,7 @@ webpackJsonp([2],[
 	    PrefFuncs.add({
 	        type: SysDefaults.storageKeys.searchKeywords,
 	        key: $('#add-search-keyword-key-input').val(),
-	        value: $('#add-search-keyword-value-input').val(),
+	        value: $('#add-search-keyword-value-input').val().split(', '),
 	        responseOutput: $('#add-search-keyword-pane .response-output')
 	    });
 
@@ -719,12 +719,15 @@ webpackJsonp([2],[
 	            if ($.isEmptyObject(searchKeywordsObj)) {
 	                $outputList.append('<li><i>' + Text.add_search_keyword_pane.NO_SEARCH_KEYWORDS + '</i></li>');
 	            } else {
+
 	                for (var property in searchKeywordsObj) {
 	                    if (searchKeywordsObj.hasOwnProperty(property)) {
 	                        key = searchKeywordsObj[property];
 
 	                        $outputList.append('<li><h2>' + propertyNames[counter] + '</h2></li>');
-	                        $outputList.append('<li>' + key + '</li>');
+	                        for (var i = 0; i < key.length; i += 1) {
+	                            $outputList.append('<li>' + key[i] + '</li>');
+	                        }
 	                        $outputList.append('<br>');
 	                        counter += 1;
 	                    }

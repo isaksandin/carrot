@@ -4,12 +4,14 @@ module.exports = {
         appName: 'Carrot',
 
         searchKeywords: {
-            google: 'https://www.google.com/search?q={{query}}',
-            maps: 'https://www.google.com/maps/search/{{query}}/',
-            images: 'https://www.google.com/search?tbm=isch&q={{query}}'
+            google: ['https://www.google.com/search?q={{query}}'],
+            maps: ['https://www.google.com/maps/search/{{query}}/'],
+            images: ['https://www.google.com/search?tbm=isch&q={{query}}']
         },
 
-        shortcuts: {},
+        shortcuts: {
+            // Currently no default shortcuts
+        },
 
         settings: {
             language: 'en',

@@ -61,7 +61,6 @@ var queryFunctions = function (input) {
                 if (shortcuts[query.full]) {
 
                     var sc = shortcuts[query.full];
-
                     if (sc.length === 1) {
                         open(sc[0]);
 
@@ -81,9 +80,23 @@ var queryFunctions = function (input) {
             handleKeyword = function () {
 
                 if (searchKeywords[query.firstWord]) {
+
+                    var sk = searchKeywords[query.firstWord];
+
                     query.splitBySpace.shift();
-                    open(searchKeywords[query.firstWord].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20')));
+
+                    if (sk.length === 1) {
+
+                        open(sk[0].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20')));
+
+                    } else if (sk.length > 1) {
+                        for (var i = 1; i < sk.length; i += 1) {
+                            window.open(sk[i].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20')), '_blank');
+                        }
+                        open(sk[0].replace('{{query}}', query.splitBySpace.join().replace(/[,]/ig, '%20')));
+                    }
                     return true;
+
 
                 } else if (funcKeywords[query.firstWord]) {
                     query.splitBySpace.shift();

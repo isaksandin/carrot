@@ -40,7 +40,7 @@ window.Text = {
 
     add_search_keyword_pane: {
         'TITLE': 'Add / Change search keywords',
-        'DESCRIPTION': 'Change the search word in a url to \'{{query}}\' and copy the url to the link box.',
+        'DESCRIPTION': 'Change the search word in a url to \'{{query}}\' and copy the url to the link box. Separate multiple links with a comma and a space. E.g. \'http://exemple1.com, http://exemple2.com\'',
         'SEARCH_KEYWORD': 'Search keyword:',
         'SEARCH_KEYWORDS': 'search keywords',
         'LINK': 'Link:',

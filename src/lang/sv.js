@@ -25,7 +25,7 @@ window.Text = {
 
     add_shortcut_pane: {
         'TITLE': 'Lägg till/Ändra genväg',
-        'DESCRIPTION': 'Separera flera länkarna med ett kommatecken och mellanslag. Ex. \'http://exemple1.com, http://exemple2.com\'',
+        'DESCRIPTION': 'Separera flera länkar med ett kommatecken och mellanslag. Ex. \'http://exemple1.com, http://exemple2.com\'',
         'SHORTCUT': 'Genväg:',
         'SHORTCUTS': 'genvägar',
         'LINKS': 'Länkar:',
@@ -40,7 +40,7 @@ window.Text = {
 
     add_search_keyword_pane: {
         'TITLE': 'Lägg till/Ändra söknyckelord',
-        'DESCRIPTION': 'Ändra sökordet i en url till \'{{query}}\' och kopiera sedan länken till länkrutan.',
+        'DESCRIPTION': 'Ändra sökordet i en url till \'{{query}}\' och kopiera sedan länken till länkrutan. Separera flera länkar med ett kommatecken och mellanslag. Ex. \'http://exemple1.com, http://exemple2.com\'',
         'SEARCH_KEYWORD': 'Söknyckelord:',
         'SEARCH_KEYWORDS': 'söknyckelord',
         'LINK': 'Länk:',
