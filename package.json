@@ -1,6 +1,6 @@
 {
     "name": "carrot",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A client-side productivity web application",
     "scripts": {
         "start": "gulp move && open ./dist/index.html"
