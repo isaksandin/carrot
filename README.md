@@ -17,8 +17,8 @@ Replace the boring "New Tab"-page of your web browser with something cool! Carro
     * [Shortcut keyword](#shortcut-keyword)
     * [Function keyword](#function-keyword)
 * [Settings](#settings)
-    * [Add a search keyword](add-a-search-keyword)
-    * [Add a plugin file](add-a-plugin-file)
+    * [Add a search keyword](#add-a-search-keyword)
+    * [Add a plugin file](#add-a-plugin-file)
 * [Plugin files](#plugin-files)
 * [License](#license)
 
