@@ -9395,7 +9395,7 @@
 	            language: 'en',
 	            searchEngine: 'Google',
 	            placeholder: 'What can I do for you?',
-	            pluginFiles: ['memory', 'translate', 'rng'],
+	            pluginFiles: ['example'],
 	            openInNewTab: false,
 	            color: '#fa7328'
 	        },
