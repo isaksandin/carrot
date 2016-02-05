@@ -2,6 +2,8 @@
 
 Replace the boring "New Tab"-page of your web browser with something cool! Carrot is a client-side productivity web app for making your everyday surfin' faster and more efficient.
 
+![Demo gif](http://g.recordit.co/O5uEcAcS6b.gif)
+
 [Demo](http://carrot.isaksandin.se)
 
 ## Features
