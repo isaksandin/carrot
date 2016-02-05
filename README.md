@@ -1,10 +1,27 @@
 # Carrot
 
-Replace the boring "New Tab"-page of your web browser with something cool! Carrot is a client-side productivity web app for making your everyday surfin' faster and more efficient.
+Replace the boring "New Tab"-page of your web browser with something cool! Carrot is a productivity web app running locally for making your everyday surfin' faster and more efficient.
 
 ![Demo gif](http://g.recordit.co/O5uEcAcS6b.gif)
 
 [Demo](http://carrot.isaksandin.se)
+
+## Table of contents
+
+* [Carrot](#carrot)
+* [Table of contents](#table-of-contents)
+* [Features](#features)
+* [Setup](#setup)
+* [Usage](#usage)
+    * [Search keyword](#search-keyword)
+    * [Shortcut keyword](#shortcut-keyword)
+    * [Function keyword](#function-keyword)
+* [Settings](#settings)
+    * [Add a search keyword](add-a-search-keyword)
+    * [Add a plugin file](add-a-plugin-file)
+* [Plugin files](#plugin-files)
+* [License](#license)
+
 
 ## Features
 
@@ -15,6 +32,13 @@ Replace the boring "New Tab"-page of your web browser with something cool! Carro
 + Customizability
 
 ## Setup
+
+__For regular use:__ Download Carrot [here](http://isaksandin.se/carrot/Carrot-v0.1.1.zip).
+
+Unzip and copy the folder somewhere on your computer.
+Open `index.html`, copy the url and set it as the start page for "New Tab" and "New Window" in your browser.
+
+__If you want source code as well:__
 
 Clone this repository, install its dependencies, and run `npm start` to open the page.
 ```sh
