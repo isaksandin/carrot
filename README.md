@@ -72,7 +72,7 @@ If the first word is a _shortcut keyword_, Carrot will open the page(s) associat
 
 ### Function keyword
 
-If the first word is a _function keyword_, Carrot will pass the rest of words in the sentence as arguments to the assign function. Read more in the [Plugin files](#plugin-files) section.
+If the first word is a _function keyword_, Carrot will pass the rest of words in the sentence as arguments to the assigned function. Read more in the [Plugin files](#plugin-files) section.
 
 ## Settings
 
