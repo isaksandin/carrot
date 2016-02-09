@@ -88,7 +88,7 @@ webpackJsonp([0],[
 	                } else if (settings.searchEngine === 'DuckDuckGo') {
 	                    open('https://duckduckgo.com/?q=' + query.full);
 	                } else {
-	                    open('https://www.google.se/search?q=' + query.full);
+	                    open('https://www.google.com/search?q=' + query.full);
 	                }
 
 	            },
