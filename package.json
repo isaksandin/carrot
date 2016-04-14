@@ -1,29 +1,30 @@
 {
-    "name": "carrot",
-    "version": "0.1.1",
-    "description": "A client-side productivity web application",
-    "scripts": {
-        "start": "gulp move && open ./dist/index.html"
-    },
-    "author": "Isak Sandin",
-    "license": "MIT",
-    "bugs": "https://github.com/isaksandin/carrot/issues",
-    "repository": "https://github.com/isaksandin/carrot",
-    "private": true,
-    "dependencies": {
-        "jquery": "^2.1.4"
-    },
-    "devDependencies": {
-        "browser-sync": "^2.10.0",
-        "del": "^2.1.0",
-        "gulp": "^3.9.0",
-        "gulp-autoprefixer": "^3.1.0",
-        "gulp-clean": "^0.3.1",
-        "gulp-plumber": "^1.0.1",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^2.1.0",
-        "gulp-uglify": "^1.5.1",
-        "gulp-util": "^3.0.7",
-        "webpack": "^1.12.9"
-    }
+  "name": "carrot",
+  "version": "0.1.1",
+  "description": "A client-side productivity web application",
+  "scripts": {
+    "start": "gulp move && open ./dist/index.html"
+  },
+  "author": "Isak Sandin",
+  "license": "MIT",
+  "bugs": "https://github.com/isaksandin/carrot/issues",
+  "repository": "https://github.com/isaksandin/carrot",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "randomcolor": "^0.4.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "webpack": "^1.12.9"
+  }
 }

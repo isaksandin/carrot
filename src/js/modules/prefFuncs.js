@@ -392,6 +392,13 @@ module.exports = {
 
             window.location.reload();
 
+        } else if (desiredColor === 'random') {
+            settings.color = desiredColor;
+
+            Storage.set(SysDefaults.storageKeys.settings, settings);
+
+            window.location.reload();
+
         } else {
             response.type = 'notHex';
             response.success = false;
