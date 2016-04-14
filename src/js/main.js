@@ -33,7 +33,7 @@ window.setInterval(function () {
 
 Date.prototype.getWeek = function() {
     var firstOfJan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - firstOfJan) / 86400000) + firstOfJan.getDay())/7);
+    return Math.ceil((((this - firstOfJan) / 86400000) + firstOfJan.getDay()) / 7 - 1);
 };
 
 var d = new Date(),
