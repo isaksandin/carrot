@@ -300,10 +300,17 @@ webpackJsonp([2],[
 	        var primaryColor = Storage.getSettings().color;
 	        var values;
 
-	        if (primaryColor === 'random') {
-	            primaryColor = randomColor();
+	        if (primaryColor.indexOf('random') > -1) {
+	            if (primaryColor.indexOf('random ') > -1) {
+	                var hue = primaryColor.replace('random ', '');
+	                primaryColor = randomColor({
+	                    hue: hue
+	                });
+	            } else {
+	                primaryColor = randomColor();
+	            }
 	        }
-	        
+
 	        $('[data-primary-color]').each(function () {
 	            values = $(this).attr('data-primary-color').split(' ');
 	            for (var i = 0; i < values.length; i += 1) {
@@ -1263,7 +1270,7 @@ webpackJsonp([2],[
 
 	            window.location.reload();
 
-	        } else if (desiredColor === 'random') {
+	        } else if (desiredColor.indexOf('random') > -1) {
 	            settings.color = desiredColor;
 
 	            Storage.set(SysDefaults.storageKeys.settings, settings);

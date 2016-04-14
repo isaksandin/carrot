@@ -392,7 +392,7 @@ module.exports = {
 
             window.location.reload();
 
-        } else if (desiredColor === 'random') {
+        } else if (desiredColor.indexOf('random') > -1) {
             settings.color = desiredColor;
 
             Storage.set(SysDefaults.storageKeys.settings, settings);

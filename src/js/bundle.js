@@ -193,10 +193,17 @@ webpackJsonp([0],[
 	        var primaryColor = Storage.getSettings().color;
 	        var values;
 
-	        if (primaryColor === 'random') {
-	            primaryColor = randomColor();
+	        if (primaryColor.indexOf('random') > -1) {
+	            if (primaryColor.indexOf('random ') > -1) {
+	                var hue = primaryColor.replace('random ', '');
+	                primaryColor = randomColor({
+	                    hue: hue
+	                });
+	            } else {
+	                primaryColor = randomColor();
+	            }
 	        }
-	        
+
 	        $('[data-primary-color]').each(function () {
 	            values = $(this).attr('data-primary-color').split(' ');
 	            for (var i = 0; i < values.length; i += 1) {
