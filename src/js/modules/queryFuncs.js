@@ -110,6 +110,7 @@ var queryFunctions = function (input) {
             },
 
             analyseQuery = function () {
+                Storage.stats.increment();
 
                 if (!handleLink()) {
                     if (!handleShortcut()) {
