@@ -13,7 +13,11 @@ webpackJsonp([0],[
 
 	$('#input').keypress(function (e) {
 	    if (e.keyCode === 13) {
-	        queryFunctions($('#input').val()).analyseQuery();
+	        var query = $('#input').val();
+
+	        if (query) {
+	            queryFunctions(query).analyseQuery();
+	        }
 	    }
 	}).attr('placeholder', Storage.getSettings().placeholder);
 
