@@ -24,6 +24,13 @@ webpackJsonp([1],[
 	        if (select) {
 	            this.input.select();
 	        }
+	    },
+	    open: function (url) {
+	        if (settings.openInNewTab === true) {
+	            window.open(url, '_blank');
+	        } else if (settings.openInNewTab === false) {
+	            window.location.href = url;
+	        }
 	    }
 	};
 

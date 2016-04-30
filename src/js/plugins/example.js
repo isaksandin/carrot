@@ -5,8 +5,7 @@ Carrot.addFuncKeyword({
         var from = args.shift();
         var to = args.shift();
         var text = args.join(' ');
-
-        window.location.href = 'https://translate.google.se/#' + from + '/' + to + '/' + text;
+        Carrot.open('https://translate.google.se/#' + from + '/' + to + '/' + text);
     },
 
     // A simple random number generator.
