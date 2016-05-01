@@ -168,7 +168,6 @@ webpackJsonp([0],[
 	            },
 
 	            analyseQuery = function () {
-	                Storage.stats.increment();
 
 	                if (!handleLink()) {
 	                    if (!handleShortcut()) {

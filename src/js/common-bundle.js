@@ -9324,7 +9324,7 @@
 	            callback();
 	        }
 	    },
-
+	    
 	    get: function (key) {
 	        var value = localStorage.getItem(key);
 	        return $.parseJSON(value);
@@ -9366,13 +9366,6 @@
 	        }
 
 	        return settings;
-	    },
-
-	    stats: {
-	        increment: function () {
-	            var current = Storage.get(SysDefaults.storageKeys.stats);
-	            Storage.set(SysDefaults.storageKeys.stats, current += 1);
-	        }
 	    }
 	};
 
