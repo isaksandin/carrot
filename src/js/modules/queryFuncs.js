@@ -3,6 +3,8 @@ var Storage = require('./storage.js');
 
 var shortcuts = Storage.getShortcuts();
 
+var Stats = require('./stats.js');
+
 var searchKeywords = Storage.getSearchKeywords();
 
 var settings = Storage.getSettings();
@@ -110,6 +112,8 @@ var queryFunctions = function (input) {
             },
 
             analyseQuery = function () {
+                
+                Stats.incrementCount();
 
                 if (!handleLink()) {
                     if (!handleShortcut()) {

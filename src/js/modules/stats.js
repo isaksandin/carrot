@@ -1,8 +1,9 @@
 var Storage = require('./storage.js');
 var SysDefaults = require('./sysDefaults.js');
 
+var currentStats = Storage.get(SysDefaults.storageKeys.stats);
 var stats = {
-    current: Storage.get(SysDefaults.storageKeys.stats),
+    current: currentStats,
     reset: function () {
         Storage.set(SysDefaults.storageKeys.stats, {
             count: 0,
@@ -11,21 +12,25 @@ var stats = {
         });
     },
     incrementCount: function () {
-        this.current.count += 1;
-        Storage.set(SysDefaults.storageKeys.stats, this.current);
+        currentStats.count += 1;
+        Storage.set(SysDefaults.storageKeys.stats, currentStats);
     },
     daysSinceReset: function () {
-        var resetDate = new Date(this.current.resetDate);
+        var resetDate = new Date(currentStats.resetDate);
         var now = new Date();
         var oneDay = 24 * 60 * 60 * 1000;
         return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
     },
     averageUsage: function () {
-        return this.current.count / this.daysSinceReset();
+        var daysSince = this.daysSinceReset();
+        if (daysSince <= 0) {
+            daysSince = 1;
+        }
+        return currentStats.count / daysSince;
     },
     updateLastVisit: function () {
-        this.current.lastVisit = new Date();
-        Storage.set(SysDefaults.storageKeys.stats, this.current);
+        currentStats.lastVisit = new Date();
+        Storage.set(SysDefaults.storageKeys.stats, currentStats);
     }
 };
 

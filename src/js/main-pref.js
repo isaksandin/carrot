@@ -2,6 +2,7 @@ var $ = require('jquery');
 var Storage = require('./modules/storage.js');
 var prefLang = require('./modules/pref-lang.js');
 var SysDefaults = require('./modules/sysDefaults.js');
+var Stats = require('./modules/stats.js');
 var PrefFuncs = require('./modules/prefFuncs.js');
 var Utils = PrefFuncs.utils;
 
@@ -16,6 +17,19 @@ prefLang.fillInText();
 
 var settings = Storage.getSettings();
 
+$('html, body').scrollTop($('h1').offset().top - 50);
+
+/* -- UPDATE STATS -- */
+$('#stats #reset-stats').on('click', function () {
+    Stats.reset();
+    window.location.reload();
+});
+$('#stats #last-reset').text(function () {
+    var resetDate = new Date(Stats.current.resetDate);
+    return resetDate.toLocaleDateString();
+});
+$('#stats #total-usage').text(Stats.current.count);
+$('#stats #average-usage').text(Math.round(Stats.averageUsage()*100)/100);
 
 /* -- GENERAL SETTINGS -- */
 

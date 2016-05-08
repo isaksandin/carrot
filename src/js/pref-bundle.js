@@ -4,12 +4,13 @@ webpackJsonp([2],[
 
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var prefLang = __webpack_require__(7);
+	var prefLang = __webpack_require__(8);
 	var SysDefaults = __webpack_require__(3);
-	var PrefFuncs = __webpack_require__(8);
+	var Stats = __webpack_require__(5);
+	var PrefFuncs = __webpack_require__(9);
 	var Utils = PrefFuncs.utils;
 
-	var customColor = __webpack_require__(5);
+	var customColor = __webpack_require__(6);
 	$('.input-wrapper p').attr('data-primary-color', 'color');
 	$('.main-button').attr('data-primary-color', 'background');
 	customColor.apply();
@@ -20,6 +21,19 @@ webpackJsonp([2],[
 
 	var settings = Storage.getSettings();
 
+	$('html, body').scrollTop($('h1').offset().top - 50);
+
+	/* -- UPDATE STATS -- */
+	$('#stats #reset-stats').on('click', function () {
+	    Stats.reset();
+	    window.location.reload();
+	});
+	$('#stats #last-reset').text(function () {
+	    var resetDate = new Date(Stats.current.resetDate);
+	    return resetDate.toLocaleDateString();
+	});
+	$('#stats #total-usage').text(Stats.current.count);
+	$('#stats #average-usage').text(Math.round(Stats.averageUsage()*100)/100);
 
 	/* -- GENERAL SETTINGS -- */
 
@@ -292,9 +306,52 @@ webpackJsonp([2],[
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Storage = __webpack_require__(2);
+	var SysDefaults = __webpack_require__(3);
+
+	var currentStats = Storage.get(SysDefaults.storageKeys.stats);
+	var stats = {
+	    current: currentStats,
+	    reset: function () {
+	        Storage.set(SysDefaults.storageKeys.stats, {
+	            count: 0,
+	            lastVisit: null,
+	            resetDate: new Date()
+	        });
+	    },
+	    incrementCount: function () {
+	        currentStats.count += 1;
+	        Storage.set(SysDefaults.storageKeys.stats, currentStats);
+	    },
+	    daysSinceReset: function () {
+	        var resetDate = new Date(currentStats.resetDate);
+	        var now = new Date();
+	        var oneDay = 24 * 60 * 60 * 1000;
+	        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
+	    },
+	    averageUsage: function () {
+	        var daysSince = this.daysSinceReset();
+	        if (daysSince <= 0) {
+	            daysSince = 1;
+	        }
+	        return currentStats.count / daysSince;
+	    },
+	    updateLastVisit: function () {
+	        currentStats.lastVisit = new Date();
+	        Storage.set(SysDefaults.storageKeys.stats, currentStats);
+	    }
+	};
+
+	module.exports = stats;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var randomColor = __webpack_require__(6);
+	var randomColor = __webpack_require__(7);
 	module.exports = {
 	    apply: function () {
 	        var primaryColor = Storage.getSettings().color;
@@ -322,7 +379,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// randomColor by David Merfield under the CC0 license
@@ -757,7 +814,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -873,7 +930,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);

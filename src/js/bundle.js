@@ -6,7 +6,7 @@ webpackJsonp([0],[
 	var Storage = __webpack_require__(2);
 	var queryFunctions = __webpack_require__(4);
 
-	var customColor = __webpack_require__(5);
+	var customColor = __webpack_require__(6);
 	customColor.apply();
 
 	var Text = window.Text;
@@ -60,6 +60,8 @@ webpackJsonp([0],[
 	var Storage = __webpack_require__(2);
 
 	var shortcuts = Storage.getShortcuts();
+
+	var Stats = __webpack_require__(5);
 
 	var searchKeywords = Storage.getSearchKeywords();
 
@@ -168,6 +170,8 @@ webpackJsonp([0],[
 	            },
 
 	            analyseQuery = function () {
+	                
+	                Stats.incrementCount();
 
 	                if (!handleLink()) {
 	                    if (!handleShortcut()) {
@@ -189,9 +193,52 @@ webpackJsonp([0],[
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Storage = __webpack_require__(2);
+	var SysDefaults = __webpack_require__(3);
+
+	var currentStats = Storage.get(SysDefaults.storageKeys.stats);
+	var stats = {
+	    current: currentStats,
+	    reset: function () {
+	        Storage.set(SysDefaults.storageKeys.stats, {
+	            count: 0,
+	            lastVisit: null,
+	            resetDate: new Date()
+	        });
+	    },
+	    incrementCount: function () {
+	        currentStats.count += 1;
+	        Storage.set(SysDefaults.storageKeys.stats, currentStats);
+	    },
+	    daysSinceReset: function () {
+	        var resetDate = new Date(currentStats.resetDate);
+	        var now = new Date();
+	        var oneDay = 24 * 60 * 60 * 1000;
+	        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
+	    },
+	    averageUsage: function () {
+	        var daysSince = this.daysSinceReset();
+	        if (daysSince <= 0) {
+	            daysSince = 1;
+	        }
+	        return currentStats.count / daysSince;
+	    },
+	    updateLastVisit: function () {
+	        currentStats.lastVisit = new Date();
+	        Storage.set(SysDefaults.storageKeys.stats, currentStats);
+	    }
+	};
+
+	module.exports = stats;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var randomColor = __webpack_require__(6);
+	var randomColor = __webpack_require__(7);
 	module.exports = {
 	    apply: function () {
 	        var primaryColor = Storage.getSettings().color;
@@ -219,7 +266,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// randomColor by David Merfield under the CC0 license
