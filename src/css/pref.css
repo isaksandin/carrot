@@ -203,9 +203,12 @@ button:hover {
   padding: 25px 0 0 0;
   position: absolute;
   top: 0;
-  text-align: center; }
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s; }
   #stats p {
-    color: #000;
+    color: #a6a6a6;
     font-family: "Raleway";
     font-size: 1em;
     font-weight: 100;
@@ -215,15 +218,19 @@ button:hover {
     -webkit-transition-delay: -.1s;
     transition-delay: -.1s; }
   #stats span {
-    font-weight: 600; }
+    font-weight: 600;
+    color: #868686; }
   #stats #reset-stats {
-    color: #ababab;
+    color: #a6a6a6;
     margin-left: 30px;
     font-weight: 100;
     text-decoration: underline; }
   #stats #reset-stats:hover {
     cursor: pointer;
-    text-decoration: underline; }
+    color: #868686; }
+
+#stats:hover {
+  opacity: 1; }
 
 h1.smalltext {
   margin-top: 100px; }

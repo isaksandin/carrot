@@ -5,8 +5,10 @@
     position: absolute;
     top: 0;
     text-align: center;
+    opacity: 0;
+    transition: opacity .3s;
     p {
-        color: #000;
+        color: #a6a6a6;
         font-family: $main-font;
         font-size: 1em;
         font-weight: 100;
@@ -16,15 +18,19 @@
     }
     span {
         font-weight: 600;
+        color: #868686;
     }
     #reset-stats {
-        color: #ababab;
+        color: #a6a6a6;
         margin-left: 30px;
         font-weight: 100;
         text-decoration: underline;
     }
     #reset-stats:hover {
         cursor: pointer;
-        text-decoration: underline;
+        color: #868686;
     }
+}
+#stats:hover {
+    opacity: 1;
 }

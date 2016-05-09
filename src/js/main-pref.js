@@ -17,8 +17,6 @@ prefLang.fillInText();
 
 var settings = Storage.getSettings();
 
-$('html, body').scrollTop($('h1').offset().top - 50);
-
 /* -- UPDATE STATS -- */
 $('#stats #reset-stats').on('click', function () {
     Stats.reset();

@@ -21,8 +21,6 @@ webpackJsonp([2],[
 
 	var settings = Storage.getSettings();
 
-	$('html, body').scrollTop($('h1').offset().top - 50);
-
 	/* -- UPDATE STATS -- */
 	$('#stats #reset-stats').on('click', function () {
 	    Stats.reset();
@@ -327,11 +325,10 @@ webpackJsonp([2],[
 	        var resetDate = new Date(currentStats.resetDate);
 	        var now = new Date();
 	        var oneDay = 24 * 60 * 60 * 1000;
-	        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
+	        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay))) + 1;
 	    },
 	    averageUsage: function () {
-	        var days = this.daysSinceReset() + 1;
-	        return currentStats.count / days;
+	        return currentStats.count / this.daysSinceReset();
 	    },
 	    updateLastVisit: function () {
 	        currentStats.lastVisit = new Date();
