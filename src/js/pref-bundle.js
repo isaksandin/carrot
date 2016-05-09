@@ -330,11 +330,8 @@ webpackJsonp([2],[
 	        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
 	    },
 	    averageUsage: function () {
-	        var daysSince = this.daysSinceReset();
-	        if (daysSince <= 0) {
-	            daysSince = 1;
-	        }
-	        return currentStats.count / daysSince;
+	        var days = this.daysSinceReset() + 1;
+	        return currentStats.count / days;
 	    },
 	    updateLastVisit: function () {
 	        currentStats.lastVisit = new Date();

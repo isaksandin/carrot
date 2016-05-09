@@ -19,14 +19,10 @@ var stats = {
         var resetDate = new Date(currentStats.resetDate);
         var now = new Date();
         var oneDay = 24 * 60 * 60 * 1000;
-        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay)));
+        return Math.round(Math.abs((resetDate.getTime() - now.getTime()) / (oneDay))) + 1;
     },
     averageUsage: function () {
-        var daysSince = this.daysSinceReset();
-        if (daysSince <= 0) {
-            daysSince = 1;
-        }
-        return currentStats.count / daysSince;
+        return currentStats.count / this.daysSinceReset();
     },
     updateLastVisit: function () {
         currentStats.lastVisit = new Date();
