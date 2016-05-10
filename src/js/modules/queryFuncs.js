@@ -5,6 +5,8 @@ var shortcuts = Storage.getShortcuts();
 
 var Stats = require('./stats.js');
 
+var History = require('./history.js');
+
 var searchKeywords = Storage.getSearchKeywords();
 
 var settings = Storage.getSettings();
@@ -112,8 +114,9 @@ var queryFunctions = function (input) {
             },
 
             analyseQuery = function () {
-                
+
                 Stats.incrementCount();
+                History.update(input);
 
                 if (!handleLink()) {
                     if (!handleShortcut()) {

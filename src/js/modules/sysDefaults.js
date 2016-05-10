@@ -26,6 +26,7 @@ module.exports = {
             shortcuts: storageKeyPrefix + 'shortcuts',
             searchKeywords: storageKeyPrefix + 'searchKeywords',
             settings: storageKeyPrefix + 'settings',
-            stats: storageKeyPrefix + 'stats'
+            stats: storageKeyPrefix + 'stats',
+            history: storageKeyPrefix + 'history'
         }
 };

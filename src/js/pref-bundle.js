@@ -4,13 +4,13 @@ webpackJsonp([2],[
 
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var prefLang = __webpack_require__(8);
+	var prefLang = __webpack_require__(9);
 	var SysDefaults = __webpack_require__(3);
 	var Stats = __webpack_require__(5);
-	var PrefFuncs = __webpack_require__(9);
+	var PrefFuncs = __webpack_require__(10);
 	var Utils = PrefFuncs.utils;
 
-	var customColor = __webpack_require__(6);
+	var customColor = __webpack_require__(7);
 	$('.input-wrapper p').attr('data-primary-color', 'color');
 	$('.main-button').attr('data-primary-color', 'background');
 	customColor.apply();
@@ -340,12 +340,13 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var randomColor = __webpack_require__(7);
+	var randomColor = __webpack_require__(8);
 	module.exports = {
 	    apply: function () {
 	        var primaryColor = Storage.getSettings().color;
@@ -373,7 +374,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// randomColor by David Merfield under the CC0 license
@@ -808,7 +809,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -924,7 +925,7 @@ webpackJsonp([2],[
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);

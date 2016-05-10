@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var Storage = require('./modules/storage.js');
 var queryFunctions = require('./modules/queryFuncs.js');
+var History = require('./modules/history.js');
 
 var customColor = require('./modules/customColor.js');
 customColor.apply();
@@ -15,8 +16,16 @@ $('#input').keypress(function (e) {
             queryFunctions(query).analyseQuery();
         }
     }
-}).attr('placeholder', Storage.getSettings().placeholder);
+}).keydown(function (e) {
 
+    if (e.keyCode === 38) {
+        e.preventDefault();
+        $(this).val(History.query());
+    } else if (e.keyCode === 40) {
+        e.preventDefault();
+        $(this).val('');
+    }
+}).attr('placeholder', Storage.getSettings().placeholder);
 
 var isShowingError = false;
 window.setInterval(function () {

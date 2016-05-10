@@ -5,8 +5,9 @@ webpackJsonp([0],[
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
 	var queryFunctions = __webpack_require__(4);
+	var History = __webpack_require__(6);
 
-	var customColor = __webpack_require__(6);
+	var customColor = __webpack_require__(7);
 	customColor.apply();
 
 	var Text = window.Text;
@@ -19,8 +20,16 @@ webpackJsonp([0],[
 	            queryFunctions(query).analyseQuery();
 	        }
 	    }
-	}).attr('placeholder', Storage.getSettings().placeholder);
+	}).keydown(function (e) {
 
+	    if (e.keyCode === 38) {
+	        e.preventDefault();
+	        $(this).val(History.query());
+	    } else if (e.keyCode === 40) {
+	        e.preventDefault();
+	        $(this).val('');
+	    }
+	}).attr('placeholder', Storage.getSettings().placeholder);
 
 	var isShowingError = false;
 	window.setInterval(function () {
@@ -62,6 +71,8 @@ webpackJsonp([0],[
 	var shortcuts = Storage.getShortcuts();
 
 	var Stats = __webpack_require__(5);
+
+	var History = __webpack_require__(6);
 
 	var searchKeywords = Storage.getSearchKeywords();
 
@@ -170,8 +181,9 @@ webpackJsonp([0],[
 	            },
 
 	            analyseQuery = function () {
-	                
+
 	                Stats.incrementCount();
+	                History.update(input);
 
 	                if (!handleLink()) {
 	                    if (!handleShortcut()) {
@@ -232,9 +244,28 @@ webpackJsonp([0],[
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Storage = __webpack_require__(2);
+	var SysDefaults = __webpack_require__(3);
+
+	var History = {
+	    query: function () {
+	        return Storage.get(SysDefaults.storageKeys.history);
+	    },
+	    update: function (query) {
+	        Storage.set(SysDefaults.storageKeys.history, query);
+	    }
+	};
+
+	module.exports = History;
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var $ = __webpack_require__(1);
 	var Storage = __webpack_require__(2);
-	var randomColor = __webpack_require__(7);
+	var randomColor = __webpack_require__(8);
 	module.exports = {
 	    apply: function () {
 	        var primaryColor = Storage.getSettings().color;
@@ -262,7 +293,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// randomColor by David Merfield under the CC0 license
