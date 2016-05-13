@@ -9314,6 +9314,20 @@
 
 	var $ = __webpack_require__(1);
 	var SysDefaults = __webpack_require__(3);
+
+	function getFunctionFactory(type) {
+	    return function () {
+	        var obj;
+	        if (Storage.get(SysDefaults.storageKeys[type])) {
+	            obj = Storage.get(SysDefaults.storageKeys[type]);
+	        } else {
+	            obj = SysDefaults[type];
+	            Storage.set(SysDefaults.storageKeys[type], SysDefaults[type]);
+	        }
+	        return obj;
+	    };
+	}
+
 	var Storage = {
 
 	    set: function (key, value, callback) {
@@ -9330,55 +9344,13 @@
 	        return $.parseJSON(value);
 	    },
 
-	    getShortcuts: function () {
-	        var shortcuts;
+	    getShortcuts: getFunctionFactory('shortcuts'),
 
-	        if (Storage.get(SysDefaults.storageKeys.shortcuts)) {
-	            shortcuts = Storage.get(SysDefaults.storageKeys.shortcuts);
-	        } else {
-	            shortcuts = SysDefaults.shortcuts;
-	            Storage.set(SysDefaults.storageKeys.shortcuts, SysDefaults.shortcuts);
-	        }
+	    getSearchKeywords: getFunctionFactory('searchKeywords'),
 
-	        return shortcuts;
-	    },
+	    getSettings: getFunctionFactory('settings'),
 
-	    getSearchKeywords: function () {
-	        var searchKeywords;
-
-	        if (Storage.get(SysDefaults.storageKeys.searchKeywords)) {
-	            searchKeywords = Storage.get(SysDefaults.storageKeys.searchKeywords);
-	        } else {
-	            searchKeywords = SysDefaults.searchKeywords;
-	            Storage.set(SysDefaults.storageKeys.searchKeywords, SysDefaults.searchKeywords);
-	        }
-
-	        return searchKeywords;
-	    },
-
-	    getSettings: function () {
-	        var settings;
-	        if (Storage.get(SysDefaults.storageKeys.settings)) {
-	            settings = Storage.get(SysDefaults.storageKeys.settings);
-	        } else {
-	            settings = SysDefaults.settings;
-	            Storage.set(SysDefaults.storageKeys.settings, SysDefaults.settings);
-	        }
-
-	        return settings;
-	    },
-
-	    getStats: function () {
-	        var stats;
-	        if (Storage.get(SysDefaults.storageKeys.stats)) {
-	            stats = Storage.get(SysDefaults.storageKeys.stats);
-	        } else {
-	            stats = SysDefaults.stats;
-	            Storage.set(SysDefaults.storageKeys.stats, SysDefaults.stats);
-	        }
-
-	        return stats;
-	    }
+	    getStats: getFunctionFactory('stats')
 	};
 
 	module.exports = Storage;
