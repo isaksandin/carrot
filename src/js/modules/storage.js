@@ -10,7 +10,7 @@ var Storage = {
             callback();
         }
     },
-    
+
     get: function (key) {
         var value = localStorage.getItem(key);
         return $.parseJSON(value);
@@ -52,6 +52,18 @@ var Storage = {
         }
 
         return settings;
+    },
+
+    getStats: function () {
+        var stats;
+        if (Storage.get(SysDefaults.storageKeys.stats)) {
+            stats = Storage.get(SysDefaults.storageKeys.stats);
+        } else {
+            stats = SysDefaults.stats;
+            Storage.set(SysDefaults.storageKeys.stats, SysDefaults.stats);
+        }
+
+        return stats;
     }
 };
 

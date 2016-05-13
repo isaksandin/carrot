@@ -307,15 +307,11 @@ webpackJsonp([2],[
 	var Storage = __webpack_require__(2);
 	var SysDefaults = __webpack_require__(3);
 
-	var currentStats = Storage.get(SysDefaults.storageKeys.stats);
+	var currentStats = Storage.getStats();
 	var stats = {
 	    current: currentStats,
 	    reset: function () {
-	        Storage.set(SysDefaults.storageKeys.stats, {
-	            count: 0,
-	            lastVisit: null,
-	            resetDate: new Date()
-	        });
+	        Storage.set(SysDefaults.storageKeys.stats, SysDefaults.stats);
 	    },
 	    incrementCount: function () {
 	        currentStats.count += 1;

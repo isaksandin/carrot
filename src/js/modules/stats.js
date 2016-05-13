@@ -1,15 +1,11 @@
 var Storage = require('./storage.js');
 var SysDefaults = require('./sysDefaults.js');
 
-var currentStats = Storage.get(SysDefaults.storageKeys.stats);
+var currentStats = Storage.getStats();
 var stats = {
     current: currentStats,
     reset: function () {
-        Storage.set(SysDefaults.storageKeys.stats, {
-            count: 0,
-            lastVisit: null,
-            resetDate: new Date()
-        });
+        Storage.set(SysDefaults.storageKeys.stats, SysDefaults.stats);
     },
     incrementCount: function () {
         currentStats.count += 1;

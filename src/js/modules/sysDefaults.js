@@ -22,6 +22,11 @@ module.exports = {
             color: '#fa7328'
         },
 
+        stats: {
+            count: 0,
+            resetDate: new Date()
+        },
+
         storageKeys: {
             shortcuts: storageKeyPrefix + 'shortcuts',
             searchKeywords: storageKeyPrefix + 'searchKeywords',
