@@ -33,7 +33,7 @@ Replace the boring "New Tab"-page of your web browser with something cool! Carro
 
 ## Setup
 
-__For regular use:__ Download Carrot [here](http://isaksandin.se/carrot/Carrot-v0.1.1.zip).
+__For regular use:__ Download Carrot [here](http://isaksandin.se/carrot/Carrot-v0.1.2.zip).
 
 Unzip and copy the folder somewhere on your computer.
 Open `index.html`, copy the url and set it as the start page for "New Tab" and "New Window" in your browser.
